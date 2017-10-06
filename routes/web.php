@@ -30,3 +30,7 @@ Route::get('/epochs', function () {
 Route::get('/example', function () {
     return view('base');
 });
+
+Route::get('/login', function () {
+    return view('login');
+});

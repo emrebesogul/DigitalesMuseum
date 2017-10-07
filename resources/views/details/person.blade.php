@@ -53,7 +53,8 @@
                   <br><br>
                   <span id="site-fact-details">More details:<br>This is place to put more information about this person</span>
                   <br><br>
-                  <span id="site-fact-download-link">Image + Download poster</span>
+                  <span id="site-fact-download-link"><span class="icon_link_alt"> </span><a href="/poster/beethoven.pdf" download>Download poster</a></span>
+
                   <br><br>
                 </div>
               </div>
@@ -70,16 +71,32 @@
               <div id="site-content-wrapper">
                 <div id="site-content-text">
 
-                  Er gehört zu den weltweit bekanntesten Deutschen und gilt als einer der größten Komponisten aller Zeiten. Seine Musik hat sich als zeitlos erwiesen. Selbst Menschen, die keinen direkten Zugang zu klassischer Musik haben, kennen das berühmte "Ta-Ta-Ta Taaaa"-Intro der "5. Sinfonie". Anders als bei Wolfgang Amadeus Mozart ist das Leben von Ludwig van Beethoven jedoch spärlicher dokumentiert. Zwar existieren auch von ihm Briefe und Korrespondenzen, dennoch ist das Ganze lückenhaft. Und so kommen Autoren, die sich an seiner Biografie versucht haben, immer wieder zu recht unterschiedlichen Ergebnissen und Interpretationen.
-                  Er gehört zu den weltweit bekanntesten Deutschen und gilt als einer der größten Komponisten aller Zeiten. Seine Musik hat sich als zeitlos erwiesen. Selbst Menschen, die keinen direkten Zugang zu klassischer Musik haben, kennen das berühmte "Ta-Ta-Ta Taaaa"-Intro der "5. Sinfonie". Anders als bei Wolfgang Amadeus Mozart ist das Leben von Ludwig van Beethoven jedoch spärlicher dokumentiert. Zwar existieren auch von ihm Briefe und Korrespondenzen, dennoch ist das Ganze lückenhaft. Und so kommen Autoren, die sich an seiner Biografie versucht haben, immer wieder zu recht unterschiedlichen Ergebnissen und Interpretationen.
-                  Er gehört zu den weltweit bekanntesten Deutschen und gilt als einer der größten Komponisten aller Zeiten. Seine Musik hat sich als zeitlos erwiesen. Selbst Menschen, die keinen direkten Zugang zu klassischer Musik haben, kennen das berühmte "Ta-Ta-Ta Taaaa"-Intro der "5. Sinfonie". Anders als bei Wolfgang Amadeus Mozart ist das Leben von Ludwig van Beethoven jedoch spärlicher dokumentiert. Zwar existieren auch von ihm Briefe und Korrespondenzen, dennoch ist das Ganze lückenhaft. Und so kommen Autoren, die sich an seiner Biografie versucht haben, immer wieder zu recht unterschiedlichen Ergebnissen und Interpretationen.
-                  Er gehört zu den weltweit bekanntesten Deutschen und gilt als einer der größten Komponisten aller Zeiten. Seine Musik hat sich als zeitlos erwiesen. Selbst Menschen, die keinen direkten Zugang zu klassischer Musik haben, kennen das berühmte "Ta-Ta-Ta Taaaa"-Intro der "5. Sinfonie". Anders als bei Wolfgang Amadeus Mozart ist das Leben von Ludwig van Beethoven jedoch spärlicher dokumentiert. Zwar existieren auch von ihm Briefe und Korrespondenzen, dennoch ist das Ganze lückenhaft. Und so kommen Autoren, die sich an seiner Biografie versucht haben, immer wieder zu recht unterschiedlichen Ergebnissen und Interpretationen.
-                  Er gehört zu den weltweit bekanntesten Deutschen und gilt als einer der größten Komponisten aller Zeiten. Seine Musik hat sich als zeitlos erwiesen. Selbst Menschen, die keinen direkten Zugang zu klassischer Musik haben, kennen das berühmte "Ta-Ta-Ta Taaaa"-Intro der "5. Sinfonie". Anders als bei Wolfgang Amadeus Mozart ist das Leben von Ludwig van Beethoven jedoch spärlicher dokumentiert. Zwar existieren auch von ihm Briefe und Korrespondenzen, dennoch ist das Ganze lückenhaft. Und so kommen Autoren, die sich an seiner Biografie versucht haben, immer wieder zu recht unterschiedlichen Ergebnissen und Interpretationen.
-                  Er gehört zu den weltweit bekanntesten Deutschen und gilt als einer der größten Komponisten aller Zeiten. Seine Musik hat sich als zeitlos erwiesen. Selbst Menschen, die keinen direkten Zugang zu klassischer Musik haben, kennen das berühmte "Ta-Ta-Ta Taaaa"-Intro der "5. Sinfonie". Anders als bei Wolfgang Amadeus Mozart ist das Leben von Ludwig van Beethoven jedoch spärlicher dokumentiert. Zwar existieren auch von ihm Briefe und Korrespondenzen, dennoch ist das Ganze lückenhaft. Und so kommen Autoren, die sich an seiner Biografie versucht haben, immer wieder zu recht unterschiedlichen Ergebnissen und Interpretationen.
-                  Er gehört zu den weltweit bekanntesten Deutschen und gilt als einer der größten Komponisten aller Zeiten. Seine Musik hat sich als zeitlos erwiesen. Selbst Menschen, die keinen direkten Zugang zu klassischer Musik haben, kennen das berühmte "Ta-Ta-Ta Taaaa"-Intro der "5. Sinfonie". Anders als bei Wolfgang Amadeus Mozart ist das Leben von Ludwig van Beethoven jedoch spärlicher dokumentiert. Zwar existieren auch von ihm Briefe und Korrespondenzen, dennoch ist das Ganze lückenhaft. Und so kommen Autoren, die sich an seiner Biografie versucht haben, immer wieder zu recht unterschiedlichen Ergebnissen und Interpretationen.
-                  Er gehört zu den weltweit bekanntesten Deutschen und gilt als einer der größten Komponisten aller Zeiten. Seine Musik hat sich als zeitlos erwiesen. Selbst Menschen, die keinen direkten Zugang zu klassischer Musik haben, kennen das berühmte "Ta-Ta-Ta Taaaa"-Intro der "5. Sinfonie". Anders als bei Wolfgang Amadeus Mozart ist das Leben von Ludwig van Beethoven jedoch spärlicher dokumentiert. Zwar existieren auch von ihm Briefe und Korrespondenzen, dennoch ist das Ganze lückenhaft. Und so kommen Autoren, die sich an seiner Biografie versucht haben, immer wieder zu recht unterschiedlichen Ergebnissen und Interpretationen.
-                  Er gehört zu den weltweit bekanntesten Deutschen und gilt als einer der größten Komponisten aller Zeiten. Seine Musik hat sich als zeitlos erwiesen. Selbst Menschen, die keinen direkten Zugang zu klassischer Musik haben, kennen das berühmte "Ta-Ta-Ta Taaaa"-Intro der "5. Sinfonie". Anders als bei Wolfgang Amadeus Mozart ist das Leben von Ludwig van Beethoven jedoch spärlicher dokumentiert. Zwar existieren auch von ihm Briefe und Korrespondenzen, dennoch ist das Ganze lückenhaft. Und so kommen Autoren, die sich an seiner Biografie versucht haben, immer wieder zu recht unterschiedlichen Ergebnissen und Interpretationen.
-                  Er gehört zu den weltweit bekanntesten Deutschen und gilt als einer der größten Komponisten aller Zeiten. Seine Musik hat sich als zeitlos erwiesen. Selbst Menschen, die keinen direkten Zugang zu klassischer Musik haben, kennen das berühmte "Ta-Ta-Ta Taaaa"-Intro der "5. Sinfonie". Anders als bei Wolfgang Amadeus Mozart ist das Leben von Ludwig van Beethoven jedoch spärlicher dokumentiert. Zwar existieren auch von ihm Briefe und Korrespondenzen, dennoch ist das Ganze lückenhaft. Und so kommen Autoren, die sich an seiner Biografie versucht haben, immer wieder zu recht unterschiedlichen Ergebnissen und Interpretationen.
+                  <div id="site-content-header">
+                    Er gehört zu den weltweit bekanntesten Deutschen und gilt als einer der größten Komponisten aller Zeiten. Seine Musik hat sich als zeitlos erwiesen. Selbst Menschen, die keinen direkten Zugang zu klassischer Musik haben, kennen das berühmte "Ta-Ta-Ta Taaaa"-Intro der "5. Sinfonie". Anders als bei Wolfgang Amadeus Mozart ist das Leben von Ludwig van Beethoven jedoch spärlicher dokumentiert. Zwar existieren auch von ihm Briefe und Korrespondenzen, dennoch ist das Ganze lückenhaft. Und so kommen Autoren, die sich an seiner Biografie versucht haben, immer wieder zu recht unterschiedlichen Ergebnissen und Interpretationen.
+                    Er gehört zu den weltweit bekanntesten Deutschen und gilt als einer der größten Komponisten aller Zeiten. Seine Musik hat sich als zeitlos erwiesen. Selbst Menschen, die keinen direkten Zugang zu klassischer Musik haben, kennen das berühmte "Ta-Ta-Ta Taaaa"-Intro der "5. Sinfonie". Anders als bei Wolfgang Amadeus Mozart ist das Leben von Ludwig van Beethoven jedoch spärlicher dokumentiert. Zwar existieren auch von ihm Briefe und Korrespondenzen, dennoch ist das Ganze lückenhaft. Und so kommen Autoren, die sich an seiner Biografie versucht haben, immer wieder zu recht unterschiedlichen Ergebnissen und Interpretationen.
+                    Er gehört zu den weltweit bekanntesten Deutschen und gilt als einer der größten Komponisten aller Zeiten. Seine Musik hat sich als zeitlos erwiesen. Selbst Menschen, die keinen direkten Zugang zu klassischer Musik haben, kennen das berühmte "Ta-Ta-Ta Taaaa"-Intro der "5. Sinfonie". Anders als bei Wolfgang Amadeus Mozart ist das Leben von Ludwig van Beethoven jedoch spärlicher dokumentiert. Zwar existieren auch von ihm Briefe und Korrespondenzen, dennoch ist das Ganze lückenhaft. Und so kommen Autoren, die sich an seiner Biografie versucht haben, immer wieder zu recht unterschiedlichen Ergebnissen und Interpretationen.
+                    Er gehört zu den weltweit bekanntesten Deutschen und gilt als einer der größten Komponisten aller Zeiten. Seine Musik hat sich als zeitlos erwiesen. Selbst Menschen, die keinen direkten Zugang zu klassischer Musik haben, kennen das berühmte "Ta-Ta-Ta Taaaa"-Intro der "5. Sinfonie". Anders als bei Wolfgang Amadeus Mozart ist das Leben von Ludwig van Beethoven jedoch spärlicher dokumentiert. Zwar existieren auch von ihm Briefe und Korrespondenzen, dennoch ist das Ganze lückenhaft. Und so kommen Autoren, die sich an seiner Biografie versucht haben, immer wieder zu recht unterschiedlichen Ergebnissen und Interpretationen.
+                  </div>
+
+                  <div id="site-content-video">
+                    <span id="site-video-title">Ludwig van Beethoven's 5th Symphony&nbsp&nbsp&nbspLänge: 5:26</span>
+                    <iframe id="person-video" width="560" height="315"
+                      src="https://www.youtube.com/embed/P62eMvwHyuQ" frameborder="0" allowfullscreen>
+                    </iframe>
+                    <span id="site-video-source">1) <a href="https://www.youtube.com/embed/P62eMvwHyuQ">https://www.youtube.com/P62eMvwHyuQ</a></span>
+                  </div>
+
+                  <div id="site-content-middle">
+                    In 1804, only weeks after Napoleon Bonaparte proclaimed himself Emperor of France,
+                    Beethoven debuted his "Symphony No. 3" in Napoleon's honor. Beethoven, like all of Europe, watched with a mixture of awe and terror; he admired,
+                    abhorred and, to an extent, identified with Napoleon, a man of seemingly superhuman capabilities, only one year older than himself and also of obscure birth.
+                    Later renamed the "Eroica Symphony" because Beethoven grew disillusioned with Napoleon, it was his grandest and most original work to date. Because it was so unlike anything heard before it, the musicians could
+                    not figure out how to play it through weeks of rehearsal. A prominent reviewer proclaimed "Eroica" as "one of the most original, most sublime, and most profound products that the entire genre of music has ever exhibited."
+                  </div>
+
+                  <div id="site-content-bottom">
+                    Mit ungefähr neun Jahren hatte Ludwig auch Geige spielen gelernt und war ab 1789 im Hoforchester neben seinem Dienst als Cembalist und Organist auch als Bratscher angestellt. Im Dezember 1786 brach Beethoven auf Veranlassung seines Dienstherrn, des Kurfürsten und Erzbischofs Maximilian Franz von Habsburg, nach Wien auf, um dort bei Mozart (1756-1791) Unterricht zu nehmen. Beethoven hielt sich jedoch nur wenige Wochen dort auf. Schon auf der Heimreise erreichte ihn eine Nachricht des Vaters mit der Bitte um rasche Rückkehr: die Mutter sei schwer erkrankt und liege im Sterben. Ob Beethoven Mozart in Wien getroffen hat, ist nicht bekannt.
+                  </div>
 
                 </div>
               </div>
@@ -93,7 +110,18 @@
               <div id="related-history">
                 <span id="related-history-label">Related historical epoches</span>
                 <br>
-                kategorieansicht...
+
+                <table>
+                  <tr>
+                   <td><a href="https://www.google.de"><img id="category-image" src="/img/history.jpg"></a></td>
+                   <td><a href="https://www.google.de"><img id="category-image" src="/img/history.jpg"></a></td>
+                   <td><a href="https://www.google.de"><img id="category-image" src="/img/history.jpg"></a></td>
+                   <td><a href="https://www.google.de"><img id="category-image" src="/img/history.jpg"></a></td>
+                  </tr>
+
+                </table>
+
+
               </div>
 
               <div id="sources">

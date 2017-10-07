@@ -1,0 +1,287 @@
+body {
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    min-width: 1190px;
+}
+
+nav {
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: #000;
+    color: #fff;
+    height: 55px;
+    align-items: baseline;
+}
+
+nav #logo {
+    font-family: 'Playfair Display', serif;
+    margin: 0 50px 0 15px;
+    font-size: 20px;
+    font-weight: normal;
+    display: flex;
+    align-content: center;
+    align-items: baseline;
+    color: #fafafa;
+}
+
+nav #logo .highlighted {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 27px;
+    margin: 0 0 0 10px;
+}
+
+nav #search-bar {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    font-size: 16px;
+}
+
+nav #search-bar .icon {
+    border-left: 1px solid #d0d0d0;
+    padding: 8px 10px 8px 15px;
+}
+
+nav #search-bar input {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    color: #D2D2D2;
+    font-weight: normal;
+}
+
+nav #search-bar input::-webkit-input-placeholder {
+    color: #D2D2D2;
+}
+
+nav #search-bar input:focus {
+    outline: none;
+}
+
+nav #user-information {
+    display: flex;
+    align-items: baseline;
+}
+
+nav #user-information #welcome-message {
+    display: flex;
+    margin: 0 20px;
+    color: #D2D2D2;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+nav #user-information #logout-icon {
+    width: 55px;
+    height: 55px;
+    background-color: #eeeeee;
+    display: flex;
+    justify-content: space-around;
+    line-height: 55px;
+    color: #000;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+nav #user-information #logout-icon .icon {
+    line-height: 55px;
+}
+
+#content {
+    display: flex;
+    flex-direction: row;
+    flex: 2;
+    position: relative;
+    min-width: 400px;
+
+}
+
+#content #site-title {
+    width: 255px;
+    position: relative;
+}
+
+#content #site-title-wrapper {
+    transform: rotate(-90deg);
+    position: absolute;
+    width: 100vh;
+    left: -37vh;
+    top: 25vh;      /* NEU */
+    /* bottom: 50vh; */
+    transform-origin: center center;
+}
+
+#content #site-title-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 100px;
+    border-bottom: 15px solid #000;
+
+}
+
+#content #site-fact {
+    width: 255px;
+    position: relative;
+
+}
+#content #site-fact #site-fact-wrapper {
+  position: fixed;
+  width: 255px;
+}
+
+
+#content #site-fact-image {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+#content #site-fact-image #image-person {
+  border-radius: 50%;
+  max-width: 85%;
+}
+
+
+#content #site-fact-text {
+  font-family: 'lato', sans-serif;
+  font-size: 14px;
+  max-width: 200px;
+}
+
+#content #site-fact-text #site-fact-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+}
+
+a {
+	text-decoration: none;
+  color: black;
+}
+
+a:hover {
+	color: black;
+}
+
+
+
+
+#content #site-content {
+    /* display: flex; */
+    flex: 1;
+    max-width: 750px;
+    font-family: 'Lato', sans-serif;
+}
+
+#content #site-content #portrait-name {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+#content #site-content #portrait-name #site-portrait-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 50px;
+}
+
+#content #site-content #site-content-wrapper {
+  margin-bottom: 40px;
+}
+
+#content #site-content #site-content-wrapper #site-content-text {
+  margin-bottom: 40px;
+}
+
+#content #site-content #site-content-wrapper #site-content-text #site-content-header {
+  margin-bottom: 40px;
+}
+
+#content #site-content #site-content-wrapper #site-content-text #site-content-video {
+  margin-bottom: 40px;
+}
+
+#content #site-content #site-content-wrapper #site-content-text #site-content-video #person-video {
+  display: block;
+  margin: 0 auto;
+}
+
+
+#content #site-content #site-content-wrapper #site-content-text #site-content-video #site-video-title {
+  display:table;
+  margin:0 auto;
+  margin-bottom: 10px;
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+}
+
+#content #site-content #site-content-wrapper #site-content-text #site-content-video #site-video-source {
+  display:table;
+  margin: 10px auto;
+}
+
+#content #site-content #site-content-wrapper #site-content-text #site-content-middle {
+  margin-bottom: 40px;
+}
+
+#content #site-content #site-content-wrapper #site-content-text #site-content-bottom {
+  margin-bottom: 40px;
+}
+
+#content #site-content #related-people {
+
+  margin-bottom: 40px;
+}
+
+#content #site-content #related-people #related-people-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+}
+
+#content #site-content #related-history {
+
+  margin-bottom: 40px;
+}
+
+#content #site-content #related-history #related-history-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+}
+
+#content #site-content #sources{
+
+  margin-bottom: 80px;
+}
+
+#content #site-content #sources #sources-link {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+}
+
+#content #site-content #related-history #category-image {
+  width: 200px;
+  height: 125px;
+}
+
+table {
+  border: 0;
+  width: 800px;
+}
+
+tr {
+  align-items: center;
+  vertical-align: top;
+}
+
+td {
+  width: 200px;
+}
+
+
+
+
+
+
+
+/* Kommentar */

@@ -46,7 +46,21 @@
                       <div class="timelinePicture">
                           <img src = "https://pbs.twimg.com/profile_images/655015593276477441/LmuMXwW4.jpg" style='height: 100%; width: 100%; object-fit: contain'/>
                       </div>
-                      <time>2010</time> Test Test Test Test Test
+                      <div class="timeline-entry-content">
+                        <h2> Neue Welt </h2>
+                        <span class="timeline-info-birth">
+                          Geboren: <time>2010</time>
+                        </span>
+                        <span class="timeline-info-death">
+                          Gestorben: <time>2011</time>
+                          <br />
+                          <p>
+                            Wir haben nun alle Komponenten, die einen endlichen Automaten festlegen, formal
+     beschrieben. Die folgende Definition fasst diese Festlegungen zusammen:
+     Akzeptor) A ist festgelegt durch A = (; S; ; s0; F). Dabei ist  das Eingabealphabe
+                          </p>
+                        </span>
+                      </div>
                     </div>
                   </li>
                   <li>
@@ -54,7 +68,19 @@
                       <div class="timelinePicture">
                           <img src = "https://pbs.twimg.com/profile_images/655015593276477441/LmuMXwW4.jpg" style='height: 100%; width: 100%; object-fit: contain'/>
                       </div>
-                      <time>2010</time> Test Test Test Test Test In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est. In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
+                      <div class="timeline-entry-content">
+                        <h2> Neue Welt </h2>
+                        <span class="timeline-info-birth">
+                          Geboren: <time>2010</time>
+                        </span>
+                        <span class="timeline-info-death">
+                          Gestorben: <time>2011</time>
+                          <br />
+                          <p>
+                            Wir haben nun alle Komponenten, die einen endlichen Automaten fe
+                          </p>
+                        </span>
+                      </div>
                     </div>
                   </li>
                   <li>
@@ -62,7 +88,20 @@
                       <div class="timelinePicture">
                           <img src = "https://pbs.twimg.com/profile_images/655015593276477441/LmuMXwW4.jpg" style='height: 100%; width: 100%; object-fit: contain'/>
                       </div>
-                      <time>2005</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
+                      <div class="timeline-entry-content">
+                        <h2> Neue Welt </h2>
+                        <span class="timeline-info-birth">
+                          Geboren: <time>2010</time>
+                        </span>
+                        <span class="timeline-info-death">
+                          Gestorben: <time>2011</time>
+                          <br />
+                          <p>
+                            Wir haben nun alle Komponenten, die einen endlichen Automaten festlegen, formal
+     beschrieben. Die folgende Definition fasst diese Festlegungen zusammen:
+                          </p>
+                        </span>
+                      </div>
                     </div>
                   </li>
                   <li>
@@ -70,7 +109,20 @@
                       <div class="timelinePicture">
                           <img src = "https://pbs.twimg.com/profile_images/655015593276477441/LmuMXwW4.jpg" style='height: 100%; width: 100%; object-fit: contain'/>
                       </div>
-                      <time>2005</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
+                      <div class="timeline-entry-content">
+                        <h2> Neue Welt </h2>
+                        <span class="timeline-info-birth">
+                          Geboren: <time>2010</time>
+                        </span>
+                        <span class="timeline-info-death">
+                          Gestorben: <time>2011</time>
+                          <br />
+                          <p>
+                            Wir haben nun alle Komponenten, die einen endlichen Automaten festlegen, formal
+     beschrieben. Die folgende Definition fasst diese Festlegungen zusammen
+                          </p>
+                        </span>
+                      </div>
                     </div>
                   </li>
                   <li>
@@ -78,7 +130,21 @@
                       <div class="timelinePicture">
                           <img src = "https://pbs.twimg.com/profile_images/655015593276477441/LmuMXwW4.jpg" style='height: 100%; width: 100%; object-fit: contain'/>
                       </div>
-                      <time>2005</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
+                      <div class="timeline-entry-content">
+                        <h2> Neue Welt </h2>
+                        <span class="timeline-info-birth">
+                          Geboren: <time>2010</time>
+                        </span>
+                        <span class="timeline-info-death">
+                          Gestorben: <time>2011</time>
+                          <br />
+                          <p>
+                            Wir haben nun alle Komponenten, die einen endlichen Automaten festlegen, formal
+     beschrieben. Die folgende Definition fasst diese Festlegungen zusammen:
+     Akzeptor) A ist festgelegt durch A = (; S; ; s0; F). Dabei ist  das Eingabealphabet
+                          </p>
+                        </span>
+                      </div>
                     </div>
                   </li>
                   <li>
@@ -86,7 +152,20 @@
                       <div class="timelinePicture">
                           <img src = "https://pbs.twimg.com/profile_images/655015593276477441/LmuMXwW4.jpg" style='height: 100%; width: 100%; object-fit: contain'/>
                       </div>
-                      <time>2005</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
+                      <div class="timeline-entry-content">
+                        <h2> Neue Welt </h2>
+                        <span class="timeline-info-birth">
+                          Geboren: <time>2010</time>
+                        </span>
+                        <span class="timeline-info-death">
+                          Gestorben: <time>2011</time>
+                          <br />
+                          <p>
+                            Wir haben nun alle Komponenten, die einen endlichen Automaten festlegen, formal
+     beschrieben. Die folgende Definition fasst diese Festlegungen zusammen:
+                          </p>
+                        </span>
+                      </div>
                     </div>
                   </li>
                   <li>
@@ -94,15 +173,37 @@
                       <div class="timelinePicture">
                           <img src = "https://pbs.twimg.com/profile_images/655015593276477441/LmuMXwW4.jpg" style='height: 100%; width: 100%; object-fit: contain'/>
                       </div>
-                      <time>2005</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
+                      <div class="timeline-entry-content">
+                        <h2> Neue Welt </h2>
+                        <span class="timeline-info-birth">
+                          Geboren: <time>2010</time>
+                        </span>
+                        <span class="timeline-info-death">
+                          Gestorben: <time>2011</time>
+                          <br />
+                          <p>
+                            Wir haben nun alle Komponenten, die einen endlichen Automaten festlegen, formal
+     beschrieben. Die folgende Definition fasst diese Festlegungen zusammen:
+                          </p>
+                        </span>
+                      </div>
                     </div>
                   </li>
                   <li>
                     <div class="timelineEntry">
                       <div class="timelinePicture">
-                        <img src = "https://pbs.twimg.com/profile_images/655015593276477441/LmuMXwW4.jpg" style='height: 100%; width: 100%; object-fit: contain'/>
+                          <img src = "https://pbs.twimg.com/profile_images/655015593276477441/LmuMXwW4.jpg" style='height: 100%; width: 100%; object-fit: contain'/>
                       </div>
-                      <time>2005</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
+                      <h2> Neue Welt </h2>
+                      <span class="timeline-info-birth">
+                        Geboren: <time>2010</time>
+                      </span>
+                      <span class="timeline-info-death">
+                        Gestorben: <time>2011</time>
+                        <br />
+                      </span> Test Test Test Test Test Ab Adr. 35H nach Adr. 30H stehe : ’12345’ eine Zahl in ASCII-Code ( ’0’48D, ’1’49D, ..., ’9’57D)
+Schreibe die entsprechende BCD (4-bit)-Ziffer in die gleiche Speicherzelle
+17. Ab Adr. 35H nach Adr. 30H stehe : ’12345’ eine Zahl in BCD-Code (max.
                     </div>
                   </li>
 

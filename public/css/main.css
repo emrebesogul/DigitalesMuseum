@@ -100,26 +100,28 @@ nav #user-information #logout-icon .icon {
 }
 
 #content #site-title {
-    //width: 255px;
+    width: 255px;
     position: relative;
 }
 
 #content #site-title-wrapper {
-    //transform: rotate(-90deg);
+    transform: rotate(-90deg);
     position: absolute;
     width: 100vh;
-    left: 3vh;
+    left: -37vh;
+    //bottom: 110vh;
     transform-origin: center center;
 }
 
 #content #site-title-label {
     font-family: 'Playfair Display', serif;
-    font-size: 70px;
-    border-bottom: 4px solid #000;
+    font-size: 100px;
+    border-bottom: 15px solid #000;
 }
 
 #content #site-content {
     display: flex;
     flex: 1;
-    //margin-left: 350px;
+    padding-left: 40px;
+    padding-right: 40px;
 }

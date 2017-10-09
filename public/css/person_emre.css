@@ -166,9 +166,6 @@ a:hover {
 	color: black;
 }
 
-
-
-
 #content #site-content {
     /* display: flex; */
     flex: 1;
@@ -196,6 +193,29 @@ a:hover {
 
 #content #site-content #site-content-wrapper #site-content-text #site-content-header {
   margin-bottom: 40px;
+}
+
+#content #site-content #site-content-wrapper #site-content-text #site-content-picture {
+  margin-bottom: 40px;
+}
+
+#content #site-content #site-content-wrapper #site-content-text #site-content-picture img#content-picture {
+  width: 450px;
+  display: block;
+  margin: 0 auto;
+}
+
+#content #site-content #site-content-wrapper #site-content-text #site-content-picture #site-picture-label {
+  display:table;
+  margin:0 auto;
+  margin-bottom: 10px;
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+}
+
+#content #site-content #site-content-wrapper #site-content-text #site-content-picture #site-picture-source {
+  display:table;
+  margin: 10px auto;
 }
 
 #content #site-content #site-content-wrapper #site-content-text #site-content-video {

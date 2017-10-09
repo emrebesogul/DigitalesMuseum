@@ -141,6 +141,8 @@ a:hover {
     font-family: 'Lato', sans-serif;
     margin-top: 20px;
     margin-bottom: 80px;
+    max-width: 1001px;
+
 }
 
 #content #site-content #cell-content {

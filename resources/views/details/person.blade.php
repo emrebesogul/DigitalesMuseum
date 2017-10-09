@@ -78,6 +78,12 @@
                     Er gehört zu den weltweit bekanntesten Deutschen und gilt als einer der größten Komponisten aller Zeiten. Seine Musik hat sich als zeitlos erwiesen. Selbst Menschen, die keinen direkten Zugang zu klassischer Musik haben, kennen das berühmte "Ta-Ta-Ta Taaaa"-Intro der "5. Sinfonie". Anders als bei Wolfgang Amadeus Mozart ist das Leben von Ludwig van Beethoven jedoch spärlicher dokumentiert. Zwar existieren auch von ihm Briefe und Korrespondenzen, dennoch ist das Ganze lückenhaft. Und so kommen Autoren, die sich an seiner Biografie versucht haben, immer wieder zu recht unterschiedlichen Ergebnissen und Interpretationen.
                   </div>
 
+                  <div id="site-content-picture">
+                    <span id="site-picture-label">Ludwig van Beethoven at work</span>
+                    <img src="/img/beethoven-work.jpg" id="content-picture">
+                    <span id="site-picture-source">2) <a href="https://images-na.ssl-images-amazon.com/images/I/91ew90lu6UL._SL1000_.png">https://images-na.ssl-images-amazon.com/images/I/91ew90lu6UL._SL1000_.png</a></span>
+                  </div>
+
                   <div id="site-content-video">
                     <span id="site-video-title">Ludwig van Beethoven's 5th Symphony&nbsp&nbsp&nbspLänge: 5:26</span>
                     <iframe id="person-video" width="560" height="315"

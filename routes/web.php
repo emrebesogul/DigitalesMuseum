@@ -23,10 +23,7 @@ Route::get('/epoch', function () {
     return view('details.epoch');
 });
 
-Route::get('/epochs', function () {
-    return view('epochs');
-});
-
-Route::get('/example', function () {
-    return view('base');
-});
+Route::get('/users', 'UsersController@index');
+Route::get('/users/{id}', 'UsersController@show');
+Route::post('/login', 'UsersController@login');
+Route::post('/administration/user', 'UsersController@register');

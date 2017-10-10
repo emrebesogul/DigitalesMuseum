@@ -23,10 +23,18 @@ Route::get('/epoch', function () {
     return view('details.epoch');
 });
 
+Route::get('/admin-edit', function () {
+    return view('admin.admin-edit-view');
+});
+
 Route::get('/epochs', function () {
     return view('epochs');
 });
 
 Route::get('/example', function () {
     return view('base');
+});
+
+Route::get('/test', function() {
+    print_r($_POST);
 });

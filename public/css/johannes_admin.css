@@ -125,3 +125,48 @@ nav #user-information #logout-icon .icon {
     padding-left: 40px;
     padding-right: 40px;
 }
+
+#add-textbox {
+  margin-top: 15px;
+  display: block;
+}
+
+#edit-form-wrapper {
+    height: 60vh;
+    margin-top: 35px;
+    width: 50vh;
+}
+
+
+.edit-form-textarea {
+  margin: 4px 0 5px 0;
+  display: block;
+  width: 270px;
+}
+
+#form-text{
+  border-bottom: solid 1px black;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+#form-data-index {
+  width:40px;
+}
+
+#label-new-person {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  border-bottom: 1px solid #000;
+}
+
+.edit-form-info {
+  display: block;
+  margin-top: 5px;
+
+}
+
+#submit-button {
+  display: block;
+  width: auto;
+}

@@ -30,8 +30,9 @@
     			<br/>
     			<input type="password" id="password" required>
     			<br/>
-    			<button type="submit">Sign In</button>
+    			<button type="submit">Log In</button>
     			<br/>
+          <a href="/signup"><p class="small">Not a member? Sign Up >></p></a>
     		</div>
     	</div>
 

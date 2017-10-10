@@ -36,6 +36,7 @@
     			<br/>
     			<button type="submit">Register</button>
     			<br/>
+          <a href="/login"><p class="small">Already a member? Log In >></p></a>
     		</div>
     	</div>
 

@@ -117,18 +117,28 @@
                 <span id="related-history-label">Related historical epoches</span>
                 <br>
 
-                <table>
-                  <tr>
-                   <td><a href="https://www.google.de"><img id="category-image" src="/img/history.jpg"></a></td>
-                   <td><a href="https://www.google.de"><img id="category-image" src="/img/history.jpg"></a></td>
-                   <td><a href="https://www.google.de"><img id="category-image" src="/img/history.jpg"></a></td>
-                   <td><a href="https://www.google.de"><img id="category-image" src="/img/history.jpg"></a></td>
-                  </tr>
+                <div id="navi-rel-people">
+                  <a href="/" id="navigator-epochs">
+                    <div id="site-navigator-epochs">
+                      <h2>Romantik</h2>
+                      <h4>1840-1900</h4>
+                    </div>
+                  </a>
+                </div>
 
-                </table>
+                <div id="navi-rel-people">
+                  <a href="/" id="navigator-epochs">
+                    <div id="site-navigator-epochs">
+                      <h2>Romantik</h2>
+                      <h4>1840-1900</h4>
+                    </div>
+                  </a>
+                </div>
+
 
 
               </div>
+
 
               <div id="sources">
                 <span id="sources-link">Sources</span>

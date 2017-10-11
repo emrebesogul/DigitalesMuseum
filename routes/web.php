@@ -39,6 +39,14 @@ Route::get('/signup', function () {
     return view('signup');
 });
 
-Route::get('/admin', function () {
-    return view('admin.admin-view');
+Route::get('/admin-person', function () {
+    return view('admin.admin-person');
+});
+
+Route::get('/admin-epoch', function () {
+    return view('admin.admin-epoch');
+});
+
+Route::get('/admin-user', function () {
+    return view('admin.admin-user');
 });

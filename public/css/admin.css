@@ -14,6 +14,8 @@ nav {
     color: #fff;
     height: 55px;
     align-items: baseline;
+    min-width: 900px;
+
 }
 
 nav #logo {
@@ -120,18 +122,96 @@ nav #user-information #logout-icon .icon {
 }
 
 #content #site-content {
-    display: flex;
-    flex: 1;
+
+}
+
+#content #site-content #content-action-menu {
+  margin-top: 50px;
+  height: 40px;
+  border-radius: 2px;
+  margin-bottom: 40px;
+}
+
+#content #site-content #content-action-view {
+  height: 400px;
+  width: 800px;
+  border-radius: 2px;
+  margin-left: 20px;
+
+  border: solid;
+}
+
+#content #site-content #content-action-view #content-view-create {
+  height: 30px;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px 20px;
+  border-bottom: solid;
+}
+
+#content #site-content #content-action-view #content-view-person {
+  font-size: 18px;
+  height: 350px;
+  padding: 0;
+  margin: 0;
+  overflow: scroll;
 }
 
 
+ul#list-action-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-size: 18px;
+}
+li#list-header {
+  float: left;
+  display: block;
+  padding: 10px 20px;
+}
 
+ul {
+  padding: 0;
+  margin: 0;
+}
 
+ul#content-view-person {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 
+}
 
+li#list-persons {
+  display: block;
+  border: 0.5px solid black;
+  height: 40px;
+  padding-left: 10px;
+  padding-top: 10px;
+}
 
+a.active {
+  color: blue;
+}
 
+a {
+  text-decoration: none;
+  color: black;
+}
 
+button {
+  background-color: grey;
+  border: 0.2px solid black;
+  color: white;
+  height: 49px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  float: right;
+  margin-top: -10px;
+}
 
 
 

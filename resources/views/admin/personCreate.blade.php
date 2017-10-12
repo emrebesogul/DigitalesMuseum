@@ -40,15 +40,26 @@
               <div id="edit-form-wrapper">
                 <span id="label-new-person"> Neue Person anlegen </span>
                 <form id="edit-form"  method="post" enctype="multipart/form-data">
-                  
-                  <p id="edit-form-data-name" class="edit-form-data">
-                    Name: <input class="edit-form-textarea" type="text" placeholder="Geben Sie den Namen der Person ein!" />
-                  </p>
-                  <p id="edit-form-data-life" class ="edit-form-data lifetime">
-                    <span id ="lifetime-label-birth">Geboren am:</span> <input type="date" name="edit-form-data-birthdate" />
-                    <span id ="lifetime-label-death">Gestorben am:</span> <input type="date" name="edit-form-data-deathdate" />
-                  </p>
-
+                  <div id="mandatory-field">
+                    <div class="form-profile-picture">
+                      <span id="profile-picture">Wählen Sie das Porträt der Person:</span>
+                      <label for="form-profile-picture-data" id="label-custom-pic" onchange="btnChange();" onclick="buttonSubmitClicked(event);" class="custom-file-upload">
+                        Datei auswählen
+                      </label>
+                      <input id="form-profile-picture-data" class="form-profile-picture" type="file" name="edit-form-data-profile-picture" size="80px" accept="image/*" />
+                    </div>
+                    <p id="edit-form-data-name" class="edit-form-data">
+                      Name: <input class="edit-form-textarea" type="text" placeholder="Geben Sie den Namen der Person ein!" />
+                    </p>
+                    <p id="edit-form-data-life" class ="edit-form-data lifetime">
+                      <span id ="lifetime-label-birth">Geboren am:</span> <input type="date" name="edit-form-data-birthdate" />
+                      <span id ="lifetime-label-death">Gestorben am:</span> <input type="date" name="edit-form-data-deathdate" />
+                    </p>
+                    <p id="short-p" class="edit-form-data">
+                      <span id="short-description">Kurzbeschreibung:</span>
+                      <textarea id="textarea-short" class="edit-form-textarea" name="edit-form-data-short-description" placeholder="Geben Sie hier die Kurzbeschreibung der Persönlichkeit ein!"></textarea>
+                    </p>
+                  </div>
                   <div id="form-text">
                     <p id="edit-form-data-text" class="edit-form-data">
                       <input type="hidden" value="text" name="edit-form-data[0][type]" />
@@ -60,6 +71,7 @@
 
                   <div id="form-picture">
                     <input type="hidden" value="picture" name="edit-form-data[0][type]" />
+                    <span id="pictre-add"> Bilder der Persönlichkeit hinzufügen </span>
                     <!--
                     <p id="edit-form-data-name" class="edit-form-data">
                       Titel des Bildes: <input class="edit-form-textarea" type="text" placeholder="Geben Sie den Titel des Bildes ein!" />

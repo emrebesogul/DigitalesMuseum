@@ -96,3 +96,21 @@ function addPictureBox(){
   i++;
 
 }
+
+function btnChange(){
+  var btn = document.getElementsByClassName("custom-file-upload")[0];
+  btn.style.backgroundColor = "red";
+}
+
+function buttonSubmitClicked(event) {
+
+        if (!document.getElementById("form-profile-picture-data").value) {
+            //event.preventDefault();
+            //alert("Please choose a file!");
+        } else {
+            alert("File've been chosen");
+            var btn = document.getElementsByClassName("custom-file-upload")[0];
+            //console.log(btn);
+            //btn.style.backgroundColor = "red";
+        }
+}

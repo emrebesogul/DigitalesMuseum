@@ -193,7 +193,7 @@ nav #user-information #logout-icon .icon {
 }
 
 #form-text-edit {
-  width: 640px;
+  width: 85vh;
   height: 280px;
 }
 
@@ -229,8 +229,52 @@ nav #user-information #logout-icon .icon {
   background-color: rgb(235,235,235);
 }
 
+#form-profile-picture-data{
+  border-bottom: solid 0px white;
+  margin-top: 10px;
+}
+
+.form-profile-picture{
+  margin-top: 35px;
+  margin-bottom: 25px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload:hover {
+  transition: background-color 0.3s;
+  background-color: rgb(235,235,235);
+}
+
+.custom-file-upload {
+    border: 1px solid #000;
+    border-radius: 3px;
+    display: block;
+    width: 120px;
+    padding: 0 12px;
+    cursor: default;
+    margin: 10px 0 10px;
+    line-height: 30px;
+    transition: background-color 0.3s;
+
+}
+
+#short-p {
+  border-bottom: solid 1px black;
+  width: 85vh;
+}
+
+#textarea-short {
+  margin-bottom: 15px;
+  width: 85vh;
+  height: 100px;
+}
+
 #submit-button {
   display: block;
   width: auto;
   margin-bottom: 12px;
+  transition: background-color 0.3s;
 }

@@ -23,30 +23,11 @@ Route::get('/epoch', function () {
     return view('details.epoch');
 });
 
-Route::get('/epochs', function () {
-    return view('epochs');
-});
+Route::post('/login', 'UsersController@login');
+Route::get('/logout', 'UsersController@logout');
+Route::post('/register', 'UsersController@register');
 
-Route::get('/example', function () {
-    return view('base');
-});
-
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/signup', function () {
-    return view('signup');
-});
-
-Route::get('/admin-person', function () {
-    return view('admin.admin-person');
-});
-
-Route::get('/admin-epoch', function () {
-    return view('admin.admin-epoch');
-});
-
-Route::get('/admin-user', function () {
-    return view('admin.admin-user');
-});
+Route::get('/admin/users', 'UsersController@index');
+Route::get('/admin/user/{id}', 'UsersController@show');
+Route::post('/admin/user/{id}/update', 'UsersController@update');
+Route::post('/admin/user/{id}/delete', 'UsersController@destroy');

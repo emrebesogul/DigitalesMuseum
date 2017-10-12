@@ -106,10 +106,10 @@ nav #user-information #logout-icon .icon {
 
 #content #site-title-wrapper {
     transform: rotate(-90deg);
-    position: absolute;
+    position: fixed;
     width: 100vh;
     left: -37vh;
-    bottom: 50vh;
+    top: 25vh;
     transform-origin: center center;
 }
 
@@ -122,4 +122,6 @@ nav #user-information #logout-icon .icon {
 #content #site-content {
     display: flex;
     flex: 1;
+    padding-left: 40px;
+    padding-right: 40px;
 }

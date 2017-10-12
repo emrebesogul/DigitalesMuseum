@@ -23,6 +23,10 @@ Route::get('/epoch', function () {
     return view('details.epoch');
 });
 
+Route::get('/login', 'UsersController@showLogin');
+Route::get('/register', 'UsersController@showRegister');
+
+
 Route::post('/login', 'UsersController@login');
 Route::get('/logout', 'UsersController@logout');
 Route::post('/register', 'UsersController@register');

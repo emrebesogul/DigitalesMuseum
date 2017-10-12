@@ -45,7 +45,6 @@
                   <li id="list-header"><a class="active" href="/admin-person">Person</a></li>
                   <li id="list-header"><a href="/admin-epoch">Epoche</a></li>
                   <li id="list-header"><a href="/admin-user">User-List</a></li>
-                  <li id="list-header"><a href="#">Erweiterungen</a></li>
                 </ul>
               </div>
 

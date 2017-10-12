@@ -134,7 +134,6 @@ nav #user-information #logout-icon .icon {
 }
 
 #content #site-content #content-action-view {
-  height: 400px;
   width: 800px;
   border-radius: 2px;
   margin-left: 20px;
@@ -152,10 +151,8 @@ nav #user-information #logout-icon .icon {
 
 #content #site-content #content-action-view #content-view-person {
   font-size: 16px;
-  height: 350px;
   padding: 0;
   margin: 0;
-  overflow: scroll;
 }
 
 
@@ -202,6 +199,7 @@ a {
 
 a:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 button {

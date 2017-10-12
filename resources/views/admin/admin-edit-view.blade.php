@@ -39,19 +39,38 @@
             <div id="site-content">
               <div id="edit-form-wrapper">
                 <span id="label-new-person"> Neue Person anlegen </span>
-                <form id="edit-form"  method="post">
+                <form id="edit-form"  method="post" enctype="multipart/form-data">
+                  
                   <p id="edit-form-data-name" class="edit-form-data">
-                    Name: <input class="edit-form-textarea" type="text" />
+                    Name: <input class="edit-form-textarea" type="text" placeholder="Geben Sie den Namen der Person ein!" />
                   </p>
+                  <p id="edit-form-data-life" class ="edit-form-data lifetime">
+                    <span id ="lifetime-label-birth">Geboren am:</span> <input type="date" name="edit-form-data-birthdate" />
+                    <span id ="lifetime-label-death">Gestorben am:</span> <input type="date" name="edit-form-data-deathdate" />
+                  </p>
+
                   <div id="form-text">
                     <p id="edit-form-data-text" class="edit-form-data">
-                      Informationen: <textarea class="edit-form-textarea" name="edit-form-data[]" placeholder="Geben Sie hier Ihren ein!">
-                      </textarea>
-                      Index des Elements: <input id="form-data-index" class="edit-form-textarea" type="number" min="1" />
+                      <input type="hidden" value="text" name="edit-form-data[0][type]" />
+                      Informationen: <textarea id="form-text-edit" class="edit-form-textarea" name="edit-form-data[0][content]" placeholder="Geben Sie hier Ihren Text ein!"></textarea>
+                      Index des Elements: <input id="form-data-index" name="edit-form-data[0][index]" class="edit-form-textarea" type="number" min="1" />
                       <span id="add-textbox" onclick="addTextbox();">Weiteres Textelement hinzufügen</span>
                     </p>
                   </div>
-                  <button id="submit-button" class="edit-form-data" type="submit" text="Absenden">Absenden</button>
+
+                  <div id="form-picture">
+                    <input type="hidden" value="picture" name="edit-form-data[0][type]" />
+                    <!--
+                    <p id="edit-form-data-name" class="edit-form-data">
+                      Titel des Bildes: <input class="edit-form-textarea" type="text" placeholder="Geben Sie den Titel des Bildes ein!" />
+                    </p>
+                    <input id="form-picture-data" type="file" name="edit-form-data[0][content]" size="80px" accept="image/*" />
+                    <br />
+                    Index des Elements: <input id="form-data-index" name="edit-form-data[0][index]" class="edit-form-textarea" type="number" min="1" />
+                  -->
+                  <span id="add-textbox" onclick="addPictureBox();">Bildelement hinzufügen</span>
+                  </div>
+                  <button id="submit-button" class="edit-form-data buttons" type="submit" text="Absenden">Absenden</button>
                 </form>
               </div>
             </div>

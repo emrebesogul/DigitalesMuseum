@@ -126,9 +126,23 @@ nav #user-information #logout-icon .icon {
     padding-right: 40px;
 }
 
+
+#add-textbox:hover {
+  transition: background-color 0.3s;
+  cursor: default;
+  background-color: rgb(235,235,235);
+}
+
 #add-textbox {
   margin-top: 15px;
+  margin-bottom: 9px;
   display: block;
+  border: solid 1px black;
+  width: 40%;
+  line-height: 30px;
+  border-radius: 3px;
+  text-align: center;
+  transition: background-color 0.3s;
 }
 
 #edit-form-wrapper {
@@ -137,9 +151,17 @@ nav #user-information #logout-icon .icon {
     width: 50vh;
 }
 
+.buttons {
+  border: solid 1px black;
+  line-height: 30px;
+  border-radius: 3px;
+  background-color: white;
+  width: 40%;
+  font-size: 1em;
+}
 
 .edit-form-textarea {
-  margin: 4px 0 5px 0;
+  margin: 5px 0 5px 0;
   display: block;
   width: 270px;
 }
@@ -148,10 +170,31 @@ nav #user-information #logout-icon .icon {
   border-bottom: solid 1px black;
   margin-top: 10px;
   margin-bottom: 20px;
+  width: 85vh;
+}
+
+#form-picture{
+  border-bottom: solid 1px black;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 85vh;
+}
+
+#form-picture-data {
+  width: 250px;
+  margin-bottom: 15px;
+  display: block;
+  overflow: hidden;
+
 }
 
 #form-data-index {
   width:40px;
+}
+
+#form-text-edit {
+  width: 640px;
+  height: 280px;
 }
 
 #label-new-person {
@@ -166,7 +209,28 @@ nav #user-information #logout-icon .icon {
 
 }
 
+#lifetime-label-birth {
+  margin-right: 7px;
+  width: 13vh;
+}
+
+#lifetime-label-death {
+  width: 15vh;
+  margin-left: 26px;
+}
+
+.lifetime{
+  display: inline-flex;
+}
+
+#submit-button:hover {
+  transition: background-color 0.3s;
+  cursor: default;
+  background-color: rgb(235,235,235);
+}
+
 #submit-button {
   display: block;
   width: auto;
+  margin-bottom: 12px;
 }

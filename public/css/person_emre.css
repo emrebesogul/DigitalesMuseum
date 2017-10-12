@@ -171,8 +171,8 @@ a:hover {
     flex: 1;
     max-width: 750px;
     font-family: 'Lato', sans-serif;
-    display: inline;
 
+/* display: inline; */
 }
 
 #content #site-content #portrait-name {
@@ -262,7 +262,6 @@ a:hover {
 }
 
 #content #site-content #related-history {
-
   margin-bottom: 80px;
 }
 
@@ -271,15 +270,7 @@ a:hover {
   font-size: 30px;
 }
 
-#content #site-content #sources{
 
-  margin-bottom: 80px;
-}
-
-#content #site-content #sources #sources-link {
-  font-family: 'Playfair Display', serif;
-  font-size: 30px;
-}
 
 #content #site-content #related-history #category-image {
   width: 200px;
@@ -288,7 +279,6 @@ a:hover {
 
 #content #site-content #related-history #navi-rel-people {
   width: 200px;
-  height: 120px;
   float: left;
   margin-right: 2px;
   margin-bottom: 2px;
@@ -297,7 +287,7 @@ a:hover {
 
 #content #site-content #related-history #navi-rel-people #site-navigator-epochs {
   width: 200px;
-  height: 120px;
+  height: 180px;
   text-align: center;
   margin-right: 2px;
   margin-bottom: 2px;
@@ -310,6 +300,16 @@ a:hover {
 
 }
 
+#content #site-content #sources{
+  clear: both;
+  margin-bottom: 80px;
+}
+
+#content #site-content #sources #sources-link {
+  font-family: 'Playfair Display', serif;
+
+  font-size: 30px;
+}
 
 table {
   border: 0;

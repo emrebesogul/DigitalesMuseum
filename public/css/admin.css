@@ -111,13 +111,14 @@ nav #user-information #logout-icon .icon {
     position: absolute;
     width: 100vh;
     left: -37vh;
-    top: 30vh;
+    top: 25vh;
+    position: fix;
     transform-origin: center center;
 }
 
 #content #site-title-label {
     font-family: 'Playfair Display', serif;
-    font-size: 90px !important;
+    font-size: 100px !important;
     border-bottom: 15px solid #000;
 }
 
@@ -138,7 +139,6 @@ nav #user-information #logout-icon .icon {
   border-radius: 2px;
   margin-left: 20px;
 
-  border: solid;
 }
 
 #content #site-content #content-action-view #content-view-create {
@@ -146,11 +146,12 @@ nav #user-information #logout-icon .icon {
   font-size: 20px;
   text-align: center;
   padding: 10px 20px;
-  border-bottom: solid;
+  border-bottom: 1px solid black;
+  margin-bottom: 5px;
 }
 
 #content #site-content #content-action-view #content-view-person {
-  font-size: 18px;
+  font-size: 16px;
   height: 350px;
   padding: 0;
   margin: 0;
@@ -185,7 +186,6 @@ ul#content-view-person {
 
 li#list-persons {
   display: block;
-  border: 0.5px solid black;
   height: 40px;
   padding-left: 10px;
   padding-top: 10px;
@@ -200,18 +200,35 @@ a {
   color: black;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 button {
-  background-color: grey;
-  border: 0.2px solid black;
-  color: white;
-  height: 49px;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 3px;
+  line-height: 30px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  cursor: pointer;
   float: right;
-  margin-top: -10px;
+  margin-top: -5px;
+  transition: background-color 0.3s;
+
 }
+
+button:hover {
+  cursor: default;
+  transition: background-color 0.3s;
+  background-color: rgb(235, 235, 235);
+}
+
+
+
+
+
 
 
 

@@ -20,23 +20,27 @@
 
     		<div class="login-box">
     			<div class="box-header">
-    				<h2>Sign Up</h2>
+    				<h2>Registrieren</h2>
     			</div>
           <label for="email">E-Mail</label>
     			<br/>
     			<input type="email" id="email" required>
           <br/>
-    			<label for="username">Username</label>
+    			<label for="name">Vor- und Nachname</label>
     			<br/>
-    			<input type="text" id="username" required>
+    			<input type="text" id="name" required>
     			<br/>
-    			<label for="password">Password</label>
+    			<label for="password1">Passwort</label>
     			<br/>
-    			<input type="password" id="password" required>
+    			<input type="password" id="password1" required>
     			<br/>
-    			<button type="submit">Register</button>
+          <label for="password2">Passwort wiederholen</label>
     			<br/>
-          <a href="/login"><p class="small">Already a member? Log In >></p></a>
+    			<input type="password" id="password2" required>
+    			<br/>
+    			<button type="submit">Registrieren</button>
+    			<br/>
+          <a href="/login"><p class="small">Haben Sie schon einen Account? Log In >></p></a>
     		</div>
     	</div>
 

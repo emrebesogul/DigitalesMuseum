@@ -22,17 +22,17 @@
     			<div class="box-header">
     				<h2>Log In</h2>
     			</div>
-    			<label for="username">Username</label>
+    			<label for="username">E-Mail</label>
     			<br/>
     			<input type="text" id="username" required>
     			<br/>
-    			<label for="password">Password</label>
+    			<label for="password">Passwort</label>
     			<br/>
     			<input type="password" id="password" required>
     			<br/>
     			<button type="submit">Log In</button>
     			<br/>
-          <a href="/signup"><p class="small">Not a member? Sign Up >></p></a>
+          <a href="/signup"><p class="small">Noch kein Account? Sign Up >></p></a>
     		</div>
     	</div>
 

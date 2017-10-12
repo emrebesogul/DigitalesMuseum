@@ -34,7 +34,7 @@
 
             <div id="site-title">
                 <div id="site-title-wrapper">
-                    <span id="site-title-label">Administrator</span>
+                    <span id="site-title-label">Settings</span>
                 </div>
             </div>
 
@@ -43,8 +43,8 @@
               <div id="content-action-menu">
                 <ul id="list-action-menu">
                   <li id="list-header"><a href="/admin-person">Person</a></li>
-                  <li id="list-header"><a href="/admin-epoch">Epoche</a></li>
-                  <li id="list-header"><a class="active" href="/admin-user">User-List</a></li>
+                  <li id="list-header"><a class="active" href="/admin-epoch">Epoche</a></li>
+                  <li id="list-header"><a href="/admin-user">User-List</a></li>
                   <li id="list-header"><a href="#">Erweiterungen</a></li>
                 </ul>
               </div>
@@ -53,23 +53,20 @@
 
                 <a href="#">
                   <div id="content-view-create">
-                    Neue Person anlegen
+                    Neue Epoche anlegen
                   </div>
                 </a>
 
                 <div id="content-view-person">
                   <ul id="list-view-person">
-                    <li id="list-persons">User 1<a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
-                    <li id="list-persons">User 1<a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
-                    <li id="list-persons">User 1<a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
-                    <li id="list-persons">User 1<a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
-                    <li id="list-persons">User 1<a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
-                    <li id="list-persons">User 1<a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
-                    <li id="list-persons">User 1<a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
-                    <li id="list-persons">User 1<a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
-                    <li id="list-persons">User 1<a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
-                    <li id="list-persons">User 1<a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
-
+                    <li id="list-persons">Epoche 1<a href="/"><button type="button">Bearbeiten</button></a></li>
+                    <li id="list-persons">Epoche 1<a href="/"><button type="button">Bearbeiten</button></a></li>
+                    <li id="list-persons">Epoche 1<a href="/"><button type="button">Bearbeiten</button></a></li>
+                    <li id="list-persons">Epoche 1<a href="/"><button type="button">Bearbeiten</button></a></li>
+                    <li id="list-persons">Epoche 1<a href="/"><button type="button">Bearbeiten</button></a></li>
+                    <li id="list-persons">Epoche 1<a href="/"><button type="button">Bearbeiten</button></a></li>
+                    <li id="list-persons">Epoche 1<a href="/"><button type="button">Bearbeiten</button></a></li>
+                    <li id="list-persons">Epoche 1<a href="/"><button type="button">Bearbeiten</button></a></li>
                   </ul>
                 </div>
 

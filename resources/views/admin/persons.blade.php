@@ -34,7 +34,7 @@
 
             <div id="site-title">
                 <div id="site-title-wrapper">
-                    <span id="site-title-label">Administrator</span>
+                    <span id="site-title-label">Settings</span>
                 </div>
             </div>
 
@@ -49,6 +49,7 @@
                 </ul>
               </div>
 
+
               <div id="content-action-view">
 
                 <a href="#">
@@ -59,18 +60,19 @@
 
                 <div id="content-view-person">
                   <ul id="list-view-person">
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten / Löschen</button></a></li>
+                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
+                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
+                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
+                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
+                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
+                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
+                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
+                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
+                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
+                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
+                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
+                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
+                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
 
                   </ul>
                 </div>

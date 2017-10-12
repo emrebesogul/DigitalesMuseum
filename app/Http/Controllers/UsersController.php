@@ -16,7 +16,7 @@ class UsersController extends Controller
     public function index()
     {
         $result = DB::select('SELECT id, name, email, is_admin
-            FROM users');       
+            FROM users');
         return view('admin.users',['users' => json_decode(json_encode($result),true)]);
     }
 
@@ -37,8 +37,8 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function register(Request $request)
-    {        
-        if ($request->filled(['name', 'email', 'password', 'retyped_password']) && $request->input('password') == $request->input('retyped_password') && filter_var($request->input('email'), FILTER_VALIDATE_EMAIL)) 
+    {
+        if ($request->filled(['name', 'email', 'password', 'retyped_password']) && $request->input('password') == $request->input('retyped_password') && filter_var($request->input('email'), FILTER_VALIDATE_EMAIL))
         {
             $result = DB::select('SELECT COUNT(id) AS user_count
                 FROM users
@@ -52,14 +52,24 @@ class UsersController extends Controller
                     'password' => password_hash($request->input('password'), PASSWORD_DEFAULT)
                 ]);
                 session(['userId' => DB::getPdo()->lastInsertId(), 'userName' => $request->input('name'), 'userIsAdmin' => 0]);
-                return view('/', ['registerSuccesful' => true]);
+                return redirect('/epoch');
             } else{
-               return view('/login', ['infoMessage' => 'User already exists!', 'email' => $request->input('email')]); 
+               return view('/login', ['infoMessage' => 'User already exists!', 'email' => $request->input('email')]);
             }
-        } else 
+        } else
         {
             return view('/register', ['registerSuccesful' => false, 'infoMessage' => 'Wrong Data!']);
         }
+    }
+
+    public function showLogin()
+    {
+        return view('login');
+    }
+
+    public function showRegister()
+    {
+        return view('register');
     }
 
     /**
@@ -70,24 +80,24 @@ class UsersController extends Controller
      */
     public function login(Request $request)
     {
-
-        if ($request->filled(['email', 'password'])) 
+        if ($request->filled(['email', 'password']))
         {
+
             $result = DB::select('SELECT id, name, password, is_admin
                 FROM users
                 WHERE email = :email',
                 ['email' => $request->input('email')]);
-            
+
             if(password_verify($request->input('password'), $result[0]->password))
             {
                 session(['userId' => $result[0]->id, 'userName' => $result[0]->name, 'userIsAdmin' => (bool) $result[0]->is_admin]);
-                return redirect('/');
-            } else 
+                return redirect('/epoch');
+            } else
             {
-
                 return view('/login', ['infoMessage' => 'wrong data']);
             }
         }
+
     }
 
     /**
@@ -115,7 +125,7 @@ class UsersController extends Controller
     //         $result = DB::select('SELECT id, name, email, is_admin
     //             FROM users
     //             WHERE id = :id',
-    //             ['id' => $id]); 
+    //             ['id' => $id]);
     //             print_r($result[0]->name);
     //     } else
     //     {
@@ -135,7 +145,7 @@ class UsersController extends Controller
         $result = DB::select('SELECT id, name, email, password, is_admin
             FROM users
             WHERE id = :id',
-            ['id' => $id]); 
+            ['id' => $id]);
 
         return view('admin.editUser', ['id' => $result[0]->id, 'name' => $result[0]->name, 'email' => $result[0]->email, 'password' => $result[0]->password, 'is_admin' => $result[0]->is_admin]);
     }
@@ -149,9 +159,9 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if ($request->filled(['name', 'email', 'password', 'is_admin']) && filter_var($request->input('email'), FILTER_VALIDATE_EMAIL)) 
+        if ($request->filled(['name', 'email', 'password', 'is_admin']) && filter_var($request->input('email'), FILTER_VALIDATE_EMAIL))
         {
-            $result = DB::update('UPDATE users 
+            $result = DB::update('UPDATE users
                 SET name = :name,
                     email = :email,
                     password = :password,
@@ -164,7 +174,7 @@ class UsersController extends Controller
                     'is_admin' => $request->input('is_admin')
                 ]);
             return view('/action', [$infoMessage = "Update successful"]);
-        } else 
+        } else
         {
             return view('/action', [$infoMessage = "Update not successful"]);
         }
@@ -178,10 +188,10 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        $result = DB::delete('DELETE 
+        $result = DB::delete('DELETE
             FROM users
             WHERE id = :id',
-            ['id' => $id]); 
+            ['id' => $id]);
        if($result)
        {
             return view('/action', [$infoMessage = "User successfully removed"]);
@@ -193,5 +203,3 @@ class UsersController extends Controller
     }
 
 }
-
-

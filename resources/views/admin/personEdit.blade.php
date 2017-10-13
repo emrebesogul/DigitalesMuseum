@@ -32,7 +32,9 @@
 
         <div id="content">
           <div id="site-title">
+              <button id="back-button" class="edit-form-data buttons"><span id="test" class="arrow_carrot-left_alt2"></span>Zurück</button>
               <div id="site-title-wrapper">
+
                   <span id="site-title-label">Settings</span>
               </div>
           </div>
@@ -91,6 +93,7 @@
               </div>
             </div>
         </div>
-          <script language="javascript" type="text/javascript" src="/js/johannes_admin-edit.js"></script>
+        <script language="javascript" type="text/javascript" src="/js/johannes_admin-edit.js"></script>
+
     </body>
 </html>

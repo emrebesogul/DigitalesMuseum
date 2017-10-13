@@ -280,6 +280,25 @@ input[type="file"] {
   height: 100px;
 }
 
+#back-button:hover {
+  transition: background-color 0.3s;
+  cursor: default;
+  background-color: rgb(235,235,235);
+}
+
+#back-button {
+  top: 52px;
+  left: 83px;
+  position: absolute;
+  display: block;
+  width: 95px;
+  margin-bottom: 12px;
+  transition: background-color 0.3s;
+}
+.arrow_carrot-left_alt2 {
+  margin-right: 7px;
+}
+
 #submit-button {
   display: block;
   width: auto;

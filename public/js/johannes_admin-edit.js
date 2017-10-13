@@ -1,7 +1,7 @@
 
 var i = 1;
 
-function addTextbox(content){
+function addTextbox(content, index){
   var div = document.createElement("div");
   var infoText = document.createTextNode("Informationen:");
   var numberText = document.createTextNode("Index des Elements");
@@ -22,6 +22,9 @@ function addTextbox(content){
   numbers.id = "form-data-index";
   numbers.className ="edit-form-textarea";
   numbers.name = "edit-form-data["+i+"][index]";
+  if (index != null){
+    numbers.value = index;
+  }
 
   paragraph.appendChild(hidden);
   paragraph.appendChild(infoText);

@@ -22,25 +22,31 @@
     			<div class="box-header">
     				<h2>Registrieren</h2>
     			</div>
-          <label for="email">E-Mail</label>
-    			<br/>
-    			<input type="email" id="email" required>
-          <br/>
-    			<label for="name">Vor- und Nachname</label>
-    			<br/>
-    			<input type="text" id="name" required>
-    			<br/>
-    			<label for="password1">Passwort</label>
-    			<br/>
-    			<input type="password" id="password1" required>
-    			<br/>
-          <label for="password2">Passwort wiederholen</label>
-    			<br/>
-    			<input type="password" id="password2" required>
-    			<br/>
-    			<button type="submit">Registrieren</button>
-    			<br/>
-          <a href="/login"><p class="small">Haben Sie schon einen Account? Log In >></p></a>
+                <form action="/register" method="post">
+                    {{ csrf_field() }}
+
+                    <label for="email">E-Mail</label>
+        			<br/>
+        			<input type="email" name="email" required>
+                    <br/>
+        			<label for="name">Vor- und Nachname</label>
+        			<br/>
+        			<input type="text" name="name" required>
+        			<br/>
+        			<label for="password">Passwort</label>
+        			<br/>
+        			<input type="password" name="password" required>
+        			<br/>
+                    <label for="retyped_password">Passwort wiederholen</label>
+        			<br/>
+        			<input type="password" name="retyped_password" required>
+        			<br/>
+        			<button type="submit">Registrieren</button>
+        			<br/>
+                    <a href="/login"><p class="small">Haben Sie schon einen Account? Log In >></p></a>
+                </form>
+
+
     		</div>
     	</div>
 

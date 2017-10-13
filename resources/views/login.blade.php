@@ -16,23 +16,29 @@
 
     		<div class="top">
     			<h1 id="title" class="hidden"><span class="highlighted">D</span>igitales <span class="highlighted">M</span>useum</h1>
-        </div>
+            </div>
 
     		<div class="login-box">
     			<div class="box-header">
     				<h2>Log In</h2>
     			</div>
-    			<label for="username">E-Mail</label>
-    			<br/>
-    			<input type="text" id="username" required>
-    			<br/>
-    			<label for="password">Passwort</label>
-    			<br/>
-    			<input type="password" id="password" required>
-    			<br/>
-    			<button type="submit">Log In</button>
-    			<br/>
-          <a href="/signup"><p class="small">Noch kein Account? Sign Up >></p></a>
+
+                <form action="/login" method="post">
+                    {{ csrf_field() }}
+
+                    <label for="email">E-Mail</label>
+        			<br/>
+        			<input type="email" name="email" required>
+        			<br/>
+        			<label for="password">Passwort</label>
+        			<br/>
+        			<input type="password" name="password" required>
+        			<br/>
+        			<button type="submit">Log In</button>
+        			<br/>
+                    <a href="/register"><p class="small">Noch kein Account? Sign Up >></p></a>
+                </form>
+
     		</div>
     	</div>
 

@@ -1,7 +1,7 @@
 
 var i = 1;
 
-function addTextbox(){
+function addTextbox(content){
   var div = document.createElement("div");
   var infoText = document.createTextNode("Informationen:");
   var numberText = document.createTextNode("Index des Elements");
@@ -30,6 +30,7 @@ function addTextbox(){
   paragraph.appendChild(numbers);
   paragraph.id = "edit-form-data-text";
 
+  textbox.innerHTML = content;
   textbox.id = "form-text-edit";
   textbox.name = "edit-form-data["+i+"][content]";
   textbox.className = "edit-form-textarea";
@@ -45,6 +46,7 @@ function addTextbox(){
 
 }
 
+// Parameter URL für PictureBox anzeigen
 function addPictureBox(){
   var div = document.createElement("div");
   var pictureText = document.createTextNode("Titel des Bildes");

@@ -34,4 +34,7 @@ Route::post('/register', 'UsersController@register');
 Route::get('/admin/users', 'UsersController@index');
 Route::get('/admin/user/{id}', 'UsersController@show');
 Route::post('/admin/user/{id}/update', 'UsersController@update');
-Route::post('/admin/user/{id}/delete', 'UsersController@destroy');
+Route::get('/admin/user/{id}/delete', 'UsersController@destroy');
+
+
+Route::post('/admin/person/create', 'PeopleController@store');

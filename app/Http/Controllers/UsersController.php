@@ -21,13 +21,14 @@ class UsersController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display the register page.
      *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function showRegister()
     {
-        return view('login');
+        return view('register');
     }
 
     /**
@@ -62,14 +63,15 @@ class UsersController extends Controller
         }
     }
 
+    /**
+     * Display the login page.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function showLogin()
     {
         return view('login');
-    }
-
-    public function showRegister()
-    {
-        return view('register');
     }
 
     /**
@@ -97,7 +99,6 @@ class UsersController extends Controller
                 return view('/login', ['infoMessage' => 'wrong data']);
             }
         }
-
     }
 
     /**
@@ -112,42 +113,26 @@ class UsersController extends Controller
         return redirect('/');
     }
 
-    // /**
-    //  * Display the specified resource.
-    //  *
-    //  * @param  int  $id
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function show($id)
-    // {
-    //     if(parent::userIsAuthenticated() && parent::userIsAdmin())
-    //     {
-    //         $result = DB::select('SELECT id, name, email, is_admin
-    //             FROM users
-    //             WHERE id = :id',
-    //             ['id' => $id]);
-    //             print_r($result[0]->name);
-    //     } else
-    //     {
-    //         print_r('Error: ???');
-    //         //return redirect('/error');
-    //     }
-    // }
-
     /**
-     * Show the form for editing the specified resource.
+     * Display the update page.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function showUpdate($id)
     {
-        $result = DB::select('SELECT id, name, email, password, is_admin
-            FROM users
-            WHERE id = :id',
-            ['id' => $id]);
-
-        return view('admin.editUser', ['id' => $result[0]->id, 'name' => $result[0]->name, 'email' => $result[0]->email, 'password' => $result[0]->password, 'is_admin' => $result[0]->is_admin]);
+        if(parent::userIsAuthenticated() && parent::userIsAdmin())
+        {
+            $result = DB::select('SELECT id, name, email, is_admin
+                FROM users
+                WHERE id = :id',
+                ['id' => $id]);
+                return view('update',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'email' => $result[0]->email, 'is_admin' => $result[0]->is_admin]);
+        } else
+        {
+            print_r('Error: ???');
+            //return redirect('/error');
+        }
     }
 
     /**
@@ -159,24 +144,42 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if ($request->filled(['name', 'email', 'password', 'is_admin']) && filter_var($request->input('email'), FILTER_VALIDATE_EMAIL))
+        if ($request->filled(['name', 'email', 'is_admin']) && filter_var($request->input('email'), FILTER_VALIDATE_EMAIL))
         {
             $result = DB::update('UPDATE users
                 SET name = :name,
                     email = :email,
-                    password = :password,
                     is_admin = :is_admin
                 WHERE id = :id', [
                     'id' => $id,
                     'name' => $request->input('name'),
                     'email' => $request->input('email'),
-                    'password' => password_hash($request->input('password'), PASSWORD_DEFAULT),
                     'is_admin' => $request->input('is_admin')
                 ]);
-            return view('/action', [$infoMessage = "Update successful"]);
+
+            if($request->filled(['password'])) 
+            {
+                $result = DB::update('UPDATE users
+                    SET password = :password
+                    WHERE id = :id', [
+                        'id' => $id,
+                        'password' => password_hash($request->input('password'), PASSWORD_DEFAULT)
+                ]);
+            }
+            return view('action', [
+                'infoMessage' => 'Der Nutzer wurde erfolgreich verändert.',
+                'icon' => 'icon_check_alt2',
+                'buttonLink' => '/admin/users',
+                'buttonLabel' => 'Zurück'
+            ]);
         } else
         {
-            return view('/action', [$infoMessage = "Update not successful"]);
+            return view('action', [
+                'infoMessage' => 'Der Nutzer konnte nicht verändert werden.',
+                'icon' => 'icon_error-circle_alt',
+                'buttonLink' => '/admin/users',
+                'buttonLabel' => 'Zurück'
+            ]);
         }
     }
 
@@ -194,12 +197,21 @@ class UsersController extends Controller
             ['id' => $id]);
        if($result)
        {
-            return view('/action', [$infoMessage = "User successfully removed"]);
+        return view('action', [
+            'infoMessage' => 'Der Nutzer wurde erfolgreich entfernt.',
+            'icon' => 'icon_check_alt2',
+            'buttonLink' => '/admin/users',
+            'buttonLabel' => 'Zurück'
+        ]);
        } else
        {
-            return view('/action', [$infoMessage = "User not removed"]);
+        return view('action', [
+            'infoMessage' => 'Der Nutzer konnte nicht gelöscht werden.',
+            'icon' => 'icon_error-circle_alt',
+            'buttonLink' => '/admin/users',
+            'buttonLabel' => 'Zurück'
+        ]);
        }
-
     }
 
 }

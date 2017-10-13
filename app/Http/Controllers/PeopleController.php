@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class PeopleController extends Controller
 {
@@ -36,24 +37,38 @@ class PeopleController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->filled(['name', 'birthday', 'location', 'date_of_death', 'short_description'])) 
+        if ($request->filled(['edit-form-data-name', 'edit-form-data-birthday', 'edit-form-data-deathdate', 'edit-form-data-short-description', 'edit-form-data'])) 
         {
-            // können namen doppelt auftreten?
+            
             $result = DB::select('SELECT COUNT(id) AS person_count
                 FROM people
-                WHERE name = :name',
-                ['name' => $request->input('name')]);
+                WHERE name = :name AND birthday = :birthday AND date_of_death = :date_of_death', [
+                    'name' => $request->input('edit-form-data-name'),
+                    'birthday' => $request->input('edit-form-data-birthday'),
+                    'date_of_death' => $request->input('edit-form-data-deathdate')
+                    ]);
 
-            if($result[0]->user_count == 0)
+                
+            if($result[0]->person_count == 0)
             {
                 $result = DB::insert('INSERT INTO people (name, birthday, location, date_of_death, short_description) VALUES (:name, :birthay, :location, :date_of_death, :short_description)', [
-                    'name' => $request->input('name'),
-                    'birthay' => $request->input('birthday'),
-                    'location' => $request->input('location'),
-                    'date_of_death' => $request->input('date_of_death'),
-                    'short_description' => $request->input('short_description')
+                    'name' => $request->input('edit-form-data-name'),
+                    'birthay' => $request->input('edit-form-data-birthday'),
+                    'location' => 'Tübingen',
+                    'date_of_death' => $request->input('edit-form-data-deathdate'),
+                    'short_description' => $request->input('edit-form-data-short-description')
                 ]);
-                //return view('/', ['registerSuccesful' => true]);
+                return view('action', [
+                    
+                                   ‘infoMessage’ => ‘Der Nutzer wurde erfolgreich entfernt.’,
+                    
+                                   ‘icon’ => ‘icon_check_alt2’,
+                    
+                                   ‘buttonLink’ => ‘/admin/users’,
+                    
+                                   ‘buttonLabel’ => ‘Zurück’
+                    
+                               ]);
             } else{
                //return view('/login', ['infoMessage' => 'User already exists!', 'email' => $request->input('email')]); 
             }

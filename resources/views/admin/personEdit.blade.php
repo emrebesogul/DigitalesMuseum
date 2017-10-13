@@ -41,7 +41,8 @@
             <div id="site-content">
               <div id="edit-form-wrapper">
                 <span id="label-new-person"> Eine Person bearbeiten </span>
-                <form id="edit-form"  method="post" enctype="multipart/form-data">
+                <form id="edit-form" action="/admin/person/create" method="post" enctype="multipart/form-data">
+                  {{ csrf_field() }}
                   <div id="mandatory-field">
                     <div class="form-profile-picture">
                       <div id="profile-picture-preview">
@@ -54,7 +55,7 @@
                       <input id="form-profile-picture-data" class="form-profile-picture" type="file" name="edit-form-data-profile-picture" size="80px" accept="image/*" />
                     </div>
                     <p id="edit-form-data-name" class="edit-form-data">
-                      Name: <input class="edit-form-textarea" type="text" placeholder="Geben Sie den Namen der Person ein!" />
+                      Name: <input class="edit-form-textarea" name="edit-form-data-name" type="text" placeholder="Geben Sie den Namen der Person ein!" />
                     </p>
                     <p id="edit-form-data-life" class ="edit-form-data lifetime">
                       <span id ="lifetime-label-birth">Geboren am:</span> <input type="date" name="edit-form-data-birthdate" />

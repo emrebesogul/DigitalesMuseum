@@ -127,7 +127,7 @@ class UsersController extends Controller
                 FROM users
                 WHERE id = :id',
                 ['id' => $id]);
-                return view('update',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'email' => $result[0]->email, 'is_admin' => $result[0]->is_admin]);
+                return view('admin.userEdit',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'email' => $result[0]->email, 'is_admin' => $result[0]->is_admin]);
         } else
         {
             print_r('Error: ???');
@@ -166,6 +166,7 @@ class UsersController extends Controller
                         'password' => password_hash($request->input('password'), PASSWORD_DEFAULT)
                 ]);
             }
+
             return view('action', [
                 'infoMessage' => 'Der Nutzer wurde erfolgreich verändert.',
                 'icon' => 'icon_check_alt2',

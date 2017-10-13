@@ -42,7 +42,7 @@
 
               <div id="content-action-menu">
                 <ul id="list-action-menu">
-                  <li id="list-header"><a href="/admin/persons">Person</a></li>
+                  <li id="list-header"><a href="/admin/people">Person</a></li>
                   <li id="list-header"><a href="/admin/epochs">Epoche</a></li>
                   <li id="list-header"><a class="active">User-List</a></li>
                 </ul>
@@ -57,8 +57,19 @@
                 <div id="content-view-person">
                   <ul id="list-view-person">
                       @foreach ($users as $user)
-                         <li id="list-persons">{{$user['name']}}<a href="#"><button type="button">Bearbeiten</button></a></li>
-                     @endforeach
+                         <li id="list-persons">{{$user['name']}}
+                             <a href="/admin/user/{{$user['id']}}/delete">
+                                 <button type="submit" id="delete-button">
+                                     <span class="icon_trash"></span>
+                                 </button>
+                             </a>
+                             <a href="/admin/user/{{$user['id']}}">
+                                 <button type="button">
+                                     Bearbeiten
+                                 </button>
+                             </a>
+                         </li>
+                      @endforeach
                   </ul>
                 </div>
               </div>

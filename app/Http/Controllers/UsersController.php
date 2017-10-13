@@ -147,7 +147,7 @@ class UsersController extends Controller
             WHERE id = :id',
             ['id' => $id]);
 
-        return view('admin.editUser', ['id' => $result[0]->id, 'name' => $result[0]->name, 'email' => $result[0]->email, 'password' => $result[0]->password, 'is_admin' => $result[0]->is_admin]);
+        return view('admin.userEdit', ['id' => $result[0]->id, 'name' => $result[0]->name, 'email' => $result[0]->email, 'password' => $result[0]->password, 'is_admin' => $result[0]->is_admin]);
     }
 
     /**
@@ -173,10 +173,20 @@ class UsersController extends Controller
                     'password' => password_hash($request->input('password'), PASSWORD_DEFAULT),
                     'is_admin' => $request->input('is_admin')
                 ]);
-            return view('/action', [$infoMessage = "Update successful"]);
+            return view('action', [
+                'infoMessage' => 'Der Nutzer wurde erfolgreich verändert.',
+                'icon' => 'icon_check_alt2',
+                'buttonLink' => '/admin/users',
+                'buttonLabel' => 'Zurück'
+            ]);
         } else
         {
-            return view('/action', [$infoMessage = "Update not successful"]);
+            return view('action', [
+                'infoMessage' => 'Der Nutzer konnte nicht verändert werden.',
+                'icon' => 'icon_error-circle_alt',
+                'buttonLink' => '/admin/users',
+                'buttonLabel' => 'Zurück'
+            ]);
         }
     }
 
@@ -194,10 +204,20 @@ class UsersController extends Controller
             ['id' => $id]);
        if($result)
        {
-            return view('/action', [$infoMessage = "User successfully removed"]);
+            return view('action', [
+                'infoMessage' => 'Der Nutzer wurde erfolgreich gelöscht.',
+                'icon' => 'icon_check_alt2',
+                'buttonLink' => '/admin/users',
+                'buttonLabel' => 'Zurück'
+            ]);
        } else
        {
-            return view('/action', [$infoMessage = "User not removed"]);
+            return view('action', [
+                'infoMessage' => 'Der Nutzer konnte nicht gelöscht werden.',
+                'icon' => 'icon_error-circle_alt',
+                'buttonLink' => '/admin/users',
+                'buttonLabel' => 'Zurück'
+            ]);
        }
 
     }

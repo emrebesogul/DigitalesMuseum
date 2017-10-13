@@ -42,10 +42,9 @@
 
               <div id="content-action-menu">
                 <ul id="list-action-menu">
-                  <li id="list-header"><a href="/admin-person">Person</a></li>
-                  <li id="list-header"><a class="active" href="/admin-epoch">Epoche</a></li>
-                  <li id="list-header"><a href="/admin-user">User-List</a></li>
-                  <li id="list-header"><a href="#">Erweiterungen</a></li>
+                  <li id="list-header"><a href="/admin/people">Person</a></li>
+                  <li id="list-header"><a class="active">Epoche</a></li>
+                  <li id="list-header"><a href="/admin/users">User-List</a></li>
                 </ul>
               </div>
 

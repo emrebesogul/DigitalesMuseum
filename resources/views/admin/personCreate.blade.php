@@ -40,9 +40,7 @@
             <div id="site-content">
               <div id="edit-form-wrapper">
                 <span id="label-new-person"> Neue Person anlegen </span>
-
-                <form id="edit-form"  action="/admin/person/create" method="post" enctype="multipart/form-data">
-                
+                <form id="edit-form" action="/admin/person/create"  method="post" enctype="multipart/form-data">
                   {{ csrf_field() }}
                   <div id="mandatory-field">
                     <div class="form-profile-picture">
@@ -53,7 +51,7 @@
                       <input id="form-profile-picture-data" class="form-profile-picture" type="file" name="edit-form-data-profile-picture" size="80px" accept="image/*" />
                     </div>
                     <p id="edit-form-data-name" class="edit-form-data">
-                      Name: <input class="edit-form-textarea" type="text" name="edit-form-data-name" placeholder="Geben Sie den Namen der Person ein!" />
+                      Name: <input class="edit-form-textarea" name="edit-form-data-name" type="text" placeholder="Geben Sie den Namen der Person ein!" />
                     </p>
                     <p id="edit-form-data-location" class="edit-form-data">
                       Ort: <input class="edit-form-textarea" name="edit-form-data-location" type="text" placeholder="Geben Sie den Ort der Person ein!" />
@@ -76,7 +74,7 @@
                       <span id="add-textbox" onclick="addTextbox('');">Weiteres Textelement hinzufügen</span>
                     </p>
                   </div>
-
+                  <span id="label-new-epoch"> Medien hinzufügen </span>
                   <div id="form-picture">
                     <!--<input type="hidden" value="picture" name="edit-form-data[0][type]" />-->
                     <span id="pictre-add"> Bilder der Persönlichkeit hinzufügen </span>
@@ -89,6 +87,12 @@
                     Index des Elements: <input id="form-data-index" name="edit-form-data[0][index]" class="edit-form-textarea" type="number" min="1" />
                   -->
                   <span id="add-textbox" onclick="addPictureBox();">Bildelement hinzufügen</span>
+                  </div>
+                  <div id="form-video">
+                    <input type="hidden" value="video" name="edit-form-data[0][type]" />
+                    <p id="edit-form-data-video" class="edit-form-data">
+                      Geben Sie die URL eines Videos ein: <input id="form-video-data" type="text" placeholder="URL des Videos" />
+                    </p>
                   </div>
                   <button id="submit-button" class="edit-form-data buttons" type="submit" text="Absenden">Absenden</button>
                 </form>

@@ -135,7 +135,7 @@ nav #user-information #logout-icon .icon {
 
 #add-textbox {
   margin-top: 15px;
-  margin-bottom: 9px;
+  margin-bottom: 25px;
   display: block;
   border: solid 1px black;
   width: 40%;
@@ -167,15 +167,15 @@ nav #user-information #logout-icon .icon {
 }
 
 #form-text{
-  border-bottom: solid 1px black;
+
   margin-top: 10px;
   margin-bottom: 20px;
   width: 85vh;
 }
 
 #form-picture{
-  border-bottom: solid 1px black;
-  margin-top: 10px;
+  border-bottom: solid 1px #555;
+  margin-top: 30px;
   margin-bottom: 20px;
   width: 85vh;
 }
@@ -200,8 +200,19 @@ nav #user-information #logout-icon .icon {
 #label-new-person {
   font-family: 'Playfair Display', serif;
   font-size: 40px;
-  border-bottom: 1px solid #000;
+  border-bottom: 3px solid #000;
 }
+
+#label-new-epoch {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  border-bottom: 1px solid #000;
+  margin-bottom: 15px;
+  margin-top: 50px;
+  display: block;
+  width: 260px;
+}
+
 
 .edit-form-info {
   display: block;
@@ -297,6 +308,33 @@ input[type="file"] {
 }
 .arrow_carrot-left_alt2 {
   margin-right: 7px;
+}
+
+
+
+#add-videobox:hover {
+  transition: background-color 0.3s;
+  cursor: default;
+  background-color: rgb(235,235,235);
+}
+
+#add-videobox {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    display: block;
+    border: solid 1px black;
+    width: 57%;
+    line-height: 30px;
+    border-radius: 3px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+#form-video-data {
+  display: block;
+  margin-top: 10px;
+  width: 85vh;
+  margin-bottom: 30px;
 }
 
 #submit-button {

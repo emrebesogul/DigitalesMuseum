@@ -78,7 +78,7 @@
                       <span id="add-textbox" onclick="addTextbox('');">Weiteres Textelement hinzufügen</span>
                     </p>
                   </div>
-
+                  <span id="label-new-epoch"> Medien hinzufügen </span>
                   <div id="form-picture">
                     <!--<input type="hidden" value="picture" name="edit-form-data[0][type]" />-->
                     <span id="pictre-add"> Bilder der Persönlichkeit hinzufügen </span>
@@ -91,6 +91,17 @@
                     Index des Elements: <input id="form-data-index" name="edit-form-data[0][index]" class="edit-form-textarea" type="number" min="1" />
                   -->
                   <span id="add-textbox" onclick="addPictureBox();">Bildelement hinzufügen</span>
+                  </div>
+
+                  <div id="form-video">
+
+                  <span id="video-add"> Videos der Persönlichkeit hinzufügen </span>
+                  <!--  <input type="hidden" value="video" name="edit-form-data[0][type]" />
+                    <p id="edit-form-data-video" class="edit-form-data">
+                      Geben Sie die URL des Videos ein: <input id="form-video-data" type="text" placeholder="URL des Videos" />
+                    </p>
+                  -->
+                  <span id="add-videobox" onclick="addVideoBox();">Videoelement hinzufügen</span>
                   </div>
                   <button id="submit-button" class="edit-form-data buttons" type="submit" text="Absenden">Absenden</button>
                 </form>

@@ -135,7 +135,7 @@ nav #user-information #logout-icon .icon {
 
 #add-textbox {
   margin-top: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 9px;
   display: block;
   border: solid 1px black;
   width: 40%;
@@ -148,7 +148,7 @@ nav #user-information #logout-icon .icon {
 #edit-form-wrapper {
     height: 60vh;
     margin-top: 35px;
-    width: 50vh;
+    width: 60vh;
 }
 
 .buttons {
@@ -167,7 +167,7 @@ nav #user-information #logout-icon .icon {
 }
 
 #form-text{
-
+  border-bottom: solid 1px black;
   margin-top: 10px;
   margin-bottom: 20px;
   width: 85vh;
@@ -175,7 +175,7 @@ nav #user-information #logout-icon .icon {
 
 #form-picture{
   border-bottom: solid 1px #555;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-bottom: 20px;
   width: 85vh;
 }
@@ -203,17 +203,6 @@ nav #user-information #logout-icon .icon {
   border-bottom: 3px solid #000;
 }
 
-#label-new-epoch {
-  font-family: 'Playfair Display', serif;
-  font-size: 30px;
-  width: 260px;
-  border-bottom: 1px solid #000;
-  margin-bottom: 15px;
-  margin-top: 50px;
-  display: block;
-}
-
-
 .edit-form-info {
   display: block;
   margin-top: 5px;
@@ -227,11 +216,11 @@ nav #user-information #logout-icon .icon {
 
 #lifetime-label-birth {
   margin-right: 7px;
-  width: 13vh;
+  width: 17vh;
 }
 
 #lifetime-label-death {
-  width: 15vh;
+  width: 17vh;
   margin-left: 26px;
 }
 
@@ -278,7 +267,6 @@ input[type="file"] {
 }
 
 #short-p {
-  border-bottom: solid 1px black;
   width: 85vh;
 }
 
@@ -303,16 +291,45 @@ input[type="file"] {
     transition: background-color 0.3s;
 }
 
-#form-video-data {
-  display: block;
-  margin-top: 10px;
-  width: 85vh;
-  margin-bottom: 30px;
-}
-
 #submit-button {
   display: block;
   width: auto;
   margin-bottom: 12px;
   transition: background-color 0.3s;
+}
+
+#add-videobox:hover {
+  transition: background-color 0.3s;
+  cursor: default;
+  background-color: rgb(235,235,235);
+}
+
+#form-video {
+  margin-top: 25px;
+}
+
+#label-new-epoch {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  border-bottom: 1px solid #000;
+  margin-bottom: 15px;
+}
+
+#add-videobox {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    display: block;
+    border: solid 1px black;
+    width: 57%;
+    line-height: 30px;
+    border-radius: 3px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+#form-video-data {
+  display: block;
+  margin-top: 10px;
+  width: 85vh;
+  margin-bottom: 30px;
 }

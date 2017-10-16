@@ -16,7 +16,7 @@ class PeopleController extends Controller
     {
         $result = DB::select('SELECT id, name, birthday, location, date_of_death, short_description
             FROM people');      
-        return view('people',['people' => json_decode(json_encode($result),true)]);
+        return view('admin.people',['people' => json_decode(json_encode($result),true)]);
     }
 
     /**
@@ -26,7 +26,7 @@ class PeopleController extends Controller
      */
     public function create()
     {
-        return view('personCreate');
+        return view('admin.personCreate');
     }
 
     /**
@@ -51,7 +51,8 @@ class PeopleController extends Controller
                 
             if($result[0]->person_count == 0)
             {
-                $result = DB::insert('INSERT INTO people (name, birthday, location, date_of_death, short_description) VALUES (:name, :birthay, :location, :date_of_death, :short_description)', [
+                $result = DB::insert('INSERT INTO people (name, birthday, location, date_of_death, short_description) 
+                    VALUES (:name, :birthay, :location, :date_of_death, :short_description)', [
                     'name' => $request->input('edit-form-data-name'),
                     'birthay' => $request->input('edit-form-data-birthday'),
                     'location' => 'Tübingen',
@@ -59,22 +60,27 @@ class PeopleController extends Controller
                     'short_description' => $request->input('edit-form-data-short-description')
                 ]);
                 return view('action', [
-                    
-                                   ‘infoMessage’ => ‘Der Nutzer wurde erfolgreich entfernt.’,
-                    
-                                   ‘icon’ => ‘icon_check_alt2’,
-                    
-                                   ‘buttonLink’ => ‘/admin/users’,
-                    
-                                   ‘buttonLabel’ => ‘Zurück’
-                    
-                               ]);
+                    'infoMessage' => 'Person wurde erfolgreich angelegt.',
+                    'icon' => 'icon_check_alt2',
+                    'buttonLink' => '/admin/people',
+                    'buttonLabel' => 'Zurück'
+                ]);
             } else{
-               //return view('/login', ['infoMessage' => 'User already exists!', 'email' => $request->input('email')]); 
+                return view('action', [
+                    'infoMessage' => 'Diese Person existiert bereits.',
+                    'icon' => 'icon_error-circle_alt',
+                    'buttonLink' => '/admin/people',
+                    'buttonLabel' => 'Zurück'
+                ]);
             }
         } else 
         {
-            //return view('/register', ['registerSuccesful' => false, 'infoMessage' => 'Wrong Data!']);
+            return view('action', [
+                'infoMessage' => 'Falsche Eingabedaten.',
+                'icon' => 'icon_error-circle_alt',
+                'buttonLink' => '/admin/people',
+                'buttonLabel' => 'Zurück'
+            ]);
         }
     }
 
@@ -86,12 +92,11 @@ class PeopleController extends Controller
      */
     public function show($id)
     {
-        
         $result = DB::select('SELECT id, name, birthday, location, date_of_death, short_description
             FROM people
             WHERE id = :id',
             ['id' => $id]); 
-            print_r($result[0]->name);
+            return view('details.person',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'birthday' => $result[0]->birthday, 'location' => $result[0]->location, 'date_of_death' => $result[0]->date_of_death, 'short_description' => $result[0]->short_description]);
     }
 
     /**
@@ -107,7 +112,7 @@ class PeopleController extends Controller
             WHERE id = :id',
             ['id' => $id]); 
 
-        return view('admin.editPerson', ['id' => $result[0]->id, 'name' => $result[0]->name, 'birthday' => $result[0]->birthday, 'location' => $result[0]->location, 'date_of_death' => $result[0]->date_of_death, 'short_description' => $result[0]->short_description]);
+        return view('admin.personEdit', ['id' => $result[0]->id, 'name' => $result[0]->name, 'birthday' => $result[0]->birthday, 'location' => $result[0]->location, 'date_of_death' => $result[0]->date_of_death, 'short_description' => $result[0]->short_description]);
     }
 
     /**
@@ -119,7 +124,7 @@ class PeopleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if ($request->filled(['name', 'birthday', 'location', 'date_of_death', 'short_description'])) 
+        if ($request->filled(['edit-form-data-name', 'edit-form-data-birthday', 'edit-form-data-deathdate', 'edit-form-data-short-description', 'edit-form-data'])) 
         {
             $result = DB::update('UPDATE people 
                 SET name = :name,
@@ -129,16 +134,26 @@ class PeopleController extends Controller
                     short_description = :short_description
                 WHERE id = :id', [
                     'id' => $id,
-                    'name' => $request->input('name'),
-                    'birthay' => $request->input('birthday'),
-                    'location' => $request->input('location'),
-                    'date_of_death' => $request->input('date_of_death'),
-                    'short_description' => $request->input('short_description')
+                    'name' => $request->input('edit-form-data-name'),
+                    'birthay' => $request->input('edit-form-data-birthday'),
+                    'location' => "Tübingen",
+                    'date_of_death' => $request->input('edit-form-data-deathdate'),
+                    'short_description' => $request->input('edit-form-data-short-description')
                 ]);
-            //return view('/action', [$infoMessage = "Update successful"]);
+                return view('action', [
+                    'infoMessage' => 'Person wurde erfolgreich bearbeitet.',
+                    'icon' => 'icon_check_alt2',
+                    'buttonLink' => '/admin/people',
+                    'buttonLabel' => 'Zurück'
+                ]);
         } else 
         {
-            //return view('/action', [$infoMessage = "Update not successful"]);
+            return view('action', [
+                'infoMessage' => 'Person konnte nicht bearbeitet werden.',
+                'icon' => 'icon_error-circle_alt',
+                'buttonLink' => '/admin/people',
+                'buttonLabel' => 'Zurück'
+            ]);
         }
     }
 
@@ -154,13 +169,23 @@ class PeopleController extends Controller
             FROM people
             WHERE id = :id',
             ['id' => $id]); 
-       if($result)
-       {
-            //return view('/action', [$infoMessage = "Person successfully removed"]);
-       } else
-       {
-            //return view('/action', [$infoMessage = "Person not removed"]);
-       }
+            if($result)
+            {
+             return view('action', [
+                 'infoMessage' => 'Die Person wurde erfolgreich entfernt.',
+                 'icon' => 'icon_check_alt2',
+                 'buttonLink' => '/admin/people',
+                 'buttonLabel' => 'Zurück'
+             ]);
+            } else
+            {
+             return view('action', [
+                 'infoMessage' => 'Die Person konnte nicht gelöscht werden.',
+                 'icon' => 'icon_error-circle_alt',
+                 'buttonLink' => '/admin/people',
+                 'buttonLabel' => 'Zurück'
+             ]);
+            }
 
     }
 }

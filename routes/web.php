@@ -23,18 +23,46 @@ Route::get('/epoch', function () {
     return view('details.epoch');
 });
 
+// UsersController
+Route::get('/admin/users', 'UsersController@index');
+
 Route::get('/login', 'UsersController@showLogin');
-Route::get('/register', 'UsersController@showRegister');
-
-
 Route::post('/login', 'UsersController@login');
-Route::get('/logout', 'UsersController@logout');
+
+Route::get('/register', 'UsersController@showRegister');
 Route::post('/register', 'UsersController@register');
 
-Route::get('/admin/users', 'UsersController@index');
-Route::get('/admin/user/{id}', 'UsersController@show');
+Route::get('/logout', 'UsersController@logout');
+
+Route::get('/admin/user/{id}/update', 'UsersController@showUpdate');
 Route::post('/admin/user/{id}/update', 'UsersController@update');
+
 Route::get('/admin/user/{id}/delete', 'UsersController@destroy');
 
 
+// PeopleController
+Route::get('/admin/people', 'PeopleController@index');
+
+Route::get('/admin/person/create', 'PeopleController@create');
 Route::post('/admin/person/create', 'PeopleController@store');
+
+Route::get('/admin/person/{id}/update', 'PeopleController@edit');
+Route::post('/admin/person/{id}/update', 'PeopleController@update');
+
+Route::get('/admin/person/{id}', 'PeopleController@show');
+
+Route::get('/admin/person/{id}/delete', 'PeopleController@destroy');
+
+
+// EpochsController
+Route::get('/admin/epochs', 'EpochsController@index');
+
+Route::get('/admin/epochs/create', 'EpochsController@create');
+Route::post('/admin/epochs/create', 'EpochsController@store');
+
+Route::get('/admin/epochs/{id}/update', 'EpochsController@edit');
+Route::post('/admin/epochs/{id}/update', 'EpochsController@update');
+
+Route::get('/admin/epochs/{id}', 'EpochsController@show');
+
+Route::get('/admin/epochs/{id}/delete', 'EpochsController@destroy');

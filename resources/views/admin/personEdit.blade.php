@@ -41,7 +41,7 @@
             <div id="site-content">
               <div id="edit-form-wrapper">
                 <span id="label-new-person"> Eine Person bearbeiten </span>
-                <form id="edit-form" action="/admin/person/create" method="post" enctype="multipart/form-data">
+                <form id="edit-form" action="/admin/person/{{ $id }}/update" method="post" enctype="multipart/form-data">
                   {{ csrf_field() }}
                   <div id="mandatory-field">
                     <div class="form-profile-picture">
@@ -55,18 +55,18 @@
                       <input id="form-profile-picture-data" class="form-profile-picture" type="file" name="edit-form-data-profile-picture" size="80px" accept="image/*" />
                     </div>
                     <p id="edit-form-data-name" class="edit-form-data">
-                      Name: <input class="edit-form-textarea" name="edit-form-data-name" type="text" placeholder="Geben Sie den Namen der Person ein!" />
+                      Name: <input class="edit-form-textarea" name="edit-form-data-name" type="text" placeholder="Geben Sie den Namen der Person ein!" value={{ $name }} />
                     </p>
                     <p id="edit-form-data-location" class="edit-form-data">
-                      Ort: <input class="edit-form-textarea" name="edit-form-data-location" type="text" placeholder="Geben Sie den Ort der Person ein!" />
+                      Ort: <input class="edit-form-textarea" name="edit-form-data-location" type="text" placeholder="Geben Sie den Ort der Person ein!" value={{ $location }} />
                     </p>
                     <p id="edit-form-data-life" class ="edit-form-data lifetime">
-                      <span id ="lifetime-label-birth">Geboren am:</span> <input type="date" name="edit-form-data-birthdate" />
-                      <span id ="lifetime-label-death">Gestorben am:</span> <input type="date" name="edit-form-data-deathdate" />
+                      <span id ="lifetime-label-birth">Geboren am:</span> <input type="date" name="edit-form-data-birthdate" value={{ $birthday }} />
+                      <span id ="lifetime-label-death">Gestorben am:</span> <input type="date" name="edit-form-data-deathdate" value={{ $date_of_death }} />
                     </p>
                     <p id="short-p" class="edit-form-data">
                       <span id="short-description">Kurzbeschreibung:</span>
-                      <textarea id="textarea-short" class="edit-form-textarea" name="edit-form-data-short-description" placeholder="Geben Sie hier die Kurzbeschreibung der Persönlichkeit ein!"></textarea>
+                      <textarea id="textarea-short" class="edit-form-textarea" name="edit-form-data-short-description" placeholder="Geben Sie hier die Kurzbeschreibung der Persönlichkeit ein!">{{ $short_description }}</textarea>
                     </p>
                   </div>
 

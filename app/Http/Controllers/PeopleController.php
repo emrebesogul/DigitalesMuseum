@@ -37,7 +37,7 @@ class PeopleController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->filled(['edit-form-data-name', 'edit-form-data-birthday', 'edit-form-data-deathdate', 'edit-form-data-short-description', 'edit-form-data'])) 
+        if ($request->filled(['edit-form-data-name', 'edit-form-data-birthday', 'edit-form-data-location', 'edit-form-data-deathdate', 'edit-form-data-short-description', 'edit-form-data'])) 
         {
             
             $result = DB::select('SELECT COUNT(id) AS person_count
@@ -55,7 +55,7 @@ class PeopleController extends Controller
                     VALUES (:name, :birthay, :location, :date_of_death, :short_description)', [
                     'name' => $request->input('edit-form-data-name'),
                     'birthay' => $request->input('edit-form-data-birthday'),
-                    'location' => 'Tübingen',
+                    'location' => $request->input('edit-form-data-location'),
                     'date_of_death' => $request->input('edit-form-data-deathdate'),
                     'short_description' => $request->input('edit-form-data-short-description')
                 ]);
@@ -124,7 +124,7 @@ class PeopleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if ($request->filled(['edit-form-data-name', 'edit-form-data-birthday', 'edit-form-data-deathdate', 'edit-form-data-short-description', 'edit-form-data'])) 
+        if ($request->filled(['edit-form-data-name', 'edit-form-data-birthdate', 'edit-form-data-location', 'edit-form-data-deathdate', 'edit-form-data-short-description', 'edit-form-data'])) 
         {
             $result = DB::update('UPDATE people 
                 SET name = :name,
@@ -135,8 +135,8 @@ class PeopleController extends Controller
                 WHERE id = :id', [
                     'id' => $id,
                     'name' => $request->input('edit-form-data-name'),
-                    'birthay' => $request->input('edit-form-data-birthday'),
-                    'location' => "Tübingen",
+                    'birthday' => $request->input('edit-form-data-birthdate'),
+                    'location' => $request->input('edit-form-data-location'),
                     'date_of_death' => $request->input('edit-form-data-deathdate'),
                     'short_description' => $request->input('edit-form-data-short-description')
                 ]);
@@ -151,7 +151,7 @@ class PeopleController extends Controller
             return view('action', [
                 'infoMessage' => 'Person konnte nicht bearbeitet werden.',
                 'icon' => 'icon_error-circle_alt',
-                'buttonLink' => '/admin/people',
+                'buttonLink' => 'javascript:history.back()',
                 'buttonLabel' => 'Zurück'
             ]);
         }

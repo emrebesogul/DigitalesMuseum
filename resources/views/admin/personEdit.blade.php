@@ -57,6 +57,9 @@
                     <p id="edit-form-data-name" class="edit-form-data">
                       Name: <input class="edit-form-textarea" name="edit-form-data-name" type="text" placeholder="Geben Sie den Namen der Person ein!" />
                     </p>
+                    <p id="edit-form-data-location" class="edit-form-data">
+                      Ort: <input class="edit-form-textarea" name="edit-form-data-location" type="text" placeholder="Geben Sie den Ort der Person ein!" />
+                    </p>
                     <p id="edit-form-data-life" class ="edit-form-data lifetime">
                       <span id ="lifetime-label-birth">Geboren am:</span> <input type="date" name="edit-form-data-birthdate" />
                       <span id ="lifetime-label-death">Gestorben am:</span> <input type="date" name="edit-form-data-deathdate" />

@@ -32,6 +32,7 @@
 
         <div id="content">
           <div id="site-title">
+              <button id="back-button" class="edit-form-data buttons"><span id="test" class="arrow_carrot-left_alt2"></span>Zurück</button>
               <div id="site-title-wrapper">
                   <span id="site-title-label">Settings</span>
               </div>
@@ -53,6 +54,9 @@
                     </div>
                     <p id="edit-form-data-name" class="edit-form-data">
                       Name: <input class="edit-form-textarea" type="text" name="edit-form-data-name" placeholder="Geben Sie den Namen der Person ein!" />
+                    </p>
+                    <p id="edit-form-data-location" class="edit-form-data">
+                      Ort: <input class="edit-form-textarea" name="edit-form-data-location" type="text" placeholder="Geben Sie den Ort der Person ein!" />
                     </p>
                     <p id="edit-form-data-life" class ="edit-form-data lifetime">
                       <span id ="lifetime-label-birth">Geboren am:</span> <input type="date" name="edit-form-data-birthdate" />

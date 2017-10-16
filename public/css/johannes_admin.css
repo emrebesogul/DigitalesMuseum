@@ -272,6 +272,21 @@ input[type="file"] {
   height: 100px;
 }
 
+.arrow_carrot-left_alt2 {
+  margin-right: 7px;
+}
+
+
+#back-button {
+  top: 52px;
+    left: 83px;
+    position: absolute;
+    display: block;
+    width: 95px;
+    margin-bottom: 12px;
+    transition: background-color 0.3s;
+}
+
 #submit-button {
   display: block;
   width: auto;

@@ -39,30 +39,35 @@
           </div>
             <div id="site-content">
 
-                {{ $users['name'] }}
+                <div id="formular-edit">
+                    <form action="/admin/user/{{$id}}/update" method="post">
+                        {{ csrf_field() }}
+            			<label for="name">Benutzername</label>
+            			<br/>
+            			<input type="text" name="name" value="{{$name}}">
+            			<br/>
+                        <label for="email">E-Mail</label>
+            			<br/>
+            			<input type="email" name="email" value="{{$email}}">
+                        <br/>
+            			<label for="password">Neues Passwort eingeben</label>
+            			<br/>
+            			<input type="password" name="password">
+            			<br/>
+                        <label for="is_admin">Zum Admin machen?</label>
+            			<br/>
+            			<input type="number" name="is_admin" min="0" max="1" value="{{$is_admin}}">
+            			<br/>
+            			<button type="submit">Änderungen Bestätigen</button>
 
-                <form action="/login" method="post">
-                    {{ csrf_field() }}
+                        <a href="/admin/users">
+                            <button type="button">
+                                Änderung verwerfen
+                            </button>
+                        </a>
 
-                    <label for="email">E-Mail</label>
-        			<br/>
-        			<input type="email" name="email">
-                    <br/>
-        			<label for="name">Vor- und Nachname</label>
-        			<br/>
-        			<input type="text" name="name">
-        			<br/>
-        			<label for="password">Neues Passwort eingeben</label>
-        			<br/>
-        			<input type="password" name="password">
-        			<br/>
-                    <label for="retyped_password">Passwort wiederholen</label>
-        			<br/>
-        			<input type="password" name="retyped_password">
-        			<br/>
-        			<button type="submit">Änderungen Bestätigen</button>
-
-                </form>
+                    </form>
+                </div>
 
             </div>
         </div>

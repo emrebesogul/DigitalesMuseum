@@ -255,6 +255,29 @@ button:hover {
 }
 
 
+#content #site-content #formular-edit {
+    margin: 40px 0 0 20px;
+    font-size: 26px;
+}
+
+#content #site-content #formular-edit input {
+    height: 22px;
+    font-size: 16px;
+    width: 100%;
+}
+
+#content #site-content #formular-edit input[type=number] {
+    width: 8%;
+}
+
+#content #site-content #formular-edit button {
+    clear: both;
+    float: none;
+}
+
+
+
+
 
 
 

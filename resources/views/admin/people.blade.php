@@ -42,7 +42,7 @@
 
               <div id="content-action-menu">
                 <ul id="list-action-menu">
-                  <li id="list-header"><a class="active" href="/admin-person">Person</a></li>
+                  <li id="list-header"><a class="active">Person</a></li>
                   <li id="list-header"><a href="/admin/epochs">Epoche</a></li>
                   <li id="list-header"><a href="/admin/users">User-List</a></li>
                 </ul>
@@ -51,28 +51,31 @@
 
               <div id="content-action-view">
 
-                <a href="#">
+                <a href="/admin/person/create">
                   <div id="content-view-create">
                     Neue Person anlegen
                   </div>
                 </a>
 
+
+
                 <div id="content-view-person">
                   <ul id="list-view-person">
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
-                    <li id="list-persons">MozartMozartMozartMozartMozar  tMozartMozart <a href="/"><button type="button">Bearbeiten</button></a></li>
-
+                      @foreach ($people as $person)
+                         <li id="list-persons">
+                             {{$person['name']}}
+                             <a href="/admin/person/{{$person['id']}}/delete">
+                                 <button type="submit" id="delete-button">
+                                     <span class="icon_trash"></span>
+                                 </button>
+                             </a>
+                             <a href="/admin/person/{{$person['id']}}/update">
+                                 <button type="button">
+                                     Bearbeiten
+                                 </button>
+                             </a>
+                         </li>
+                      @endforeach
                   </ul>
                 </div>
 

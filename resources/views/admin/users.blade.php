@@ -22,7 +22,7 @@
             </div>
 
             <div id="user-information">
-                <span id="welcome-message">Willkommen zurück, Herr Admin!</span>
+                <span id="welcome-message">Willkommen zurück, $userName!</span>
 
                 <a href="/logout" id="logout-icon">
                     <span class="icon icon_lock_alt"></span>
@@ -64,7 +64,7 @@
                                      <span class="icon_trash"></span>
                                  </button>
                              </a>
-                             <a href="/admin/user/{{$user['id']}}">
+                             <a href="/admin/user/{{$user['id']}}/update">
                                  <button type="button">
                                      Bearbeiten
                                  </button>

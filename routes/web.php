@@ -19,9 +19,8 @@ Route::get('/person', function () {
     return view('details.person');
 });
 
-Route::get('/epoch', function () {
-    return view('details.epoch');
-});
+//NEU
+Route::get('/epoch', 'EpochsController@indexAll');
 
 // UsersController
 Route::get('/admin/users', 'UsersController@index');
@@ -57,12 +56,16 @@ Route::get('/admin/person/{id}/delete', 'PeopleController@destroy');
 // EpochsController
 Route::get('/admin/epochs', 'EpochsController@index');
 
+//NEU
+Route::get('/epochs/{id}', 'EpochsController@show');
+
+
 Route::get('/admin/epochs/create', 'EpochsController@create');
 Route::post('/admin/epochs/create', 'EpochsController@store');
 
 Route::get('/admin/epochs/{id}/update', 'EpochsController@edit');
 Route::post('/admin/epochs/{id}/update', 'EpochsController@update');
 
-Route::get('/admin/epochs/{id}', 'EpochsController@show');
+//Route::get('/admin/epochs/{id}', 'EpochsController@show');
 
 Route::get('/admin/epochs/{id}/delete', 'EpochsController@destroy');

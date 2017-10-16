@@ -8,6 +8,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,900" rel="stylesheet">
 
         <link rel="stylesheet" href="/css/admin.css">
+        <link rel="stylesheet" href="/css/admin_emre.css">
         <link rel="stylesheet" href="/fonts/elegant_font.css">
     </head>
     <body>
@@ -39,31 +40,33 @@
           </div>
             <div id="site-content">
                 <div id="label-site">
-                    <span id="label-user">User bearbeiten</span>
+                    <span id="label-user">Epoche bearbeiten</span>
                 </div>
 
                 <div id="formular-edit">
-                    <form action="/admin/user/{{$id}}/update" method="post">
+                    <form action="/admin/epochs/{{$id}}/update" method="post">
                         {{ csrf_field() }}
-            			<label class="label-name" for="name">Benutzername</label>
-            			<br>
-            			<input type="text" name="name" value="{{$name}}">
-            			<br/>
-                        <label for="email">E-Mail</label>
-            			<br/>
-            			<input type="email" name="email" value="{{$email}}">
-                        <br/>
-            			<label for="password">Neues Passwort eingeben</label>
-            			<br/>
-            			<input type="password" name="password">
-            			<br/>
-                        <label for="is_admin">Zum Admin machen?</label>
-            			<br/>
-            			<input type="number" name="is_admin" min="0" max="1" value="{{$is_admin}}">
+                        <div id="mandatory-field">
+                          <div class="form-profile-picture">
+                            <span id="profile-picture">Wählen Sie das Coverbild der Epoche:</span>
+                            <label for="form-epoch-picture-data" id="label-custom-pic" onclick="buttonSubmitClicked(event);" class="custom-file-upload">
+                              Datei auswählen
+                            </label>
+                            <input id="form-epoch-picture-data" class="form-profile-picture" type="file" name="edit-form-data-profile-picture" size="80px" accept="image/*" />
+                          </div>
+                          <p id="edit-form-data-name" class="edit-form-data">
+                            Name der Epoche: <input class="edit-form-textarea" type="text" name="name" value="{{$name}}"/>
+                          </p>
+                          <p id="edit-form-data-life" class ="edit-form-data lifetime">
+                            <span id ="lifetime-label-birth">Start der Epoche:</span> <input type="text" name="period_begin" value="{{$period_begin}}" />
+                            <span id ="lifetime-label-death">Ende der Epoche:</span> <input type="text" name="period_end" value="{{$period_end}}" />
+                        </p>
+                        </div>
+
             			<br/>
             			<button type="submit">Änderungen Bestätigen</button>
 
-                        <a href="/admin/users">
+                        <a href="/admin/epochs">
                             <button type="button">
                                 Änderung verwerfen
                             </button>

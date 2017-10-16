@@ -39,10 +39,10 @@
             </div>
 
             <div id="site-content">
-              HIER KOMMT TIMELINE ZU DER AUSGEWÄHLTEN EPOCHE
 
-
-
+                {{$name}}
+                {{$period_begin}}
+                {{$period_end}}
 
             </div>
 

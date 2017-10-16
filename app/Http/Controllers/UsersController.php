@@ -84,7 +84,6 @@ class UsersController extends Controller
     {
         if ($request->filled(['email', 'password']))
         {
-
             $result = DB::select('SELECT id, name, password, is_admin
                 FROM users
                 WHERE email = :email',
@@ -110,7 +109,7 @@ class UsersController extends Controller
     public function logout(Request $request)
     {
         Session::flush();
-        return redirect('/');
+        return redirect('/login');
     }
 
     /**
@@ -121,18 +120,18 @@ class UsersController extends Controller
      */
     public function showUpdate($id)
     {
-        if(parent::userIsAuthenticated() && parent::userIsAdmin())
-        {
+        //if(parent::userIsAuthenticated() && parent::userIsAdmin())
+        //{
             $result = DB::select('SELECT id, name, email, is_admin
                 FROM users
                 WHERE id = :id',
                 ['id' => $id]);
                 return view('admin.userEdit',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'email' => $result[0]->email, 'is_admin' => $result[0]->is_admin]);
-        } else
-        {
-            print_r('Error: ???');
+        //} else
+        //{
+        //    print_r('Error: ???');
             //return redirect('/error');
-        }
+        //}
     }
 
     /**
@@ -157,7 +156,7 @@ class UsersController extends Controller
                     'is_admin' => $request->input('is_admin')
                 ]);
 
-            if($request->filled(['password'])) 
+            if($request->filled(['password']))
             {
                 $result = DB::update('UPDATE users
                     SET password = :password

@@ -11,25 +11,8 @@
         <link rel="stylesheet" href="/fonts/elegant_font.css">
     </head>
     <body>
-        <nav>
-            <div id="logo">
-                <span class="highlighted">D</span>igitales <span class="highlighted">M</span>useum
-            </div>
-
-            <div id="search-bar">
-                <span class="icon icon_search"></span>
-                <input type="text" name="search_query" placeholder="Search the museum">
-            </div>
-
-            <div id="user-information">
-                <span id="welcome-message">Willkommen zurück, Herr Administrator!</span>
-
-                <a href="/logout" id="logout-icon">
-                    <span class="icon icon_lock_alt"></span>
-                </a>
-            </div>
-        </nav>
-
+        @include('nav')
+        
         <div id="content">
 
             <div id="site-title">
@@ -42,7 +25,7 @@
 
               <div id="content-action-menu">
                 <ul id="list-action-menu">
-                  <li id="list-header"><a class="active" href="/admin-person">Person</a></li>
+                  <li id="list-header"><a class="active" href="/admin/people">Person</a></li>
                   <li id="list-header"><a href="/admin/epochs">Epoche</a></li>
                   <li id="list-header"><a href="/admin/users">User-List</a></li>
                 </ul>
@@ -51,7 +34,7 @@
 
               <div id="content-action-view">
 
-                <a href="#">
+                <a href="/admin/person/create">
                   <div id="content-view-create">
                     Neue Person anlegen
                   </div>

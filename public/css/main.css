@@ -27,6 +27,11 @@ nav #logo {
     color: #fafafa;
 }
 
+nav a {
+    color: #fafafa;
+    text-decoration: none;
+}
+
 nav #logo .highlighted {
     font-weight: bold;
     font-style: italic;
@@ -74,6 +79,11 @@ nav #user-information #welcome-message {
     color: #D2D2D2;
     font-weight: normal;
     font-size: 16px;
+}
+
+nav #user-information #welcome-message a {
+    text-decoration: none;
+    color: #D2D2D2;
 }
 
 nav #user-information #logout-icon {

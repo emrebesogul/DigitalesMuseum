@@ -11,24 +11,7 @@
         <link rel="stylesheet" href="/fonts/elegant_font.css">
     </head>
     <body>
-        <nav>
-            <div id="logo">
-                <span class="highlighted">D</span>igitales <span class="highlighted">M</span>useum
-            </div>
-
-            <div id="search-bar">
-                <span class="icon icon_search"></span>
-                <input type="text" name="search_query" placeholder="Search the museum">
-            </div>
-
-            <div id="user-information">
-                <span id="welcome-message">Willkommen zurück, Johannes!</span>
-
-                <a href="/logout" id="logout-icon">
-                    <span class="icon icon_lock_alt"></span>
-                </a>
-            </div>
-        </nav>
+        @include('nav')
 
         <div id="content">
           <div id="site-title">
@@ -46,7 +29,7 @@
                   <div id="mandatory-field">
                     <div class="form-profile-picture">
                       <div id="profile-picture-preview">
-
+                        <img src="/storage/people/portraits/{{ $portrait_filename }}" widht="140px" height="140px">
                       </div>
                       <span id="profile-picture">Der Persönlichkeit ein anderes Portät zuweisen:</span>
                       <label for="form-profile-picture-data" id="label-custom-pic" onchange="btnChange();" onclick="buttonSubmitClicked(event);" class="custom-file-upload">

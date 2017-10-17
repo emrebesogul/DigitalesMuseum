@@ -229,6 +229,7 @@ nav #user-information #logout-icon .icon {
   border-radius: 50%;
   background-color: grey;
   margin-bottom: 13px;
+  overflow: hidden;
 }
 
 #submit-button:hover {

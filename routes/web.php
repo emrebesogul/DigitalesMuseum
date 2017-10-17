@@ -56,13 +56,14 @@ Route::get('/admin/person/{id}/delete', 'PeopleController@destroy');
 
 // EpochsController
 Route::get('/admin/epochs', 'EpochsController@index');
+Route::get('/epochs', 'EpochsController@showEpochs');
+
+Route::get('/epochs/{id}', 'EpochsController@show');
 
 Route::get('/admin/epochs/create', 'EpochsController@create');
 Route::post('/admin/epochs/create', 'EpochsController@store');
 
 Route::get('/admin/epochs/{id}', 'EpochsController@edit');
 Route::post('/admin/epochs/{id}/update', 'EpochsController@update');
-
-Route::get('/admin/epochs/{id}', 'EpochsController@show');
 
 Route::get('/admin/epochs/{id}/delete', 'EpochsController@destroy');

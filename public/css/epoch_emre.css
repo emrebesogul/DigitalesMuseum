@@ -28,6 +28,11 @@ nav #logo {
     color: #fafafa;
 }
 
+nav a {
+    color: #fafafa;
+    text-decoration: none;
+}
+
 nav #logo .highlighted {
     font-weight: bold;
     font-style: italic;

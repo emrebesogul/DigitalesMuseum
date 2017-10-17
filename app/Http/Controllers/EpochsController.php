@@ -14,7 +14,7 @@ class EpochsController extends Controller
      */
     public function index()
     {
-        $result = DB::select('SELECT id, name, birthday, period_begin, period_end
+        $result = DB::select('SELECT id, name, period_begin, period_end
             FROM epochs');      
         return view('admin.epochs',['epochs' => json_decode(json_encode($result),true)]);
     }

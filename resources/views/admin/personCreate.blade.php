@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Base</title>
+        <title>Eine Person anlegen - Digitales Museum</title>
 
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,900" rel="stylesheet">
@@ -32,7 +32,7 @@
 
         <div id="content">
           <div id="site-title">
-              <button id="back-button" class="edit-form-data buttons"><span id="test" class="arrow_carrot-left_alt2"></span>Zurück</button>
+            <a href="/admin/people"><button id="back-button" class="edit-form-data buttons"><span id="test" class="arrow_carrot-left_alt2"></span>Zurück</button></a>
               <div id="site-title-wrapper">
                   <span id="site-title-label">Settings</span>
               </div>

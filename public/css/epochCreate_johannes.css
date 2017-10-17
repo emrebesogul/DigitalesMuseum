@@ -282,7 +282,8 @@ input[type="file"] {
 
 
 #back-button {
-  top: 52px;
+    z-index: 999;
+    top: 52px;
     left: 83px;
     position: absolute;
     display: block;

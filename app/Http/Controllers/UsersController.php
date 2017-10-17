@@ -88,15 +88,34 @@ class UsersController extends Controller
                 FROM users
                 WHERE email = :email',
                 ['email' => $request->input('email')]);
-
-            if(password_verify($request->input('password'), $result[0]->password))
+            
+            if(!empty($result))
             {
-                session(['userId' => $result[0]->id, 'userName' => $result[0]->name, 'userIsAdmin' => (bool) $result[0]->is_admin]);
-                return redirect('/epoch');
+                if(password_verify($request->input('password'), $result[0]->password))
+                {
+                    session(['userId' => $result[0]->id, 'userName' => $result[0]->name, 'userIsAdmin' => (bool) $result[0]->is_admin]);
+                    return redirect('/epoch');
+                } else
+                {
+                    return view('action', [
+                        'infoMessage' => 'Nutzerdaten falsch.',
+                        'icon' => 'icon_error-circle_alt',
+                        'buttonLink' => '/login',
+                        'buttonLabel' => 'Zurück'
+                    ]);
+                }
+
             } else
             {
-                return view('/login', ['infoMessage' => 'wrong data']);
+                return view('action', [
+                    'infoMessage' => 'Nutzerdaten falsch.',
+                    'icon' => 'icon_error-circle_alt',
+                    'buttonLink' => '/login',
+                    'buttonLabel' => 'Zurück'
+                ]);
             }
+
+            
         }
     }
 

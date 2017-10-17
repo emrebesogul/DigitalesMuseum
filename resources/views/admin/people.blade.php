@@ -11,24 +11,7 @@
         <link rel="stylesheet" href="/fonts/elegant_font.css">
     </head>
     <body>
-        <nav>
-            <div id="logo">
-                <span class="highlighted">D</span>igitales <span class="highlighted">M</span>useum
-            </div>
-
-            <div id="search-bar">
-                <span class="icon icon_search"></span>
-                <input type="text" name="search_query" placeholder="Search the museum">
-            </div>
-
-            <div id="user-information">
-                <span id="welcome-message">Willkommen zurück, Herr Administrator!</span>
-
-                <a href="/logout" id="logout-icon">
-                    <span class="icon icon_lock_alt"></span>
-                </a>
-            </div>
-        </nav>
+        @include('nav')
 
         <div id="content">
 
@@ -61,7 +44,7 @@
 
                 <div id="content-view-person">
                   <ul id="list-view-person">
-                      @foreach ($people as $person)
+                  @foreach ($people as $person)
                          <li id="list-persons">
                              {{$person['name']}}
                              <a href="/admin/person/{{$person['id']}}/delete">

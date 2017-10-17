@@ -27,6 +27,18 @@ class EpochsController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showEpochs()
+    {
+        $result = DB::select('SELECT id, name, period_begin, period_end
+            FROM epochs');
+        return view('details.epoch',['epochs' => json_decode(json_encode($result),true)]);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

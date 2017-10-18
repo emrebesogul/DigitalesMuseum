@@ -15,6 +15,8 @@
 
         <div id="content">
             <div id="site-title">
+                <a href="/"><button id="back-button" class="edit-form-data buttons"><span id="test" class="arrow_carrot-left_alt2"></span>Zurück</button></a>
+
                 <div id="site-title-wrapper">
                     <span id="site-title-label">Portrait</span>
                 </div>
@@ -25,7 +27,7 @@
             <div id="site-fact">
               <div id="site-fact-wrapper">
                 <div id="site-fact-image">
-                  <img src="/storage/people/portaits/{{$portrait_filename}}" id="image-person">
+                  <img src="/storage/people/portraits/{{$portrait_filename}}" id="image-person">
                 </div>
                 <div id="site-fact-text">
                   <span id="site-fact-label">Fakten</span>
@@ -58,73 +60,76 @@
                     {{$short_description}}
                   </div>
 
-                  <div id="site-content-picture">
-                    <span id="site-picture-label">Ludwig van Beethoven at work</span>
-                    <img src="/img/beethoven-work.jpg" id="content-picture">
-                    <span id="site-picture-source">2) <a href="https://images-na.ssl-images-amazon.com/images/I/91ew90lu6UL._SL1000_.png">https://images-na.ssl-images-amazon.com/images/I/91ew90lu6UL._SL1000_.png</a></span>
-                  </div>
 
-                  <div id="site-content-video">
-                    <span id="site-video-title">Ludwig van Beethoven's 5th Symphony&nbsp&nbsp&nbspLänge: 5:26</span>
-                    <iframe id="person-video" width="560" height="315"
-                      src="https://www.youtube.com/embed/P62eMvwHyuQ" frameborder="0" allowfullscreen>
-                    </iframe>
-                    <span id="site-video-source">1) <a href="https://www.youtube.com/embed/P62eMvwHyuQ">https://www.youtube.com/P62eMvwHyuQ</a></span>
-                  </div>
 
-                  <div id="site-content-middle">
-                    In 1804, only weeks after Napoleon Bonaparte proclaimed himself Emperor of France,
-                    Beethoven debuted his "Symphony No. 3" in Napoleon's honor. Beethoven, like all of Europe, watched with a mixture of awe and terror; he admired,
-                    abhorred and, to an extent, identified with Napoleon, a man of seemingly superhuman capabilities, only one year older than himself and also of obscure birth.
-                    Later renamed the "Eroica Symphony" because Beethoven grew disillusioned with Napoleon, it was his grandest and most original work to date. Because it was so unlike anything heard before it, the musicians could
-                    not figure out how to play it through weeks of rehearsal. A prominent reviewer proclaimed "Eroica" as "one of the most original, most sublime, and most profound products that the entire genre of music has ever exhibited."
-                  </div>
+              <!-- <div id="site-content-picture">
+                <span id="site-picture-label">Ludwig van Beethoven at work</span>
+                <img src="/img/beethoven-work.jpg" id="content-picture">
+                <span id="site-picture-source">2) <a href="https://images-na.ssl-images-amazon.com/images/I/91ew90lu6UL._SL1000_.png">https://images-na.ssl-images-amazon.com/images/I/91ew90lu6UL._SL1000_.png</a></span>
+              </div>
 
-                  <div id="site-content-bottom">
-                    Mit ungefähr neun Jahren hatte Ludwig auch Geige spielen gelernt und war ab 1789 im Hoforchester neben seinem Dienst als Cembalist und Organist auch als Bratscher angestellt. Im Dezember 1786 brach Beethoven auf Veranlassung seines Dienstherrn, des Kurfürsten und Erzbischofs Maximilian Franz von Habsburg, nach Wien auf, um dort bei Mozart (1756-1791) Unterricht zu nehmen. Beethoven hielt sich jedoch nur wenige Wochen dort auf. Schon auf der Heimreise erreichte ihn eine Nachricht des Vaters mit der Bitte um rasche Rückkehr: die Mutter sei schwer erkrankt und liege im Sterben. Ob Beethoven Mozart in Wien getroffen hat, ist nicht bekannt.
-                  </div>
+              <div id="site-content-video">
+                <span id="site-video-title">Ludwig van Beethoven's 5th Symphony&nbsp&nbsp&nbspLänge: 5:26</span>
+                <iframe id="person-video" width="560" height="315"
+                  src="https://www.youtube.com/embed/P62eMvwHyuQ" frameborder="0" allowfullscreen>
+                </iframe>
+                <span id="site-video-source">1) <a href="https://www.youtube.com/embed/P62eMvwHyuQ">https://www.youtube.com/P62eMvwHyuQ</a></span>
+              </div>
 
+              <div id="site-content-middle">
+                In 1804, only weeks after Napoleon Bonaparte proclaimed himself Emperor of France,
+                Beethoven debuted his "Symphony No. 3" in Napoleon's honor. Beethoven, like all of Europe, watched with a mixture of awe and terror; he admired,
+                abhorred and, to an extent, identified with Napoleon, a man of seemingly superhuman capabilities, only one year older than himself and also of obscure birth.
+                Later renamed the "Eroica Symphony" because Beethoven grew disillusioned with Napoleon, it was his grandest and most original work to date. Because it was so unlike anything heard before it, the musicians could
+                not figure out how to play it through weeks of rehearsal. A prominent reviewer proclaimed "Eroica" as "one of the most original, most sublime, and most profound products that the entire genre of music has ever exhibited."
+              </div>
+
+              <div id="site-content-bottom">
+                Mit ungefähr neun Jahren hatte Ludwig auch Geige spielen gelernt und war ab 1789 im Hoforchester neben seinem Dienst als Cembalist und Organist auch als Bratscher angestellt. Im Dezember 1786 brach Beethoven auf Veranlassung seines Dienstherrn, des Kurfürsten und Erzbischofs Maximilian Franz von Habsburg, nach Wien auf, um dort bei Mozart (1756-1791) Unterricht zu nehmen. Beethoven hielt sich jedoch nur wenige Wochen dort auf. Schon auf der Heimreise erreichte ihn eine Nachricht des Vaters mit der Bitte um rasche Rückkehr: die Mutter sei schwer erkrankt und liege im Sterben. Ob Beethoven Mozart in Wien getroffen hat, ist nicht bekannt.
+              </div>
+
+            </div>
+          </div>
+
+          <div id="related-people">
+            <span id="related-people-label">Related people</span>
+            <br>
+            hier halt so ein css bild... TIMELINE
+          </div>
+
+          <div id="related-history">
+            <span id="related-history-label">Related historical epoches</span>
+            <br>
+
+            <div id="navi-rel-people">
+              <a href="/" id="navigator-epochs">
+                <div id="site-navigator-epochs">
+                  <h2>Romantik</h2>
+                  <h4>1840-1900</h4>
                 </div>
-              </div>
+              </a>
+            </div>
 
-              <div id="related-people">
-                <span id="related-people-label">Related people</span>
-                <br>
-                hier halt so ein css bild... TIMELINE
-              </div>
-
-              <div id="related-history">
-                <span id="related-history-label">Related historical epoches</span>
-                <br>
-
-                <div id="navi-rel-people">
-                  <a href="/" id="navigator-epochs">
-                    <div id="site-navigator-epochs">
-                      <h2>Romantik</h2>
-                      <h4>1840-1900</h4>
-                    </div>
-                  </a>
+            <div id="navi-rel-people">
+              <a href="/" id="navigator-epochs">
+                <div id="site-navigator-epochs">
+                  <h2>Romantik</h2>
+                  <h4>1840-1900</h4>
                 </div>
-
-                <div id="navi-rel-people">
-                  <a href="/" id="navigator-epochs">
-                    <div id="site-navigator-epochs">
-                      <h2>Romantik</h2>
-                      <h4>1840-1900</h4>
-                    </div>
-                  </a>
-                </div>
+              </a>
+            </div>
 
 
 
-              </div>
+          </div>
 
 
-              <div id="sources">
-                <span id="sources-link">Sources</span>
-                <br>
-                [1] xy, L.v.B playing the Piano
-              </div>
+          <div id="sources">
+            <span id="sources-link">Sources</span>
+            <br>
+            [1] xy, L.v.B playing the Piano
+        </div>
+ -->
 
 
             </div>

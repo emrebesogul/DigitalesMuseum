@@ -15,7 +15,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-    
+
         $result = DB::select('SELECT id, name, email, is_admin
             FROM users');
         return view('admin.users',['users' => json_decode(json_encode($result),true)]);
@@ -54,7 +54,7 @@ class UsersController extends Controller
                     'password' => password_hash($request->input('password'), PASSWORD_DEFAULT)
                 ]);
                 session(['userId' => DB::getPdo()->lastInsertId(), 'userName' => $request->input('name'), 'userIsAdmin' => 0]);
-                return redirect('/epoch');
+                return redirect('/epochs');
             } else{
                return view('/login', ['infoMessage' => 'User already exists!', 'email' => $request->input('email')]);
             }
@@ -95,15 +95,15 @@ class UsersController extends Controller
                 if(password_verify($request->input('password'), $result[0]->password))
                 {
                     session(['userId' => $result[0]->id, 'userName' => $result[0]->name, 'userIsAdmin' => (bool) $result[0]->is_admin]);
-                    
+
                     if($result[0]->is_admin)
                     {
                         return redirect('/admin/people');
-                    } else 
+                    } else
                     {
-                        return redirect('/epochs');    
+                        return redirect('/epochs');
                     }
-        
+
                 } else
                 {
                     return view('action', [

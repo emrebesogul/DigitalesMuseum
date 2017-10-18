@@ -24,55 +24,12 @@
             <div id="site-content">
               <section class="timeline">
                 <ul>
-                  <li>
-                    <div class="timelineEntry">
-                      <div class="timelinePicture">
-                          <img src = "https://pbs.twimg.com/profile_images/655015593276477441/LmuMXwW4.jpg" style='height: 100%; width: 100%; object-fit: contain'/>
-                      </div>
-                      <div class="timeline-entry-content">
-                        <h2> Neue Welt </h2>
-                        <span class="timeline-info-birth">
-                          Geboren: <time>2010</time>
-                        </span>
-                        <span class="timeline-info-death">
-                          Gestorben: <time>2011</time>
-                          <br />
-                          <p>
-                            Wir haben nun alle Komponenten, die einen endlichen Automaten festlegen, formal
-     beschrieben. Die folgende Definition fasst diese Festlegungen zusammen:
-     Akzeptor) A ist festgelegt durch A = (; S; ; s0; F). Dabei ist  das Eingabealphabe
-                          </p>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="timelineEntry">
-                      <div class="timelinePicture">
-                          <img src = "https://pbs.twimg.com/profile_images/655015593276477441/LmuMXwW4.jpg" style='height: 100%; width: 100%; object-fit: contain'/>
-                      </div>
-                      <div class="timeline-entry-content">
-                        <h2> Neue Welt </h2>
-                        <span class="timeline-info-birth">
-                          Geboren: <time>2010</time>
-                        </span>
-                        <span class="timeline-info-death">
-                          Gestorben: <time>2011</time>
-                          <br />
-                          <p>
-                            Wir haben nun alle Komponenten, die einen endlichen Automaten fe
-                          </p>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-
                   @foreach ($people as $person)
                     <li>
                       <div class="timelineEntry">
                         <a href="/person/{{$person['id']}}">
                         <div class="timelinePicture">
-                            <img src="/storage/people/portaits/{{$person['portrait_filename']}}" style='height: 100%; width: 100%; object-fit: contain' />
+                            <img src="/storage/people/portraits/{{$person['portrait_filename']}}" style='height: 100%; width: 100%; object-fit: contain' />
                         </div>
                         <div class="timeline-entry-content">
                           <h2>{{$person['name']}}</h2>

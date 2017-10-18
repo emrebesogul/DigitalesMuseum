@@ -15,10 +15,23 @@ class UsersController extends Controller
      */
     public function index()
     {
+        if(parent::userIsAuthenticated() && parent::userIsAdmin())
+        {
+            $result = DB::select('SELECT id, name, email, is_admin
+                FROM users');
+
+            return view('admin.users',['users' => json_decode(json_encode($result),true)]);
+
+        } else
+        {
+            return view('action', [
+                'infoMessage' => 'No access.',
+                'icon' => 'icon_error-circle_alt',
+                'buttonLink' => '/',
+                'buttonLabel' => 'Zurück'
+            ]);
+        }
     
-        $result = DB::select('SELECT id, name, email, is_admin
-            FROM users');
-        return view('admin.users',['users' => json_decode(json_encode($result),true)]);
     }
 
     /**
@@ -124,7 +137,6 @@ class UsersController extends Controller
                 ]);
             }
 
-
         }
     }
 
@@ -148,18 +160,23 @@ class UsersController extends Controller
      */
     public function showUpdate($id)
     {
-        // if(parent::userIsAuthenticated() && parent::userIsAdmin())
-        // {
+        if(parent::userIsAuthenticated() && parent::userIsAdmin())
+        {
             $result = DB::select('SELECT id, name, email, is_admin
                 FROM users
                 WHERE id = :id',
                 ['id' => $id]);
                 return view('admin.userEdit',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'email' => $result[0]->email, 'is_admin' => $result[0]->is_admin]);
-        // } else
-        // {
-        //     print_r('Error: ???');
-        //     //return redirect('/error');
-        // }
+        } else
+        {
+            return view('action', [
+                'infoMessage' => 'No access.',
+                'icon' => 'icon_error-circle_alt',
+                'buttonLink' => '/',
+                'buttonLabel' => 'Zurück'
+            ]);
+        }
+        
     }
 
     /**
@@ -171,44 +188,59 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if ($request->filled(['name', 'email', 'is_admin']) && filter_var($request->input('email'), FILTER_VALIDATE_EMAIL))
-        {
-            $result = DB::update('UPDATE users
-                SET name = :name,
-                    email = :email,
-                    is_admin = :is_admin
-                WHERE id = :id', [
-                    'id' => $id,
-                    'name' => $request->input('name'),
-                    'email' => $request->input('email'),
-                    'is_admin' => $request->input('is_admin')
-                ]);
 
-            if($request->filled(['password']))
+        if(parent::userIsAuthenticated() && parent::userIsAdmin())
+        {
+            
+            if ($request->filled(['name', 'email', 'is_admin']) && filter_var($request->input('email'), FILTER_VALIDATE_EMAIL))
             {
                 $result = DB::update('UPDATE users
-                    SET password = :password
+                    SET name = :name,
+                        email = :email,
+                        is_admin = :is_admin
                     WHERE id = :id', [
                         'id' => $id,
-                        'password' => password_hash($request->input('password'), PASSWORD_DEFAULT)
+                        'name' => $request->input('name'),
+                        'email' => $request->input('email'),
+                        'is_admin' => $request->input('is_admin')
+                    ]);
+    
+                if($request->filled(['password']))
+                {
+                    $result = DB::update('UPDATE users
+                        SET password = :password
+                        WHERE id = :id', [
+                            'id' => $id,
+                            'password' => password_hash($request->input('password'), PASSWORD_DEFAULT)
+                    ]);
+                }
+    
+                return view('action', [
+                    'infoMessage' => 'Der Nutzer wurde erfolgreich verändert.',
+                    'icon' => 'icon_check_alt2',
+                    'buttonLink' => '/admin/users',
+                    'buttonLabel' => 'Zurück'
+                ]);
+            } else
+            {
+                return view('action', [
+                    'infoMessage' => 'Der Nutzer konnte nicht verändert werden.',
+                    'icon' => 'icon_error-circle_alt',
+                    'buttonLink' => '/admin/users',
+                    'buttonLabel' => 'Zurück'
                 ]);
             }
 
-            return view('action', [
-                'infoMessage' => 'Der Nutzer wurde erfolgreich verändert.',
-                'icon' => 'icon_check_alt2',
-                'buttonLink' => '/admin/users',
-                'buttonLabel' => 'Zurück'
-            ]);
         } else
         {
             return view('action', [
-                'infoMessage' => 'Der Nutzer konnte nicht verändert werden.',
+                'infoMessage' => 'No access.',
                 'icon' => 'icon_error-circle_alt',
-                'buttonLink' => '/admin/users',
+                'buttonLink' => '/',
                 'buttonLabel' => 'Zurück'
             ]);
         }
+
     }
 
     /**
@@ -219,7 +251,10 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        $result = DB::delete('DELETE
+
+        if(parent::userIsAuthenticated() && parent::userIsAdmin())
+        {
+            $result = DB::delete('DELETE
             FROM users
             WHERE id = :id',
             ['id' => $id]);
@@ -240,6 +275,17 @@ class UsersController extends Controller
             'buttonLabel' => 'Zurück'
         ]);
        }
+
+        } else
+        {
+            return view('action', [
+                'infoMessage' => 'No access.',
+                'icon' => 'icon_error-circle_alt',
+                'buttonLink' => '/',
+                'buttonLabel' => 'Zurück'
+            ]);
+        }
+
     }
 
 }

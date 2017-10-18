@@ -14,10 +14,14 @@
 }
 
 .timeline-info-death {
-  margin-left: 8px;
+
   color: rgb(130,130,130);
   font-style: italic;
+}
 
+a {
+  text-decoration: none;
+    color: rgb(50,50,50);
 }
 
 h2 {

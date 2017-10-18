@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Base</title>
+        <title>Eine Person bearbeiten - Digitales Museum</title>
 
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,900" rel="stylesheet">
@@ -15,7 +15,7 @@
 
         <div id="content">
           <div id="site-title">
-              <button id="back-button" class="edit-form-data buttons"><span id="test" class="arrow_carrot-left_alt2"></span>Zurück</button>
+              <a href="/admin/people"><button id="back-button" class="edit-form-data buttons"><span id="test" class="arrow_carrot-left_alt2"></span>Zurück</button></a>
               <div id="site-title-wrapper">
 
                   <span id="site-title-label">Settings</span>
@@ -61,10 +61,10 @@
                       <span id="add-textbox" onclick="addTextbox('');">Weiteres Textelement hinzufügen</span>
                     </p>
                   </div>
-
+                  <span id="label-new-epoch"> Bilder hinzufügen </span>
                   <div id="form-picture">
                     <!--<input type="hidden" value="picture" name="edit-form-data[0][type]" />-->
-                    <span id="pictre-add"> Bilder der Persönlichkeit hinzufügen </span>
+                  <span id="pictre-add"> Bilder der Persönlichkeit hinzufügen </span>
                     <!--
                     <p id="edit-form-data-name" class="edit-form-data">
                       Titel des Bildes: <input class="edit-form-textarea" type="text" placeholder="Geben Sie den Titel des Bildes ein!" />
@@ -75,6 +75,21 @@
                   -->
                   <span id="add-textbox" onclick="addPictureBox();">Bildelement hinzufügen</span>
                   </div>
+                  <span id="label-new-epoch"> Videos hinzufügen </span>
+                  <div id="form-video">
+                    <span id="video-add"> Videos der Persönlichkeit hinzufügen </span>
+                    <span id="add-videobox" onclick="addVideoBox();">Videoelement hinzufügen</span>
+                  </div>
+
+                  <span id="label-new-epoch"> Poster hinzufügen </span>
+                  <div id="form-poster">
+
+                    <span> Poster der Persönlichkeit hinzufügen </span>
+                      <!--<span id="add-posterbox" onclick="addPosterBox();"> Posterelement hinzufügen</span> -->
+                      <input type="hidden" value="poster"  />
+                    <input type="file" id="form-poster-data" accept="image/*" />
+                  </div>
+
                   <button id="submit-button" class="edit-form-data buttons" type="submit" text="Absenden">Absenden</button>
                 </form>
               </div>

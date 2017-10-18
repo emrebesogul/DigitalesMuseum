@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Base</title>
+        <title>Eine Person anlegen - Digitales Museum</title>
 
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,900" rel="stylesheet">
@@ -15,7 +15,7 @@
 
         <div id="content">
           <div id="site-title">
-              <button id="back-button" class="edit-form-data buttons"><span id="test" class="arrow_carrot-left_alt2"></span>Zurück</button>
+            <a href="/admin/people"><button id="back-button" class="edit-form-data buttons"><span id="test" class="arrow_carrot-left_alt2"></span>Zurück</button></a>
               <div id="site-title-wrapper">
                   <span id="site-title-label">Settings</span>
               </div>
@@ -23,11 +23,11 @@
             <div id="site-content">
               <div id="edit-form-wrapper">
                 <span id="label-new-person"> Neue Person anlegen </span>
-
-                <form id="edit-form"  action="/admin/person/create" method="post" enctype="multipart/form-data">
-                
+                <form id="edit-form" action="/admin/person/create"  method="post" enctype="multipart/form-data">
                   {{ csrf_field() }}
+
                   <div id="mandatory-field">
+
                     <div class="form-profile-picture">
                       <span id="profile-picture">Wählen Sie das Porträt der Person:</span>
                       <label for="form-profile-picture-data" id="label-custom-pic" onchange="btnChange();" onclick="buttonSubmitClicked(event);" class="custom-file-upload">
@@ -35,8 +35,9 @@
                       </label>
                       <input id="form-profile-picture-data" class="form-profile-picture" type="file" name="edit-form-data-profile-picture" size="80px" accept="image/*" />
                     </div>
+
                     <p id="edit-form-data-name" class="edit-form-data">
-                      Name: <input class="edit-form-textarea" type="text" name="edit-form-data-name" placeholder="Geben Sie den Namen der Person ein!" />
+                      Name: <input class="edit-form-textarea" name="edit-form-data-name" type="text" placeholder="Geben Sie den Namen der Person ein!" />
                     </p>
                     <p id="edit-form-data-location" class="edit-form-data">
                       Ort: <input class="edit-form-textarea" name="edit-form-data-location" type="text" placeholder="Geben Sie den Ort der Person ein!" />
@@ -60,19 +61,29 @@
                     </p>
                   </div>
 
+                  <span id="label-new-epoch"> Bilder hinzufügen </span>
                   <div id="form-picture">
-                    <!--<input type="hidden" value="picture" name="edit-form-data[0][type]" />-->
                     <span id="pictre-add"> Bilder der Persönlichkeit hinzufügen </span>
-                    <!--
-                    <p id="edit-form-data-name" class="edit-form-data">
-                      Titel des Bildes: <input class="edit-form-textarea" type="text" placeholder="Geben Sie den Titel des Bildes ein!" />
-                    </p>
-                    <input id="form-picture-data" type="file" name="edit-form-data[0][content]" size="80px" accept="image/*" />
-                    <br />
-                    Index des Elements: <input id="form-data-index" name="edit-form-data[0][index]" class="edit-form-textarea" type="number" min="1" />
-                  -->
                   <span id="add-textbox" onclick="addPictureBox();">Bildelement hinzufügen</span>
                   </div>
+
+                  <span id="label-new-epoch"> Videos hinzufügen </span>
+                  <div id="form-video">
+                    <input type="hidden" value="video" name="edit-form-data[0][type]" />
+                    <p id="edit-form-data-video" class="edit-form-data">
+                      Geben Sie die URL eines Videos ein: <input id="form-video-data" type="text" placeholder="URL des Videos" />
+                    </p>
+                    <span id="add-videobox" onclick="addVideoBox();">Videoelement hinzufügen</span>
+                  </div>
+
+                  <span id="label-new-epoch"> Poster hinzufügen </span>
+                  <div id="form-poster">
+
+                    <span> Poster der Persönlichkeit hinzufügen </span>
+                      <input type="hidden" value="poster"  />
+                    <input type="file" id="form-poster-data" accept="image/*" />
+                  </div>
+
                   <button id="submit-button" class="edit-form-data buttons" type="submit" text="Absenden">Absenden</button>
                 </form>
               </div>

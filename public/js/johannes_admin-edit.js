@@ -109,7 +109,7 @@ function btnChange(){
 
 function buttonSubmitClicked(event) {
 
-        if (!document.getElementById("form-profile-picture-data").value) {
+        if (!document.getElementById("form-profile-picture-data").value || !document.getElementById("form-epoch-picture-data").value) {
             //event.preventDefault();
             //alert("Please choose a file!");
         } else {
@@ -118,4 +118,36 @@ function buttonSubmitClicked(event) {
             //console.log(btn);
             //btn.style.backgroundColor = "red";
         }
+}
+
+function addVideoBox(){
+  var div = document.createElement("div");
+  var input = document.createElement("input");
+  var p = document.createElement("p");
+  var textbox = document.createElement("input");
+  var videoText = document.createTextNode("Geben Sie hier die URL eines Videos ein:");
+
+  div.id = "form-video";
+
+  input.setAttribute("type", "hidden");
+  input.setAttribute("value", "video");
+  input.name = "edit-form-data["+i+"][type]";
+
+  p.id = "edit-form-data-video";
+  p.className = "edit-form-data";
+
+  textbox.setAttribute("type", "text");
+  textbox.id ="form-video-data";
+  textbox.setAttribute("placeholder", "URL des Videos");
+
+  p.appendChild(videoText);
+  p.appendChild(textbox);
+  div.appendChild(input);
+  div.appendChild(p);
+
+  var button = document.getElementById("form-video");
+  button.insertBefore(div, button.childNodes[0]);
+
+  i++;
+
 }

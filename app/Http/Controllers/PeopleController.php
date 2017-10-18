@@ -118,6 +118,22 @@ class PeopleController extends Controller
             return view('details.person',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'birthday' => $result[0]->birthday, 'location' => $result[0]->location, 'date_of_death' => $result[0]->date_of_death, 'short_description' => $result[0]->short_description, 'portrait_filename' => $result[0]->portrait_filename]);
     }
 
+        /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showAll()
+    {
+        $result = DB::select('SELECT id, name, birthday, location, date_of_death, short_description, portrait_filename
+            FROM people
+            ORDER BY birthday ASC'); 
+            
+        return view('timeline',['people' => json_decode(json_encode($result),true)]);
+           
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

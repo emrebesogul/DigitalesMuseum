@@ -29,7 +29,7 @@
             @endif
     </div>
 </nav>
-@if(session('userIdAdmin'))
+@if(session('userIsAdmin'))
     <a href="/admin/people">
         <div id="goto-admin-banner">
             <span><span class="icon_pens"></span> Verwaltungsoberfläche aufrufen</span>

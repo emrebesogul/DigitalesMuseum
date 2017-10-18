@@ -280,6 +280,11 @@ input[type="file"] {
   margin-right: 7px;
 }
 
+#back-button:hover {
+  transition: background-color 0.3s;
+  cursor: default;
+  background-color: rgb(235,235,235);
+}
 
 #back-button {
     z-index: 999;
@@ -326,6 +331,15 @@ input[type="file"] {
     border-radius: 3px;
     text-align: center;
     transition: background-color 0.3s;
+}
+
+#cover-picture-preview {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    background-color: grey;
+    margin-bottom: 13px;
+    overflow: hidden;
 }
 
 #form-video-data {

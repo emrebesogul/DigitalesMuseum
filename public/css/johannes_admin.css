@@ -113,9 +113,16 @@ nav #user-information #logout-icon .icon {
     transform: rotate(-90deg);
     position: fixed;
     width: 100vh;
+    z-index: 1;
     left: -37vh;
     top: 25vh;
     transform-origin: center center;
+}
+
+#back-button:hover {
+  transition: background-color 0.3s;
+  cursor: default;
+  background-color: rgb(235,235,235);
 }
 
 #content #site-title-label {
@@ -179,10 +186,27 @@ nav #user-information #logout-icon .icon {
 }
 
 #form-picture{
-  border-bottom: solid 1px #555;
   margin-top: 30px;
   margin-bottom: 20px;
   width: 85vh;
+}
+
+#add-videobox:hover {
+  transition: background-color 0.3s;
+  cursor: default;
+  background-color: rgb(235,235,235);
+}
+
+#add-videobox {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    display: block;
+    border: solid 1px black;
+    width: 68%;
+    line-height: 30px;
+    border-radius: 3px;
+    text-align: center;
+    transition: background-color 0.3s;
 }
 
 #form-picture-data {
@@ -261,7 +285,7 @@ nav #user-information #logout-icon .icon {
 }
 
 input[type="file"] {
-  display: none;
+  //display: none;
 }
 
 .custom-file-upload:hover {
@@ -299,7 +323,7 @@ input[type="file"] {
 
 
 #back-button {
-    z-index: 999;
+    z-index: 99999;
     top: 52px;
     left: 83px;
     position: absolute;
@@ -315,6 +339,40 @@ input[type="file"] {
   width: 85vh;
   margin-bottom: 30px;
 }
+
+#add-posterbox:hover {
+  transition: background-color 0.3s;
+  cursor: default;
+  background-color: rgb(235,235,235);
+}
+
+#edit-form-poster-span {
+
+  padding-top: 5px;
+}
+
+#form-poster-data {
+  margin-top: 15px;
+  margin-bottom: 10px;
+padding-bottom: 10px;
+}
+
+#form-poster {
+  margin-top: 20px;
+}
+
+#add-posterbox {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  display: block;
+  border: solid 1px black;
+  width: 69%;
+  line-height: 30px;
+  border-radius: 3px;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
 
 #submit-button {
   display: block;

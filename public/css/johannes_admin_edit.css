@@ -179,10 +179,25 @@ nav #user-information #logout-icon .icon {
 }
 
 #form-picture{
-  border-bottom: solid 1px #555;
+
   margin-top: 30px;
   margin-bottom: 20px;
   width: 85vh;
+}
+
+#edit-form-poster-span {
+
+  padding-top: 5px;
+}
+
+#form-poster-data {
+  margin-top: 15px;
+  margin-bottom: 10px;
+padding-bottom: 10px;
+}
+
+#form-poster {
+  margin-top: 20px;
 }
 
 #form-picture-data {
@@ -262,10 +277,6 @@ nav #user-information #logout-icon .icon {
 .form-profile-picture{
   margin-top: 35px;
   margin-bottom: 25px;
-}
-
-input[type="file"] {
-  display: none;
 }
 
 .custom-file-upload:hover {

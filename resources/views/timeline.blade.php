@@ -89,11 +89,8 @@
 
                       </div>
                     </li>
-
                   @endforeach
-
               </section>
-
             </div>
         </div>
           <script language="javascript" type="text/javascript" src="/js/johannes_timeline.js"></script>

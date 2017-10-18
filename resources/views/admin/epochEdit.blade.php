@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Eine Epoche anlegen - Digitales Museum</title>
+        <title>Eine Epoche bearbeiten - Digitales Museum</title>
 
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,900" rel="stylesheet">
@@ -39,14 +39,18 @@
           </div>
             <div id="site-content">
               <div id="edit-form-wrapper">
-                <span id="label-new-person"> Neue Epoche anlegen </span>
+                <span id="label-new-person"> Eine Epoche bearbeiten </span>
 
                 <form id="edit-form"  action="/admin/person/create" method="post" enctype="multipart/form-data">
 
                   {{ csrf_field() }}
                   <div id="mandatory-field">
                     <div class="form-profile-picture">
-                      <span id="profile-picture">Wählen Sie das Coverbild der Epoche:</span>
+                      <div id="cover-picture-preview">
+
+
+                      </div>
+                      <span id="profile-picture">Der Epoche ein anderes Coverbild zuweisen:</span>
                       <label for="form-epoch-picture-data" id="label-custom-pic" onclick="buttonSubmitClicked(event);" class="custom-file-upload">
                         Datei auswählen
                       </label>

@@ -49,7 +49,7 @@
                                      <span class="icon_trash"></span>
                                  </button>
                              </a>
-                             <a href="/admin/epochs/{{$epoch['id']}}/update">
+                             <a href="/admin/epochs/{{$epoch['id']}}">
                                  <button type="button">
                                      Bearbeiten
                                  </button>

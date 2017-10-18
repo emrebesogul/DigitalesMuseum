@@ -47,7 +47,7 @@
                                      <span class="icon_trash"></span>
                                  </button>
                              </a>
-                             <a href="/admin/user/{{$user['id']}}/update">
+                             <a href="/admin/user/{{$user['id']}}">
                                  <button type="button">
                                      Bearbeiten
                                  </button>

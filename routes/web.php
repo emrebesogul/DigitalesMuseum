@@ -51,7 +51,7 @@ Route::get('/admin/person/{id}/delete', 'PeopleController@destroy');
 
 // EpochsController
 Route::get('/admin/epochs', 'EpochsController@index');
-Route::get('/epoch', 'EpochsController@showEpochs'); // WAR /epochs OHNE 's'
+Route::get('/epochs', 'EpochsController@showEpochs'); // WAR /epochs OHNE 's'
 
 Route::get('/epochs/{id}', 'EpochsController@show');
 

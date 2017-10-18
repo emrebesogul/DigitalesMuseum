@@ -52,7 +52,7 @@
                                      <span class="icon_trash"></span>
                                  </button>
                              </a>
-                             <a href="/admin/person/{{$person['id']}}/update">
+                             <a href="/admin/person/{{$person['id']}}">
                                  <button type="button">
                                      Bearbeiten
                                  </button>

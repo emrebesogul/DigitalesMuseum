@@ -88,13 +88,13 @@ class UsersController extends Controller
                 FROM users
                 WHERE email = :email',
                 ['email' => $request->input('email')]);
-            
+
             if(!empty($result))
             {
                 if(password_verify($request->input('password'), $result[0]->password))
                 {
                     session(['userId' => $result[0]->id, 'userName' => $result[0]->name, 'userIsAdmin' => (bool) $result[0]->is_admin]);
-                    return redirect('/epoch');
+                    return redirect('/epochs');
                 } else
                 {
                     return view('action', [
@@ -115,7 +115,7 @@ class UsersController extends Controller
                 ]);
             }
 
-            
+
         }
     }
 

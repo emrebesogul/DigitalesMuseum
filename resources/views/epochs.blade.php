@@ -23,11 +23,7 @@
 
             <div id="site-content">
 
-<<<<<<< HEAD
-                {{$name}}
-                {{$period_begin}}
-                {{$period_end}}
-=======
+
               <a href="/" id="navigator-timeline">
                 <div id="site-navigator-timeline">
                   <h2>Zur Timeline</h2>
@@ -44,7 +40,6 @@
                 </a>
               </div>
               @endforeach
->>>>>>> 8634ae74176b57afb7ca574910126c9539de231e
 
             </div>
 

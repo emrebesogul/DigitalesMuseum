@@ -20,12 +20,15 @@
               </div>
           </div>
             <div id="site-content">
+                <div id="label-site">
+                    <span id="label-user">User bearbeiten</span>
+                </div>
 
                 <div id="formular-edit">
                     <form action="/admin/user/{{$id}}/update" method="post">
                         {{ csrf_field() }}
-            			<label for="name">Benutzername</label>
-            			<br/>
+            			<label class="label-name" for="name">Benutzername</label>
+            			<br>
             			<input type="text" name="name" value="{{$name}}">
             			<br/>
                         <label for="email">E-Mail</label>

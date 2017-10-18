@@ -88,13 +88,13 @@ class UsersController extends Controller
                 FROM users
                 WHERE email = :email',
                 ['email' => $request->input('email')]);
-            
+
             if(!empty($result))
             {
                 if(password_verify($request->input('password'), $result[0]->password))
                 {
                     session(['userId' => $result[0]->id, 'userName' => $result[0]->name, 'userIsAdmin' => (bool) $result[0]->is_admin]);
-                    return redirect('/epoch');
+                    return redirect('/epochs');
                 } else
                 {
                     return view('action', [
@@ -115,7 +115,7 @@ class UsersController extends Controller
                 ]);
             }
 
-            
+
         }
     }
 
@@ -128,7 +128,7 @@ class UsersController extends Controller
     public function logout(Request $request)
     {
         Session::flush();
-        return redirect('/');
+        return redirect('/login');
     }
 
     /**
@@ -139,18 +139,18 @@ class UsersController extends Controller
      */
     public function showUpdate($id)
     {
-        if(parent::userIsAuthenticated() && parent::userIsAdmin())
-        {
+        //if(parent::userIsAuthenticated() && parent::userIsAdmin())
+        //{
             $result = DB::select('SELECT id, name, email, is_admin
                 FROM users
                 WHERE id = :id',
                 ['id' => $id]);
                 return view('admin.userEdit',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'email' => $result[0]->email, 'is_admin' => $result[0]->is_admin]);
-        } else
-        {
-            print_r('Error: ???');
+        //} else
+        //{
+        //    print_r('Error: ???');
             //return redirect('/error');
-        }
+        //}
     }
 
     /**
@@ -175,7 +175,7 @@ class UsersController extends Controller
                     'is_admin' => $request->input('is_admin')
                 ]);
 
-            if($request->filled(['password'])) 
+            if($request->filled(['password']))
             {
                 $result = DB::update('UPDATE users
                     SET password = :password

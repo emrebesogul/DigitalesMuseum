@@ -41,7 +41,7 @@
               <div id="edit-form-wrapper">
                 <span id="label-new-person"> Eine Epoche bearbeiten </span>
 
-                <form id="edit-form"  action="/admin/person/create" method="post" enctype="multipart/form-data">
+                <form id="edit-form"  action="/admin/epochs/create" method="post" enctype="multipart/form-data">
 
                   {{ csrf_field() }}
                   <div id="mandatory-field">
@@ -57,15 +57,11 @@
                       <input id="form-epoch-picture-data" class="form-profile-picture" type="file" name="edit-form-data-profile-picture" size="80px" accept="image/*" />
                     </div>
                     <p id="edit-form-data-name" class="edit-form-data">
-                      Name der Epoche: <input class="edit-form-textarea" type="text" name="edit-form-data-epoch-name" placeholder="Geben Sie den Namen der Epoche ein!" />
+                      Name der Epoche: <input class="edit-form-textarea" type="text" name="edit-form-data-epoch-name" placeholder="Geben Sie den Namen der Epoche ein!" value={{ $name }} />
                     </p>
                     <p id="edit-form-data-life" class ="edit-form-data lifetime">
-                      <span id ="lifetime-label-birth">Start der Epoche:</span> <input type="date" name="edit-form-data-startdate" />
-                      <span id ="lifetime-label-death">Ende der Epoche:</span> <input type="date" name="edit-form-data-enddate" />
-                    </p>
-                    <p id="short-p" class="edit-form-data">
-                      <span id="short-description">Kurzbeschreibung der Epoche:</span>
-                      <textarea id="textarea-short" class="edit-form-textarea" name="edit-form-data-epoch-short-description" placeholder="Geben Sie hier die Kurzbeschreibung der Epoche ein!"></textarea>
+                      <span id ="lifetime-label-birth">Start der Epoche:</span> <input type="date" name="edit-form-data-startdate" value={{ $period_begin }} />
+                      <span id ="lifetime-label-death">Ende der Epoche:</span> <input type="date" name="edit-form-data-enddate" value={{ $period_end }} />
                     </p>
                   </div>
 

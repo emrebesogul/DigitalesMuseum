@@ -166,7 +166,7 @@ class PeopleController extends Controller
         }
     }
 
-        /**
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -179,6 +179,31 @@ class PeopleController extends Controller
         {
             $result = DB::select('SELECT id, name, birthday, location, date_of_death, short_description, portrait_filename
                 FROM people
+                ORDER BY birthday ASC'); 
+
+            return view('timeline',['people' => json_decode(json_encode($result),true)]);
+        } else
+        {
+            return redirect('/login');
+        } 
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showFiltered($id)
+    {
+        
+        if(parent::userIsAuthenticated())
+        {
+
+            $result = DB::select('SELECT people.id, name, birthday, location, date_of_death, short_description, portrait_filename
+                FROM people
+                JOIN people_are_in_epochs ON people_are_in_epochs.person_id = people.id
+                WHERE people_are_in_epochs.epoch_id = 1
                 ORDER BY birthday ASC'); 
 
             return view('timeline',['people' => json_decode(json_encode($result),true)]);

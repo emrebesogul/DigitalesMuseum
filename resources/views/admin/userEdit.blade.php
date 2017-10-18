@@ -20,6 +20,9 @@
               </div>
           </div>
             <div id="site-content">
+                <div id="label-site">
+                    <span id="label-user">User bearbeiten</span>
+                </div>
 
               <span id="label-new-epoch"> Benutzer bearbeiten </span>
                 <div id="formular-edit">

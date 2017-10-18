@@ -25,90 +25,21 @@
 
               <a href="/" id="navigator-timeline">
                 <div id="site-navigator-timeline">
-                  <h2>Timeline / Alle Epochen</h2>
+                  <h2>Zur Timeline</h2>
                 </div>
               </a>
 
+              @foreach ($epochs as $epoch)
               <div id="test">
-                <a href="/" id="navigator-epochs">
+                <a href="/epochs/{{$epoch['id']}}" id="navigator-epochs">
                   <div id="site-navigator-epochs">
-                    <h2>Romantik</h2>
-                    <h4>1840-1900</h4>
+                    <h2>{{$epoch['name']}}</h2>
+                    <h4>{{$epoch['period_begin']}} - {{$epoch['period_end']}}</h4>
                   </div>
                 </a>
               </div>
+              @endforeach
 
-              <div id="test">
-                <a href="/" id="navigator-epochs">
-                  <div id="site-navigator-epochs">
-                    <h2>Romantik</h2>
-                    <h4>1840-1900</h4>
-                  </div>
-                </a>
-              </div>
-
-              <div id="test">
-                <a href="/" id="navigator-epochs">
-                  <div id="site-navigator-epochs">
-                    <h2>Romantik</h2>
-                    <h4>1840-1900</h4>
-                  </div>
-                </a>
-              </div>
-
-              <div id="test">
-                <a href="/" id="navigator-epochs">
-                  <div id="site-navigator-epochs">
-                    <h2>Romantik</h2>
-                    <h4>1840-1900</h4>
-                  </div>
-                </a>
-              </div>
-
-              <div id="test">
-                <a href="/" id="navigator-epochs">
-                  <div id="site-navigator-epochs">
-                    <h2>Romantik</h2>
-                    <h4>1840-1900</h4>
-                  </div>
-                </a>
-              </div>
-
-              <div id="test">
-                <a href="/" id="navigator-epochs">
-                  <div id="site-navigator-epochs">
-                    <h2>Romantik</h2>
-                    <h4>1840-1900</h4>
-                  </div>
-                </a>
-              </div>
-
-              <div id="test">
-                <a href="/" id="navigator-epochs">
-                  <div id="site-navigator-epochs">
-                    <h2>Romantik</h2>
-                    <h4>1840-1900</h4>
-                  </div>
-                </a>
-              </div>
-
-              <div id="test">
-                <a href="/" id="navigator-epochs">
-                  <div id="site-navigator-epochs">
-                    <h2>Romantik</h2>
-                    <h4>1840-1900</h4>
-                  </div>
-                </a>
-              </div>
-
-              <div id="test">
-                <a href="/" id="navigator-epochs">
-                  <div id="site-navigator-epochs">
-                    <h2>Romantik</h2>
-                    <h4>1840-1900</h4>
-                  </div>
-                </a>
-              </div>
 
 
 

@@ -15,8 +15,15 @@ class EpochsController extends Controller
     public function index()
     {
         $result = DB::select('SELECT id, name, period_begin, period_end
-            FROM epochs');      
+            FROM epochs');
         return view('admin.epochs',['epochs' => json_decode(json_encode($result),true)]);
+    }
+
+    public function indexAll()
+    {
+        $result = DB::select('SELECT id, name, period_begin, period_end
+            FROM epochs');
+        return view('details.epoch',['epochs' => json_decode(json_encode($result),true)]);
     }
 
     /**
@@ -27,7 +34,7 @@ class EpochsController extends Controller
     public function showEpochs()
     {
         $result = DB::select('SELECT id, name, period_begin, period_end
-            FROM epochs');      
+            FROM epochs');
         return view('details.epoch',['epochs' => json_decode(json_encode($result),true)]);
     }
 
@@ -38,7 +45,7 @@ class EpochsController extends Controller
      */
     public function create()
     {
-        return view('admin.epochCreate');        
+        return view('admin.epochCreate');
     }
 
     /**
@@ -49,19 +56,19 @@ class EpochsController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->filled(['name', 'period_begin', 'period_end'])) 
+        if ($request->filled(['name', 'period_begin', 'period_end']))
         {
-            
+
             $result = DB::select('SELECT COUNT(id) AS epoch_count
                 FROM epochs
                 WHERE name = :name', [
                     'name' => $request->input('name')
                     ]);
 
-                
+
             if($result[0]->epoch_count == 0)
             {
-                $result = DB::insert('INSERT INTO epochs (name, period_begin, period_end) 
+                $result = DB::insert('INSERT INTO epochs (name, period_begin, period_end)
                     VALUES (:name, :period_begin, :period_end)', [
                     'name' => $request->input('name'),
                     'period_begin' => $request->input('period_begin'),
@@ -81,7 +88,7 @@ class EpochsController extends Controller
                     'buttonLabel' => 'Zurück'
                 ]);
             }
-        } else 
+        } else
         {
             return view('action', [
                 'infoMessage' => 'Falsche Eingabedaten.',
@@ -103,8 +110,9 @@ class EpochsController extends Controller
         $result = DB::select('SELECT id, name, period_begin, period_end
             FROM epochs
             WHERE id = :id',
-            ['id' => $id]); 
-            return view('details.epoch',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'period_begin' => $result[0]->period_begin, 'period_end' => $result[0]->period_end]);
+            ['id' => $id]);
+            //Geändert
+            return view('/epochs',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'period_begin' => $result[0]->period_begin, 'period_end' => $result[0]->period_end]);
     }
 
     /**
@@ -118,7 +126,7 @@ class EpochsController extends Controller
         $result = DB::select('SELECT id, name, period_begin, period_end
             FROM epochs
             WHERE id = :id',
-            ['id' => $id]); 
+            ['id' => $id]);
 
         return view('admin.epochEdit', ['id' => $result[0]->id, 'name' => $result[0]->name, 'period_begin' => $result[0]->period_begin, 'period_end' => $result[0]->period_end]);
     }
@@ -132,9 +140,9 @@ class EpochsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if ($request->filled(['name', 'period_begin', 'period_end'])) 
+        if ($request->filled(['name', 'period_begin', 'period_end']))
         {
-            $result = DB::update('UPDATE epochs 
+            $result = DB::update('UPDATE epochs
                 SET name = :name,
                     period_begin = :period_begin,
                     period_end = :period_end
@@ -150,7 +158,7 @@ class EpochsController extends Controller
                     'buttonLink' => '/admin/epochs',
                     'buttonLabel' => 'Zurück'
                 ]);
-        } else 
+        } else
         {
             return view('action', [
                 'infoMessage' => 'Epoche konnte nicht bearbeitet werden.',
@@ -169,10 +177,10 @@ class EpochsController extends Controller
      */
     public function destroy($id)
     {
-        $result = DB::delete('DELETE 
+        $result = DB::delete('DELETE
             FROM epochs
             WHERE id = :id',
-            ['id' => $id]); 
+            ['id' => $id]);
             if($result)
             {
              return view('action', [

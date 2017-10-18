@@ -12,7 +12,7 @@
     </head>
     <body>
         @include('nav')
-        
+
         <div id="content">
 
             <div id="site-title">
@@ -25,7 +25,7 @@
 
               <div id="content-action-menu">
                 <ul id="list-action-menu">
-                  <li id="list-header"><a class="active" href="/admin/people">Person</a></li>
+                  <li id="list-header"><a class="active">Person</a></li>
                   <li id="list-header"><a href="/admin/epochs">Epoche</a></li>
                   <li id="list-header"><a href="/admin/users">User-List</a></li>
                 </ul>
@@ -39,6 +39,8 @@
                     Neue Person anlegen
                   </div>
                 </a>
+
+
 
                 <div id="content-view-person">
                   <ul id="list-view-person">

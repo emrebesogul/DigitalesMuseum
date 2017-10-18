@@ -16,10 +16,6 @@ Route::get('/person', function () {
     return view('details.person');
 });
 
-Route::get('/epoch', function () {
-    return view('details.epoch');
-});
-
 // UsersController
 Route::get('/admin/users', 'UsersController@index');
 
@@ -55,9 +51,13 @@ Route::get('/admin/person/{id}/delete', 'PeopleController@destroy');
 
 // EpochsController
 Route::get('/admin/epochs', 'EpochsController@index');
-Route::get('/epochs', 'EpochsController@showEpochs');
+Route::get('/epochs', 'EpochsController@showEpochs'); // WAR /epochs OHNE 's'
 
 Route::get('/epochs/{id}', 'EpochsController@show');
+
+//NEU
+Route::get('/epochs/{id}', 'EpochsController@show');
+
 
 Route::get('/admin/epochs/create', 'EpochsController@create');
 Route::post('/admin/epochs/create', 'EpochsController@store');

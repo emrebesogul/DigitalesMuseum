@@ -33,7 +33,7 @@
 
               <div id="content-action-view">
 
-                <a href="#">
+                <a href="/admin/epochs/create">
                   <div id="content-view-create">
                     Neue Epoche anlegen
                   </div>
@@ -41,14 +41,21 @@
 
                 <div id="content-view-person">
                   <ul id="list-view-person">
-                    <li id="list-persons">Epoche 1<a href="/"><button type="button">Bearbeiten</button></a></li>
-                    <li id="list-persons">Epoche 1<a href="/"><button type="button">Bearbeiten</button></a></li>
-                    <li id="list-persons">Epoche 1<a href="/"><button type="button">Bearbeiten</button></a></li>
-                    <li id="list-persons">Epoche 1<a href="/"><button type="button">Bearbeiten</button></a></li>
-                    <li id="list-persons">Epoche 1<a href="/"><button type="button">Bearbeiten</button></a></li>
-                    <li id="list-persons">Epoche 1<a href="/"><button type="button">Bearbeiten</button></a></li>
-                    <li id="list-persons">Epoche 1<a href="/"><button type="button">Bearbeiten</button></a></li>
-                    <li id="list-persons">Epoche 1<a href="/"><button type="button">Bearbeiten</button></a></li>
+                      @foreach ($epochs as $epoch)
+                         <li id="list-persons">
+                             {{$epoch['name']}}
+                             <a href="/admin/epochs/{{$epoch['id']}}/delete">
+                                 <button type="submit" id="delete-button">
+                                     <span class="icon_trash"></span>
+                                 </button>
+                             </a>
+                             <a href="/admin/epochs/{{$epoch['id']}}">
+                                 <button type="button">
+                                     Bearbeiten
+                                 </button>
+                             </a>
+                         </li>
+                      @endforeach
                   </ul>
                 </div>
 

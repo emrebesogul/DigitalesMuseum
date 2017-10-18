@@ -25,18 +25,18 @@
             <div id="site-fact">
               <div id="site-fact-wrapper">
                 <div id="site-fact-image">
-                  <img src="/img/beethoven.jpg" id="image-person">
+                  <img src="/storage/people/portaits/{{$portrait_filename}}" id="image-person">
                 </div>
                 <div id="site-fact-text">
                   <span id="site-fact-label">Fakten</span>
                   <br><br>
-                  <span id="site-fact-birth">Geboren:<br>Unbekannt</span>
+                  <span id="site-fact-birth">Geboren:<br>{{$birthday}}</span>
                   <br><br>
-                  <span id="site-fact-death">Gestorben:<br>26.03.1827</span>
+                  <span id="site-fact-death">Gestorben:<br>{{$date_of_death}}</span>
                   <br><br>
-                  <span id="site-fact-details">More details:<br>This is place to put more information about this person</span>
+                  <span id="site-fact-details">More details:<br>{{$location}}</span>
                   <br><br>
-                  <span id="site-fact-download-link"><span class="icon_link_alt"> </span><a href="/poster/beethoven.pdf" download>Download poster</a></span>
+                  <span id="site-fact-download-link"><span class="icon_link_alt"> </span><a href="#" download>Download poster</a></span>
 
                   <br><br>
                 </div>
@@ -48,17 +48,14 @@
 
             <div id="site-content">
               <div id="portrait-name">
-                <span id="site-portrait-name">Ludwig van Beethoven</span>
+                <span id="site-portrait-name">{{$name}}</span>
               </div>
 
               <div id="site-content-wrapper">
                 <div id="site-content-text">
 
                   <div id="site-content-header">
-                    Er gehört zu den weltweit bekanntesten Deutschen und gilt als einer der größten Komponisten aller Zeiten. Seine Musik hat sich als zeitlos erwiesen. Selbst Menschen, die keinen direkten Zugang zu klassischer Musik haben, kennen das berühmte "Ta-Ta-Ta Taaaa"-Intro der "5. Sinfonie". Anders als bei Wolfgang Amadeus Mozart ist das Leben von Ludwig van Beethoven jedoch spärlicher dokumentiert. Zwar existieren auch von ihm Briefe und Korrespondenzen, dennoch ist das Ganze lückenhaft. Und so kommen Autoren, die sich an seiner Biografie versucht haben, immer wieder zu recht unterschiedlichen Ergebnissen und Interpretationen.
-                    Er gehört zu den weltweit bekanntesten Deutschen und gilt als einer der größten Komponisten aller Zeiten. Seine Musik hat sich als zeitlos erwiesen. Selbst Menschen, die keinen direkten Zugang zu klassischer Musik haben, kennen das berühmte "Ta-Ta-Ta Taaaa"-Intro der "5. Sinfonie". Anders als bei Wolfgang Amadeus Mozart ist das Leben von Ludwig van Beethoven jedoch spärlicher dokumentiert. Zwar existieren auch von ihm Briefe und Korrespondenzen, dennoch ist das Ganze lückenhaft. Und so kommen Autoren, die sich an seiner Biografie versucht haben, immer wieder zu recht unterschiedlichen Ergebnissen und Interpretationen.
-                    Er gehört zu den weltweit bekanntesten Deutschen und gilt als einer der größten Komponisten aller Zeiten. Seine Musik hat sich als zeitlos erwiesen. Selbst Menschen, die keinen direkten Zugang zu klassischer Musik haben, kennen das berühmte "Ta-Ta-Ta Taaaa"-Intro der "5. Sinfonie". Anders als bei Wolfgang Amadeus Mozart ist das Leben von Ludwig van Beethoven jedoch spärlicher dokumentiert. Zwar existieren auch von ihm Briefe und Korrespondenzen, dennoch ist das Ganze lückenhaft. Und so kommen Autoren, die sich an seiner Biografie versucht haben, immer wieder zu recht unterschiedlichen Ergebnissen und Interpretationen.
-                    Er gehört zu den weltweit bekanntesten Deutschen und gilt als einer der größten Komponisten aller Zeiten. Seine Musik hat sich als zeitlos erwiesen. Selbst Menschen, die keinen direkten Zugang zu klassischer Musik haben, kennen das berühmte "Ta-Ta-Ta Taaaa"-Intro der "5. Sinfonie". Anders als bei Wolfgang Amadeus Mozart ist das Leben von Ludwig van Beethoven jedoch spärlicher dokumentiert. Zwar existieren auch von ihm Briefe und Korrespondenzen, dennoch ist das Ganze lückenhaft. Und so kommen Autoren, die sich an seiner Biografie versucht haben, immer wieder zu recht unterschiedlichen Ergebnissen und Interpretationen.
+                    {{$short_description}}
                   </div>
 
                   <div id="site-content-picture">

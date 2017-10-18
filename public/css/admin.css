@@ -304,6 +304,24 @@ button:hover {
 
 
 
+#content #site-content #label-site {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    border-bottom: 1px solid #000;
+    margin-top: 35px;
+    margin-left: 20px;
+    width: 60vh;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

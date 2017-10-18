@@ -35,7 +35,7 @@ class EpochsController extends Controller
     {
         $result = DB::select('SELECT id, name, period_begin, period_end
             FROM epochs');
-        return view('details.epoch',['epochs' => json_decode(json_encode($result),true)]);
+        return view('epochs',['epochs' => json_decode(json_encode($result),true)]);
     }
 
     /**
@@ -56,7 +56,7 @@ class EpochsController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->filled(['name', 'period_begin', 'period_end']))
+        if ($request->filled(['edit-form-data-epoch-name', 'edit-form-data-startdate', 'edit-form-data-enddate']))
         {
 
             $result = DB::select('SELECT COUNT(id) AS epoch_count
@@ -70,9 +70,9 @@ class EpochsController extends Controller
             {
                 $result = DB::insert('INSERT INTO epochs (name, period_begin, period_end)
                     VALUES (:name, :period_begin, :period_end)', [
-                    'name' => $request->input('name'),
-                    'period_begin' => $request->input('period_begin'),
-                    'period_end' => $request->input('period_end')
+                    'name' => $request->input('edit-form-data-epoch-name'),
+                    'period_begin' => $request->input('edit-form-data-startdate'),
+                    'period_end' => $request->input('edit-form-data-enddate')
                 ]);
                 return view('action', [
                     'infoMessage' => 'Epoche wurde erfolgreich angelegt.',
@@ -140,7 +140,7 @@ class EpochsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if ($request->filled(['name', 'period_begin', 'period_end']))
+        if ($request->filled(['edit-form-data-epoch-name', 'edit-form-data-startdate', 'edit-form-data-enddate']))
         {
             $result = DB::update('UPDATE epochs
                 SET name = :name,

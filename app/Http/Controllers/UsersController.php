@@ -15,6 +15,7 @@ class UsersController extends Controller
      */
     public function index()
     {
+    
         $result = DB::select('SELECT id, name, email, is_admin
             FROM users');
         return view('admin.users',['users' => json_decode(json_encode($result),true)]);
@@ -94,7 +95,19 @@ class UsersController extends Controller
                 if(password_verify($request->input('password'), $result[0]->password))
                 {
                     session(['userId' => $result[0]->id, 'userName' => $result[0]->name, 'userIsAdmin' => (bool) $result[0]->is_admin]);
+<<<<<<< HEAD
                     return redirect('/epochs');
+=======
+                    
+                    if($result[0]->is_admin)
+                    {
+                        return redirect('/admin/people');
+                    } else 
+                    {
+                        return redirect('/epochs');    
+                    }
+        
+>>>>>>> 8634ae74176b57afb7ca574910126c9539de231e
                 } else
                 {
                     return view('action', [
@@ -139,18 +152,31 @@ class UsersController extends Controller
      */
     public function showUpdate($id)
     {
+<<<<<<< HEAD
         //if(parent::userIsAuthenticated() && parent::userIsAdmin())
         //{
+=======
+        // if(parent::userIsAuthenticated() && parent::userIsAdmin())
+        // {
+>>>>>>> 8634ae74176b57afb7ca574910126c9539de231e
             $result = DB::select('SELECT id, name, email, is_admin
                 FROM users
                 WHERE id = :id',
                 ['id' => $id]);
                 return view('admin.userEdit',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'email' => $result[0]->email, 'is_admin' => $result[0]->is_admin]);
+<<<<<<< HEAD
         //} else
         //{
         //    print_r('Error: ???');
             //return redirect('/error');
         //}
+=======
+        // } else
+        // {
+        //     print_r('Error: ???');
+        //     //return redirect('/error');
+        // }
+>>>>>>> 8634ae74176b57afb7ca574910126c9539de231e
     }
 
     /**

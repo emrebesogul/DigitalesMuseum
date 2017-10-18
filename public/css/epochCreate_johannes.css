@@ -27,11 +27,6 @@ nav #logo {
     color: #fafafa;
 }
 
-nav a {
-  color: #fafafa;
-  text-decoration: none;
-}
-
 nav #logo .highlighted {
     font-weight: bold;
     font-style: italic;
@@ -140,7 +135,7 @@ nav #user-information #logout-icon .icon {
 
 #add-textbox {
   margin-top: 15px;
-  margin-bottom: 25px;
+  margin-bottom: 9px;
   display: block;
   border: solid 1px black;
   width: 40%;
@@ -172,32 +167,17 @@ nav #user-information #logout-icon .icon {
 }
 
 #form-text{
-
+  border-bottom: solid 1px black;
   margin-top: 10px;
   margin-bottom: 20px;
   width: 85vh;
 }
 
 #form-picture{
-
-  margin-top: 30px;
+  border-bottom: solid 1px #555;
+  margin-top: 10px;
   margin-bottom: 20px;
   width: 85vh;
-}
-
-#edit-form-poster-span {
-
-  padding-top: 5px;
-}
-
-#form-poster-data {
-  margin-top: 15px;
-  margin-bottom: 10px;
-padding-bottom: 10px;
-}
-
-#form-poster {
-  margin-top: 20px;
 }
 
 #form-picture-data {
@@ -223,44 +203,29 @@ padding-bottom: 10px;
   border-bottom: 3px solid #000;
 }
 
-#label-new-epoch {
-  font-family: 'Playfair Display', serif;
-  font-size: 30px;
-  border-bottom: 1px solid #000;
-  margin-bottom: 15px;
-  margin-top: 50px;
-  display: block;
-  width: 260px;
-}
-
-
 .edit-form-info {
   display: block;
   margin-top: 5px;
+}
 
+#edit-form-data-location {
+  display: inline-block;
+  float: none;
+  vertical-align: middle;
 }
 
 #lifetime-label-birth {
   margin-right: 7px;
-  width: 13vh;
+  width: 17vh;
 }
 
 #lifetime-label-death {
-  width: 15vh;
+  width: 17vh;
   margin-left: 26px;
 }
 
 .lifetime{
   display: inline-flex;
-}
-
-#profile-picture-preview {
-  height: 140px;
-  width: 140px;
-  border-radius: 50%;
-  background-color: grey;
-  margin-bottom: 13px;
-  overflow: hidden;
 }
 
 #submit-button:hover {
@@ -277,6 +242,10 @@ padding-bottom: 10px;
 .form-profile-picture{
   margin-top: 35px;
   margin-bottom: 25px;
+}
+
+input[type="file"] {
+  display: none;
 }
 
 .custom-file-upload:hover {
@@ -298,7 +267,6 @@ padding-bottom: 10px;
 }
 
 #short-p {
-  border-bottom: solid 1px black;
   width: 85vh;
 }
 
@@ -308,6 +276,10 @@ padding-bottom: 10px;
   height: 100px;
 }
 
+.arrow_carrot-left_alt2 {
+  margin-right: 7px;
+}
+
 #back-button:hover {
   transition: background-color 0.3s;
   cursor: default;
@@ -315,25 +287,38 @@ padding-bottom: 10px;
 }
 
 #back-button {
-  z-index: 999;
-  top: 52px;
-  left: 83px;
-  position: absolute;
+    z-index: 999;
+    top: 52px;
+    left: 83px;
+    position: absolute;
+    display: block;
+    width: 95px;
+    margin-bottom: 12px;
+    transition: background-color 0.3s;
+}
+
+#submit-button {
   display: block;
-  width: 95px;
+  width: auto;
   margin-bottom: 12px;
   transition: background-color 0.3s;
 }
-.arrow_carrot-left_alt2 {
-  margin-right: 7px;
-}
-
-
 
 #add-videobox:hover {
   transition: background-color 0.3s;
   cursor: default;
   background-color: rgb(235,235,235);
+}
+
+#form-video {
+  margin-top: 25px;
+}
+
+#label-new-epoch {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  border-bottom: 1px solid #000;
+  margin-bottom: 15px;
 }
 
 #add-videobox {
@@ -348,16 +333,18 @@ padding-bottom: 10px;
     transition: background-color 0.3s;
 }
 
+#cover-picture-preview {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    background-color: grey;
+    margin-bottom: 13px;
+    overflow: hidden;
+}
+
 #form-video-data {
   display: block;
   margin-top: 10px;
   width: 85vh;
   margin-bottom: 30px;
-}
-
-#submit-button {
-  display: block;
-  width: auto;
-  margin-bottom: 12px;
-  transition: background-color 0.3s;
 }

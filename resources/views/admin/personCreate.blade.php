@@ -30,9 +30,7 @@
 
                     <div class="form-profile-picture">
                       <span id="profile-picture">Wählen Sie das Porträt der Person:</span>
-                      <label for="form-profile-picture-data" id="label-custom-pic" onchange="btnChange();" onclick="buttonSubmitClicked(event);" class="custom-file-upload">
-                        Datei auswählen
-                      </label>
+                      
                       <input id="form-profile-picture-data" class="form-profile-picture" type="file" name="edit-form-data-profile-picture" size="80px" accept="image/*" />
                     </div>
 

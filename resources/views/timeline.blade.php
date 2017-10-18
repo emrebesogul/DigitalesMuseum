@@ -70,23 +70,25 @@
                   @foreach ($people as $person)
                     <li>
                       <div class="timelineEntry">
+                        <a href="/person/{{$person['id']}}">
                         <div class="timelinePicture">
-                            <img src="/storage/people/portaits/{{$portrait_filename}}" style='height: 100%; width: 100%; object-fit: contain' />
+                            <img src="/storage/people/portaits/{{$person['portrait_filename']}}" style='height: 100%; width: 100%; object-fit: contain' />
                         </div>
                         <div class="timeline-entry-content">
-                          <h2>{{$name}}</h2>
+                          <h2>{{$person['name']}}</h2>
                           <span class="timeline-info-birth">
-                            Geboren am: {{$birthday}}
+                            Geboren am: {{$person['birthday']}}
                           </span>
+                          <br />
                           <span class="timeline-info-death">
-                            Gestorben am: {{$date_of_death}}
+                          Gestorben am: {{$person['date_of_death']}}
                             <br />
                             <p>
-                              {{$short_description}}
+                              {{$person['short_description']}}
                             </p>
                           </span>
                         </div>
-
+                        </a>
                       </div>
                     </li>
                   @endforeach

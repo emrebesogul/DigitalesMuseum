@@ -32,9 +32,7 @@
                         <img src="/storage/people/portraits/{{ $portrait_filename }}" widht="140px" height="140px">
                       </div>
                       <span id="profile-picture">Der Persönlichkeit ein anderes Portät zuweisen:</span>
-                      <label for="form-profile-picture-data" id="label-custom-pic" onchange="btnChange();" onclick="buttonSubmitClicked(event);" class="custom-file-upload">
-                        Datei auswählen
-                      </label>
+                    
                       <input id="form-profile-picture-data" class="form-profile-picture" type="file" name="edit-form-data-profile-picture" size="80px" accept="image/*" />
                     </div>
                     <p id="edit-form-data-name" class="edit-form-data">

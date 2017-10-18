@@ -18,6 +18,10 @@ nav {
 
 }
 
+.user-edit-label {
+  //margin-bottom: 5px;
+}
+
 nav #logo {
     font-family: 'Playfair Display', serif;
     margin: 0 50px 0 15px;
@@ -261,23 +265,40 @@ button:hover {
 
 
 #content #site-content #formular-edit {
-    margin: 40px 0 0 20px;
-    font-size: 26px;
+    margin-top: 30px;
+
+}
+
+#admin-label {
+  margin-top: 20px;
 }
 
 #content #site-content #formular-edit input {
     height: 22px;
     font-size: 16px;
     width: 100%;
+    margin-bottom: 12px;
+    margin-top: 7px;
+}
+
+#label-new-epoch {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px !important;
+  border-bottom: 3px solid #000;
+  display: block;
+  margin-top: 35px;
 }
 
 #content #site-content #formular-edit input[type=number] {
     width: 8%;
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 #content #site-content #formular-edit button {
     clear: both;
     float: none;
+    margin-right: 10px;
 }
 
 

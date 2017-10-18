@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('timeline');
-});
 
 Route::get('/person', function () {
     return view('details.person');
@@ -41,6 +38,8 @@ Route::get('/admin/user/{id}/delete', 'UsersController@destroy');
 
 
 // PeopleController
+Route::get('/', 'PeopleController@showAll');
+
 Route::get('/admin/people', 'PeopleController@index');
 
 Route::get('/admin/person/create', 'PeopleController@create');

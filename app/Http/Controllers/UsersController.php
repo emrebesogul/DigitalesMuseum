@@ -15,6 +15,7 @@ class UsersController extends Controller
      */
     public function index()
     {
+    
         $result = DB::select('SELECT id, name, email, is_admin
             FROM users');
         return view('admin.users',['users' => json_decode(json_encode($result),true)]);
@@ -94,7 +95,15 @@ class UsersController extends Controller
                 if(password_verify($request->input('password'), $result[0]->password))
                 {
                     session(['userId' => $result[0]->id, 'userName' => $result[0]->name, 'userIsAdmin' => (bool) $result[0]->is_admin]);
-                    return redirect('/epoch');
+                    
+                    if($result[0]->is_admin)
+                    {
+                        return redirect('/admin/people');
+                    } else 
+                    {
+                        return redirect('/epochs');    
+                    }
+        
                 } else
                 {
                     return view('action', [
@@ -139,18 +148,18 @@ class UsersController extends Controller
      */
     public function showUpdate($id)
     {
-        if(parent::userIsAuthenticated() && parent::userIsAdmin())
-        {
+        // if(parent::userIsAuthenticated() && parent::userIsAdmin())
+        // {
             $result = DB::select('SELECT id, name, email, is_admin
                 FROM users
                 WHERE id = :id',
                 ['id' => $id]);
                 return view('admin.userEdit',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'email' => $result[0]->email, 'is_admin' => $result[0]->is_admin]);
-        } else
-        {
-            print_r('Error: ???');
-            //return redirect('/error');
-        }
+        // } else
+        // {
+        //     print_r('Error: ???');
+        //     //return redirect('/error');
+        // }
     }
 
     /**

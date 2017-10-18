@@ -14,9 +14,23 @@ class PeopleController extends Controller
      */
     public function index()
     {
-        $result = DB::select('SELECT id, name, birthday, location, date_of_death, short_description, portrait_filename
-            FROM people');      
-        return view('admin.people',['people' => json_decode(json_encode($result),true)]);
+
+        if(parent::userIsAuthenticated() && parent::userIsAdmin())
+        {
+            $result = DB::select('SELECT id, name, birthday, location, date_of_death, short_description, portrait_filename
+                FROM people');      
+
+            return view('admin.people',['people' => json_decode(json_encode($result),true)]);
+
+        } else
+        {
+            return view('action', [
+                'infoMessage' => 'No access.',
+                'icon' => 'icon_error-circle_alt',
+                'buttonLink' => '/',
+                'buttonLabel' => 'Zurück'
+            ]);
+        }
     }
 
     /**
@@ -26,7 +40,19 @@ class PeopleController extends Controller
      */
     public function create()
     {
-        return view('admin.personCreate');
+        if(parent::userIsAuthenticated() && parent::userIsAdmin())
+        {
+            return view('admin.personCreate');
+
+        } else
+        {
+            return view('action', [
+                'infoMessage' => 'No access.',
+                'icon' => 'icon_error-circle_alt',
+                'buttonLink' => '/',
+                'buttonLabel' => 'Zurück'
+            ]);
+        }
     }
 
     /**
@@ -37,67 +63,80 @@ class PeopleController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->filled(['edit-form-data-name', 'edit-form-data-birthdate', 'edit-form-data-deathdate', 'edit-form-data'])) 
+
+        if(parent::userIsAuthenticated() && parent::userIsAdmin())
         {
-            
-            $result = DB::select('SELECT COUNT(id) AS person_count
-                FROM people
-                WHERE name = :name AND birthday = :birthday AND date_of_death = :date_of_death', [
-                    'name' => $request->input('edit-form-data-name'),
-                    'birthday' => $request->input('edit-form-data-birthdate'),
-                    'date_of_death' => $request->input('edit-form-data-deathdate')
-                    ]);
-
-                
-            if($result[0]->person_count == 0)
+            if ($request->filled(['edit-form-data-name', 'edit-form-data-birthdate', 'edit-form-data-deathdate', 'edit-form-data'])) 
             {
-                $result = DB::insert('INSERT INTO people (name, birthday, location, date_of_death, short_description) 
-                    VALUES (:name, :birthay, :location, :date_of_death, :short_description)', [
-                    'name' => $request->input('edit-form-data-name'),
-                    'birthay' => $request->input('edit-form-data-birthdate'),
-                    'location' => $request->input('edit-form-data-location'),
-                    'date_of_death' => $request->input('edit-form-data-deathdate'),
-                    'short_description' => $request->input('edit-form-data-short-description')
-                ]);
-
-                if($request->has('edit-form-data-profile-picture'))
-                {
-                    $portrait = $request->file('edit-form-data-profile-picture');
-                    $randomString = str_random(384);
-                    $filename = hash('sha384', $randomString) .'.'. $portrait->getClientOriginalExtension();
-
-                    $portrait->move('storage/people/portraits/', $filename);
-                    $personId = DB::getPdo()->lastInsertId();
-                    
-                    $result = DB::update('UPDATE people 
-                        SET portrait_filename = :portrait_filename
-                        WHERE id = :id ', [
-                            'id' => DB::getPdo()->lastInsertId(),
-                            'portrait_filename' => $filename
+                
+                $result = DB::select('SELECT COUNT(id) AS person_count
+                    FROM people
+                    WHERE name = :name AND birthday = :birthday AND date_of_death = :date_of_death', [
+                        'name' => $request->input('edit-form-data-name'),
+                        'birthday' => $request->input('edit-form-data-birthdate'),
+                        'date_of_death' => $request->input('edit-form-data-deathdate')
                         ]);
-                }            
-
-
+    
+                    
+                if($result[0]->person_count == 0)
+                {
+                    $result = DB::insert('INSERT INTO people (name, birthday, location, date_of_death, short_description) 
+                        VALUES (:name, :birthay, :location, :date_of_death, :short_description)', [
+                        'name' => $request->input('edit-form-data-name'),
+                        'birthay' => $request->input('edit-form-data-birthdate'),
+                        'location' => $request->input('edit-form-data-location'),
+                        'date_of_death' => $request->input('edit-form-data-deathdate'),
+                        'short_description' => $request->input('edit-form-data-short-description')
+                    ]);
+    
+                    if($request->has('edit-form-data-profile-picture'))
+                    {
+                        $portrait = $request->file('edit-form-data-profile-picture');
+                        $randomString = str_random(384);
+                        $filename = hash('sha384', $randomString) .'.'. $portrait->getClientOriginalExtension();
+    
+                        $portrait->move('storage/people/portraits/', $filename);
+                        $personId = DB::getPdo()->lastInsertId();
+                        
+                        $result = DB::update('UPDATE people 
+                            SET portrait_filename = :portrait_filename
+                            WHERE id = :id ', [
+                                'id' => DB::getPdo()->lastInsertId(),
+                                'portrait_filename' => $filename
+                            ]);
+                    }            
+    
+    
+                    return view('action', [
+                        'infoMessage' => 'Person wurde erfolgreich angelegt.',
+                        'icon' => 'icon_check_alt2',
+                        'buttonLink' => '/admin/people',
+                        'buttonLabel' => 'Zurück'
+                    ]);
+                } else{
+                    return view('action', [
+                        'infoMessage' => 'Diese Person existiert bereits.',
+                        'icon' => 'icon_error-circle_alt',
+                        'buttonLink' => '/admin/people',
+                        'buttonLabel' => 'Zurück'
+                    ]);
+                }
+            } else 
+            {
                 return view('action', [
-                    'infoMessage' => 'Person wurde erfolgreich angelegt.',
-                    'icon' => 'icon_check_alt2',
-                    'buttonLink' => '/admin/people',
-                    'buttonLabel' => 'Zurück'
-                ]);
-            } else{
-                return view('action', [
-                    'infoMessage' => 'Diese Person existiert bereits.',
+                    'infoMessage' => 'Falsche Eingabedaten.',
                     'icon' => 'icon_error-circle_alt',
                     'buttonLink' => '/admin/people',
                     'buttonLabel' => 'Zurück'
                 ]);
             }
-        } else 
+
+        } else
         {
             return view('action', [
-                'infoMessage' => 'Falsche Eingabedaten.',
+                'infoMessage' => 'No access.',
                 'icon' => 'icon_error-circle_alt',
-                'buttonLink' => '/admin/people',
+                'buttonLink' => '/',
                 'buttonLabel' => 'Zurück'
             ]);
         }
@@ -111,11 +150,20 @@ class PeopleController extends Controller
      */
     public function show($id)
     {
-        $result = DB::select('SELECT id, name, birthday, location, date_of_death, short_description, portrait_filename
-            FROM people
-            WHERE id = :id',
-            ['id' => $id]); 
+
+        if(parent::userIsAuthenticated())
+        {
+            $result = DB::select('SELECT id, name, birthday, location, date_of_death, short_description, portrait_filename
+                FROM people
+                WHERE id = :id',
+                ['id' => $id]); 
+
             return view('details.person',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'birthday' => $result[0]->birthday, 'location' => $result[0]->location, 'date_of_death' => $result[0]->date_of_death, 'short_description' => $result[0]->short_description, 'portrait_filename' => $result[0]->portrait_filename]);
+
+        } else
+        {
+            return redirect('/login');
+        }
     }
 
         /**
@@ -126,12 +174,18 @@ class PeopleController extends Controller
      */
     public function showAll()
     {
-        $result = DB::select('SELECT id, name, birthday, location, date_of_death, short_description, portrait_filename
-            FROM people
-            ORDER BY birthday ASC'); 
-            
-        return view('timeline',['people' => json_decode(json_encode($result),true)]);
-           
+        
+        if(parent::userIsAuthenticated())
+        {
+            $result = DB::select('SELECT id, name, birthday, location, date_of_death, short_description, portrait_filename
+                FROM people
+                ORDER BY birthday ASC'); 
+
+            return view('timeline',['people' => json_decode(json_encode($result),true)]);
+        } else
+        {
+            return redirect('/login');
+        } 
     }
 
     /**
@@ -142,24 +196,36 @@ class PeopleController extends Controller
      */
     public function edit($id)
     {
-        $result = DB::select('SELECT id, name, birthday, location, date_of_death, short_description, portrait_filename
-            FROM people
-            WHERE id = :id',
-            ['id' => $id]); 
 
-        if(isset($result[0]))
+        if(parent::userIsAuthenticated() && parent::userIsAdmin())
         {
-            return view('admin.personEdit', ['id' => $result[0]->id, 'name' => $result[0]->name, 'birthday' => $result[0]->birthday, 'location' => $result[0]->location, 'date_of_death' => $result[0]->date_of_death, 'short_description' => $result[0]->short_description, 'portrait_filename' => $result[0]->portrait_filename]);
+            $result = DB::select('SELECT id, name, birthday, location, date_of_death, short_description, portrait_filename
+                FROM people
+                WHERE id = :id',
+                ['id' => $id]); 
+
+            if(isset($result[0]))
+            {
+                return view('admin.personEdit', ['id' => $result[0]->id, 'name' => $result[0]->name, 'birthday' => $result[0]->birthday, 'location' => $result[0]->location, 'date_of_death' => $result[0]->date_of_death, 'short_description' => $result[0]->short_description, 'portrait_filename' => $result[0]->portrait_filename]);
+            } else
+            {
+                return view('action', [
+                    'infoMessage' => 'Die Person wurde nicht gefunden.',
+                    'icon' => 'icon_error-circle_alt',
+                    'buttonLink' => '/admin/people',
+                    'buttonLabel' => 'Zurück'
+                ]);
+            }
+
         } else
         {
             return view('action', [
-                'infoMessage' => 'Die Person wurde nicht gefunden.',
+                'infoMessage' => 'No access.',
                 'icon' => 'icon_error-circle_alt',
-                'buttonLink' => '/admin/people',
+                'buttonLink' => '/',
                 'buttonLabel' => 'Zurück'
             ]);
-        }
-        
+        } 
     }
 
     /**
@@ -171,54 +237,67 @@ class PeopleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if ($request->filled(['edit-form-data-name', 'edit-form-data-birthdate', 'edit-form-data-deathdate', 'edit-form-data'])) 
+
+        if(parent::userIsAuthenticated() && parent::userIsAdmin())
         {
-            $result = DB::update('UPDATE people 
-                SET name = :name,
-                    birthday = :birthday,
-                    location = :location,
-                    date_of_death = :date_of_death,
-                    short_description = :short_description
-                WHERE id = :id', [
-                    'id' => $id,
-                    'name' => $request->input('edit-form-data-name'),
-                    'birthday' => $request->input('edit-form-data-birthdate'),
-                    'location' => $request->input('edit-form-data-location'),
-                    'date_of_death' => $request->input('edit-form-data-deathdate'),
-                    'short_description' => $request->input('edit-form-data-short-description')
-                ]);
-
-                if($request->has('edit-form-data-profile-picture'))
-                {
-                    $portrait = $request->file('edit-form-data-profile-picture');
-                    $randomString = str_random(384);
-                    $filename = hash('sha384', $randomString) .'.'. $portrait->getClientOriginalExtension();
-
-                    $portrait->move('storage/people/portraits/', $filename);
+            if ($request->filled(['edit-form-data-name', 'edit-form-data-birthdate', 'edit-form-data-deathdate', 'edit-form-data'])) 
+            {
+                $result = DB::update('UPDATE people 
+                    SET name = :name,
+                        birthday = :birthday,
+                        location = :location,
+                        date_of_death = :date_of_death,
+                        short_description = :short_description
+                    WHERE id = :id', [
+                        'id' => $id,
+                        'name' => $request->input('edit-form-data-name'),
+                        'birthday' => $request->input('edit-form-data-birthdate'),
+                        'location' => $request->input('edit-form-data-location'),
+                        'date_of_death' => $request->input('edit-form-data-deathdate'),
+                        'short_description' => $request->input('edit-form-data-short-description')
+                    ]);
+    
+                    if($request->has('edit-form-data-profile-picture'))
+                    {
+                        $portrait = $request->file('edit-form-data-profile-picture');
+                        $randomString = str_random(384);
+                        $filename = hash('sha384', $randomString) .'.'. $portrait->getClientOriginalExtension();
+    
+                        $portrait->move('storage/people/portraits/', $filename);
+                        
+                        $result = DB::update('UPDATE people 
+                            SET portrait_filename = :portrait_filename
+                            WHERE id = :id ', [
+                                'id' => $id,
+                                'portrait_filename' => $filename
+                            ]);
+                    }          
                     
-                    $result = DB::update('UPDATE people 
-                        SET portrait_filename = :portrait_filename
-                        WHERE id = :id ', [
-                            'id' => $id,
-                            'portrait_filename' => $filename
-                        ]);
-                }          
-                
+                    return view('action', [
+                        'infoMessage' => 'Person wurde erfolgreich bearbeitet.',
+                        'icon' => 'icon_check_alt2',
+                        'buttonLink' => '/admin/people',
+                        'buttonLabel' => 'Zurück'
+                    ]);
+            } else 
+            {
                 return view('action', [
-                    'infoMessage' => 'Person wurde erfolgreich bearbeitet.',
-                    'icon' => 'icon_check_alt2',
-                    'buttonLink' => '/admin/people',
+                    'infoMessage' => 'Person konnte nicht bearbeitet werden.',
+                    'icon' => 'icon_error-circle_alt',
+                    'buttonLink' => 'javascript:history.back()',
                     'buttonLabel' => 'Zurück'
                 ]);
-        } else 
+            }
+
+        } else
         {
             return view('action', [
-                'infoMessage' => 'Person konnte nicht bearbeitet werden.',
+                'infoMessage' => 'No access.',
                 'icon' => 'icon_error-circle_alt',
-                'buttonLink' => 'javascript:history.back()',
+                'buttonLink' => '/',
                 'buttonLabel' => 'Zurück'
             ]);
-        }
+        }     
     }
 
     /**
@@ -229,10 +308,14 @@ class PeopleController extends Controller
      */
     public function destroy($id)
     {
-        $result = DB::delete('DELETE 
-            FROM people
-            WHERE id = :id',
-            ['id' => $id]); 
+
+        if(parent::userIsAuthenticated() && parent::userIsAdmin())
+        {
+            $result = DB::delete('DELETE 
+                FROM people
+                WHERE id = :id',
+                ['id' => $id]); 
+
             if($result)
             {
              return view('action', [
@@ -251,5 +334,14 @@ class PeopleController extends Controller
              ]);
             }
 
+        } else
+        {
+            return view('action', [
+                'infoMessage' => 'No access.',
+                'icon' => 'icon_error-circle_alt',
+                'buttonLink' => '/',
+                'buttonLabel' => 'Zurück'
+            ]);
+        }
     }
 }

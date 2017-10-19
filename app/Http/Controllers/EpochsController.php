@@ -254,12 +254,10 @@ class EpochsController extends Controller
                         'period_end' => $request->input('edit-form-data-enddate')
                     ]);
 
-
-                    $epochID = DB::getPdo()->lastInsertId();
        
-                    if($request->has('edit-form-data-profile-picture'))
+                    if($request->has('edit-form-data-epoch-picture'))
                     {
-                        $picture = $request->file('edit-form-data-profile-picture');
+                        $picture = $request->file('edit-form-data-epoch-picture');
                         $randomString = str_random(384);
                         $filename = hash('sha384', $randomString) .'.'. $picture->getClientOriginalExtension();
 
@@ -268,7 +266,7 @@ class EpochsController extends Controller
                         $result = DB::update('UPDATE epochs
                             SET cover_filename = :cover_filename
                             WHERE id = :id ', [
-                                'id' => $epochID,
+                                'id' => $id,
                                 'cover_filename' => $filename
                             ]);
                     }

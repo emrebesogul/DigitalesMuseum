@@ -71,7 +71,7 @@
                     <p id="edit-form-data-video" class="edit-form-data">
                       Geben Sie die URL eines Videos ein: <input id="form-video-data" name="edit-form-data[1][content]" type="text" placeholder="URL des Videos" />
                     </p>
-                    <span id="add-videobox" onclick="addVideoBox();">Videoelement hinzufügen</span>
+                    <span id="add-videobox" onclick="addVideoBox("");">Videoelement hinzufügen</span>
                   </div>
 
                   <span id="label-new-epoch"> Poster hinzufügen </span>

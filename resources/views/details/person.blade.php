@@ -62,13 +62,23 @@
                     {{$short_description}}
                   </div>
 
+                  @foreach ($videos as $video)
+                      <div id="site-content-video">
+
+                        {!!$video['embedCode']!!}
+
+                      </div>
+                  @endforeach
 
 
-              <!-- <div id="site-content-picture">
+              <!--
+              <div id="site-content-picture">
                 <span id="site-picture-label">Ludwig van Beethoven at work</span>
                 <img src="/img/beethoven-work.jpg" id="content-picture">
                 <span id="site-picture-source">2) <a href="https://images-na.ssl-images-amazon.com/images/I/91ew90lu6UL._SL1000_.png">https://images-na.ssl-images-amazon.com/images/I/91ew90lu6UL._SL1000_.png</a></span>
               </div>
+
+
 
               <div id="site-content-video">
                 <span id="site-video-title">Ludwig van Beethoven's 5th Symphony&nbsp&nbsp&nbspLänge: 5:26</span>

@@ -46,7 +46,8 @@ class EpochsController extends Controller
         if(parent::userIsAuthenticated())
         {
             $result = DB::select('SELECT id, name, period_begin, period_end
-                FROM epochs');
+                FROM epochs
+                ORDER BY period_begin ASC');
 
             return view('epochs',['epochs' => json_decode(json_encode($result),true)]);
 
@@ -228,9 +229,9 @@ class EpochsController extends Controller
                         period_end = :period_end
                     WHERE id = :id', [
                         'id' => $id,
-                        'name' => $request->input('name'),
-                        'period_begin' => $request->input('period_begin'),
-                        'period_end' => $request->input('period_end')
+                        'name' => $request->input('edit-form-data-epoch-name'),
+                        'period_begin' => $request->input('edit-form-data-startdate'),
+                        'period_end' => $request->input('edit-form-data-enddate')
                     ]);
                     return view('action', [
                         'infoMessage' => 'Epoche wurde erfolgreich bearbeitet.',

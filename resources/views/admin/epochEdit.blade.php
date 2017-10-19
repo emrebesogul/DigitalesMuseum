@@ -41,7 +41,7 @@
               <div id="edit-form-wrapper">
                 <span id="label-new-person"> Eine Epoche bearbeiten </span>
 
-                <form id="edit-form"  action="/admin/epochs/create" method="post" enctype="multipart/form-data">
+                <form id="edit-form"  action="/admin/epochs/{{$id}}/update" method="post" enctype="multipart/form-data">
 
                   {{ csrf_field() }}
                   <div id="mandatory-field">

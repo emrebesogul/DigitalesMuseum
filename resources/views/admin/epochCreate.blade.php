@@ -59,10 +59,6 @@
                       <span id ="lifetime-label-birth">Start der Epoche:</span> <input type="date" name="edit-form-data-startdate" />
                       <span id ="lifetime-label-death">Ende der Epoche:</span> <input type="date" name="edit-form-data-enddate" />
                     </p>
-                    <p id="short-p" class="edit-form-data">
-                      <span id="short-description">Kurzbeschreibung der Epoche:</span>
-                      <textarea id="textarea-short" class="edit-form-textarea" name="edit-form-data-epoch-short-description" placeholder="Geben Sie hier die Kurzbeschreibung der Epoche ein!"></textarea>
-                    </p>
                   </div>
 
                   <button id="submit-button" class="edit-form-data buttons" type="submit" text="Absenden">Absenden</button>

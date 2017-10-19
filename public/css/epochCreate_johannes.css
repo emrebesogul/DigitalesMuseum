@@ -342,6 +342,10 @@ input[type="file"] {
     overflow: hidden;
 }
 
+#mandatory-field {
+  margin-bottom: 20px;
+}
+
 #form-video-data {
   display: block;
   margin-top: 10px;

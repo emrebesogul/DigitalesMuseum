@@ -1,5 +1,5 @@
 
-var i = 1;
+var i = 2;
 
 function addTextbox(content, index){
   var div = document.createElement("div");
@@ -138,6 +138,7 @@ function addVideoBox(){
 
   textbox.setAttribute("type", "text");
   textbox.id ="form-video-data";
+  textbox.name = "edit-form-data["+i+"][content]";
   textbox.setAttribute("placeholder", "URL des Videos");
 
   p.appendChild(videoText);

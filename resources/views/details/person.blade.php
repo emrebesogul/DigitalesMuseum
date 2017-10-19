@@ -62,6 +62,13 @@
                     {{$short_description}}
                   </div>
 
+                  @foreach ($videos as $video)
+                      <div id="site-content-video">
+
+                        {!!$video['embedCode']!!}
+
+                      </div>
+                  @endforeach
 
 
               <!--

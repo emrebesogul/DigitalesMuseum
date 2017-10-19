@@ -423,6 +423,8 @@ class PeopleController extends Controller
         {
             if ($request->filled(['edit-form-data-name', 'edit-form-data-birthdate', 'edit-form-data-deathdate', 'edit-form-data']))
             {
+
+
                 $result = DB::update('UPDATE people
                     SET name = :name,
                         birthday = :birthday,
@@ -457,11 +459,24 @@ class PeopleController extends Controller
 
                     if( $request->input('edit-form-data'))
                     {
+                        $result = DB::delete('DELETE 
+                            FROM texts 
+                            WHERE person_id = :person_id ', [
+                            'person_id' => $id
+                            ]);
+
+                        $result = DB::delete('DELETE 
+                            FROM videos 
+                            WHERE person_id = :person_id', [
+                            'person_id' => $id
+                            ]);
+
                         foreach($request->input('edit-form-data') AS $entry)
                         {
 
                             if($entry['type'] == 'video')
                             {
+
                                 $result = DB::insert('INSERT INTO videos (person_id, url)
                                     VALUES (:person_id, :url)', [
                                     'person_id' => $id,
@@ -471,6 +486,7 @@ class PeopleController extends Controller
 
                             if($entry['type'] == 'text')
                             {
+
                                 $result = DB::insert('INSERT INTO texts (person_id, content)
                                     VALUES (:person_id, :content)', [
                                     'person_id' => $id,
@@ -483,6 +499,12 @@ class PeopleController extends Controller
 
                     if(isset($request->files->all()['edit-form-pictures']))
                     {
+                        $result = DB::delete('DELETE 
+                            FROM pictures 
+                            WHERE person_id = :person_id', [
+                            'person_id' => $id
+                            ]);
+
                         foreach($request->files->all()['edit-form-pictures'] AS $picture)
                         {
 

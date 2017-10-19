@@ -60,6 +60,13 @@
                     </p>
                   </div>
                   <span id="label-new-epoch"> Bilder hinzufügen </span>
+                  <div id="show-uploaded-pictures">
+                    @foreach ($people as $person)
+                    <div style="background-image: url(/storage/people/pictures/{{$person['picture_filename']}})">
+                    </div>
+                    @endforeach
+
+                  </div>
                   <div id="form-picture">
                     <!--<input type="hidden" value="picture" name="edit-form-data[0][type]" />-->
                   <span id="pictre-add"> Bilder der Persönlichkeit hinzufügen </span>

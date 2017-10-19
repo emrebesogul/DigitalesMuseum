@@ -107,7 +107,7 @@ nav #user-information #welcome-message {
 nav #user-information #logout-icon {
     width: 55px;
     height: 55px;
-    background-color: #eeeeee;
+    background-color: #eee;
     display: flex;
     justify-content: space-around;
     line-height: 55px;
@@ -251,6 +251,7 @@ ul#list-action-menu {
 
 li#list-header.active{
   background-color: rgb(40,40,40);
+  color: white;
 }
 
 li#list-header.active:hover{

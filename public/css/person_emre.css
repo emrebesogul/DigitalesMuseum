@@ -303,6 +303,11 @@ a:hover {
   margin: 0 auto;
 }
 
+#content #site-content #site-content-wrapper #site-label-type {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+}
+
 
 #content #site-content #site-content-wrapper #site-content-text #site-content-video #site-video-title {
   display:table;

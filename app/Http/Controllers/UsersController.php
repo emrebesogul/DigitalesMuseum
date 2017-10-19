@@ -67,7 +67,7 @@ class UsersController extends Controller
                     'password' => password_hash($request->input('password'), PASSWORD_DEFAULT)
                 ]);
                 session(['userId' => DB::getPdo()->lastInsertId(), 'userName' => $request->input('name'), 'userIsAdmin' => 0]);
-                return redirect('/epochs');
+                return redirect('/');
             } else{
                return view('/login', ['infoMessage' => 'User already exists!', 'email' => $request->input('email')]);
             }
@@ -114,7 +114,7 @@ class UsersController extends Controller
                         return redirect('/admin/people');
                     } else
                     {
-                        return redirect('/epochs');
+                        return redirect('/');
                     }
 
                 } else

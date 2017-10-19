@@ -25,9 +25,9 @@
 
               <div id="content-action-menu">
                 <ul id="list-action-menu">
-                  <li id="list-header"><a href="/admin/people">Person</a></li>
-                  <li id="list-header" class ="active"><a>Epoche</a></li>
-                  <li id="list-header"><a href="/admin/users">User-List</a></li>
+                  <a href="/admin/users"><li id="list-header">Benutzer</li></a>
+                  <a><li id="list-header" class ="active">Epoche</li></a>
+                  <a href="/admin/people"><li id="list-header">Person</li></a>
                 </ul>
               </div>
 

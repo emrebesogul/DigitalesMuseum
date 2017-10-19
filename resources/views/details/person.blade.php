@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Beethoven</title>
+        <title>{{$name}} - Digitales Museum</title>
 
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,900" rel="stylesheet">
@@ -32,11 +32,13 @@
                 <div id="site-fact-text">
                   <span id="site-fact-label">Fakten</span>
                   <br><br>
-                  <span id="site-fact-birth">Geboren:<br>{{$birthday}}</span>
+                  <span id="site-fact-birth" class="site-facts"><i >Geboren:</i><br>{{ Carbon\Carbon::parse($birthday)->format('d.m.Y') }}</span>
                   <br><br>
-                  <span id="site-fact-death">Gestorben:<br>{{$date_of_death}}</span>
+                  <span id="site-fact-death" class="site-facts"><i>Gestorben:</i><br>{{ Carbon\Carbon::parse($date_of_death)->format('d.m.Y') }}</span>
                   <br><br>
-                  <span id="site-fact-details">More details:<br>{{$location}}</span>
+                  <span id="site-fact-details" class="site-facts"><i>Ort:</i><br>{{$location}}</span>
+                  <br /><br />
+                  <span id="site-fact-short-description" class="site-facts"><i>Kurzbeschreibung:</i> <br /> {{$short_description}}</span>
                   <br><br>
                   <span id="site-fact-download-link"><span class="icon_link_alt"> </span><a href="#" download>Download poster</a></span>
 

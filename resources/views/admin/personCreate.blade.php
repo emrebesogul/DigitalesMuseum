@@ -79,7 +79,7 @@
 
                     <span> Poster der Persönlichkeit hinzufügen </span>
                       <input type="hidden" value="poster"  />
-                    <input type="file" id="form-poster-data" accept="image/*" />
+                    <input type="file" name="form-poster-data" accept="*.pdf" />
                   </div>
 
                   <button id="submit-button" class="edit-form-data buttons" type="submit" text="Absenden">Änderungen speichern</button>

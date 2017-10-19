@@ -90,6 +90,8 @@ class PeopleController extends Controller
                         'short_description' => $request->input('edit-form-data-short-description')
                     ]);
 
+                    $personName = DB::getPdo()->lastInsertId();
+
                     if($request->has('edit-form-data-profile-picture'))
                     {
                         $portrait = $request->file('edit-form-data-profile-picture');
@@ -97,13 +99,75 @@ class PeopleController extends Controller
                         $filename = hash('sha384', $randomString) .'.'. $portrait->getClientOriginalExtension();
 
                         $portrait->move('storage/people/portraits/', $filename);
-                        $personId = DB::getPdo()->lastInsertId();
 
                         $result = DB::update('UPDATE people
                             SET portrait_filename = :portrait_filename
                             WHERE id = :id ', [
-                                'id' => DB::getPdo()->lastInsertId(),
+                                'id' => $personName,
                                 'portrait_filename' => $filename
+                            ]);
+                    }
+
+                    if( $request->input('edit-form-data'))
+                    {
+                        foreach($request->input('edit-form-data') AS $entry) 
+                        {
+
+                            if($entry['type'] == 'video')
+                            {
+                                $result = DB::insert('INSERT INTO videos (person_id, url)
+                                    VALUES (:person_id, :url)', [
+                                    'person_id' => $personName,
+                                    'url' => $entry['content']
+                                ]);  
+                            }
+
+                            if($entry['type'] == 'text')
+                            {
+                                $result = DB::insert('INSERT INTO texts (person_id, content)
+                                    VALUES (:person_id, :content)', [
+                                    'person_id' => $personName,
+                                    'content' => $entry['content']
+                                ]);  
+                            }     
+                            
+                         }
+                    }
+
+                    if(isset($request->files->all()['edit-form-pictures']))
+                    {
+                        foreach($request->files->all()['edit-form-pictures'] AS $picture) 
+                        {
+                            
+                            $randomString = str_random(384);
+                            $filename = hash('sha384', $randomString) .'.'. $picture->getClientOriginalExtension();
+    
+                            $picture->move('storage/people/pictures/', $filename);
+    
+                            $result = DB::insert('INSERT INTO pictures (person_id, filename)
+                                VALUES (:person_id, :filename)', [
+                                'person_id' => $personName,
+                                'filename' => $filename
+                            ]);
+    
+                        }
+                    }
+
+                    
+                    
+                    if($request->has('form-poster-data'))
+                    {
+                        $poster = $request->file('form-poster-data');
+                        $randomString = str_random(384);
+                        $filename = hash('sha384', $randomString) .'.'. $poster->getClientOriginalExtension();
+
+                        $poster->move('storage/people/posters/', $filename);
+
+                        $result = DB::update('UPDATE people
+                            SET poster_filename = :poster_filename
+                            WHERE id = :id ', [
+                                'id' => $personName,
+                                'poster_filename' => $filename
                             ]);
                     }
 
@@ -114,6 +178,7 @@ class PeopleController extends Controller
                         'buttonLink' => '/admin/people',
                         'buttonLabel' => 'Zurück'
                     ]);
+                    
                 } else{
                     return view('action', [
                         'infoMessage' => 'Diese Person existiert bereits.',

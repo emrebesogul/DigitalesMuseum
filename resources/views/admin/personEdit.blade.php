@@ -17,7 +17,6 @@
           <div id="site-title">
               <a href="/admin/people"><button id="back-button" class="edit-form-data buttons"><span id="test" class="arrow_carrot-left_alt2"></span>Zurück</button></a>
               <div id="site-title-wrapper">
-
                   <span id="site-title-label">Settings</span>
               </div>
           </div>
@@ -51,6 +50,9 @@
                     </p>
                   </div>
 
+                  <div id="uploaded-text">
+
+                  </div>
                   <div id="form-text">
                     <p id="edit-form-data-text" class="edit-form-data">
                       <input type="hidden" value="text" name="edit-form-data[0][type]" />
@@ -61,8 +63,8 @@
                   </div>
                   <span id="label-new-epoch"> Bilder hinzufügen </span>
                   <div id="show-uploaded-pictures">
-                    @foreach ($people as $person)
-                    <div style="background-image: url(/storage/people/pictures/{{$person['picture_filename']}})">
+                    @foreach ($pictures as $picture)
+                    <div style="background-image: url(/storage/people/pictures/{{$picture['filename']}})">
                     </div>
                     @endforeach
 
@@ -108,6 +110,11 @@
         </div>
         <script language="javascript" type="text/javascript" src="/js/johannes_admin-edit.js"></script>
         <script>
+
+          @foreach ($texts as $text)
+            addTextbox({{$text['content']}});
+          @endforeach
+
           @foreach ($videos as $video)
             addVideoBox({{$video['url']}});
           @endforeach

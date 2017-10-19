@@ -110,7 +110,7 @@ class PeopleController extends Controller
 
                     if( $request->input('edit-form-data'))
                     {
-                        foreach($request->input('edit-form-data') AS $entry) 
+                        foreach($request->input('edit-form-data') AS $entry)
                         {
 
                             if($entry['type'] == 'video')
@@ -119,7 +119,7 @@ class PeopleController extends Controller
                                     VALUES (:person_id, :url)', [
                                     'person_id' => $personID,
                                     'url' => $entry['content']
-                                ]);  
+                                ]);
                             }
 
                             if($entry['type'] == 'text')
@@ -128,33 +128,33 @@ class PeopleController extends Controller
                                     VALUES (:person_id, :content)', [
                                     'person_id' => $personID,
                                     'content' => $entry['content']
-                                ]);  
-                            }     
-                            
+                                ]);
+                            }
+
                          }
                     }
 
                     if(isset($request->files->all()['edit-form-pictures']))
                     {
-                        foreach($request->files->all()['edit-form-pictures'] AS $picture) 
+                        foreach($request->files->all()['edit-form-pictures'] AS $picture)
                         {
-                            
+
                             $randomString = str_random(384);
                             $filename = hash('sha384', $randomString) .'.'. $picture->getClientOriginalExtension();
-    
+
                             $picture->move('storage/people/pictures/', $filename);
-    
+
                             $result = DB::insert('INSERT INTO pictures (person_id, filename)
                                 VALUES (:person_id, :filename)', [
                                 'person_id' => $personID,
                                 'filename' => $filename
                             ]);
-    
+
                         }
                     }
 
-                    
-                    
+
+
                     if($request->has('form-poster-data'))
                     {
                         $poster = $request->file('form-poster-data');
@@ -178,7 +178,7 @@ class PeopleController extends Controller
                         'buttonLink' => '/admin/people',
                         'buttonLabel' => 'Zurück'
                     ]);
-                    
+
                 } else{
                     return view('action', [
                         'infoMessage' => 'Diese Person existiert bereits.',
@@ -219,7 +219,7 @@ class PeopleController extends Controller
 
         if(parent::userIsAuthenticated())
         {
-            $result = DB::select('SELECT id, name, birthday, location, date_of_death, short_description, portrait_filename
+            $result = DB::select('SELECT people.id, name, birthday, location, date_of_death, short_description, portrait_filename, poster_filename
                 FROM people
                 WHERE id = :id',
                 ['id' => $id]);
@@ -235,7 +235,27 @@ class PeopleController extends Controller
                 ['person_id' => $id]);
             
 
-            return view('details.person',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'birthday' => $result[0]->birthday, 'location' => $result[0]->location, 'date_of_death' => $result[0]->date_of_death, 'short_description' => $result[0]->short_description, 'portrait_filename' => $result[0]->portrait_filename, 'poster_filename' => $result[0]->poster_filename, 'texts' => json_decode(json_encode($texts),true), 'pictures' => json_decode(json_encode($pictures),true)]);
+            $videos = DB::select('SELECT url
+                FROM videos
+                WHERE person_id = :id', [
+                    'id' => $id
+            ]);
+
+            $youtubeVideos = array();
+
+            foreach($videos as $video) {
+                parse_str(parse_url($video->url, PHP_URL_QUERY), $youtubeUrlParameters);
+
+                $youtubeEmbedCode = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'. $youtubeUrlParameters['v']. '"frameborder="0" allowfullscreen></iframe>';
+
+                array_push($youtubeVideos, [
+                    'url' => $video->url,
+                    'embedCode' => $youtubeEmbedCode
+                ]);
+            }
+
+
+            return view('details.person',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'birthday' => $result[0]->birthday, 'location' => $result[0]->location, 'date_of_death' => $result[0]->date_of_death, 'short_description' => $result[0]->short_description, 'videos' => $youtubeVideos, 'portrait_filename' => $result[0]->portrait_filename, 'poster_filename' => $result[0]->poster_filename, 'texts' => json_decode(json_encode($texts),true), 'pictures' => json_decode(json_encode($pictures),true)]);
 
         } else
         {

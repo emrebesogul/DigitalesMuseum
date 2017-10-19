@@ -1,5 +1,4 @@
 <nav>
-    
     <a href="/">
         <div id="logo">
             <span class="highlighted">D</span>igitales<span class="highlighted">M</span>useum
@@ -30,3 +29,10 @@
             @endif
     </div>
 </nav>
+@if(session('userIsAdmin'))
+    <a href="/admin/people">
+        <div id="goto-admin-banner">
+            <span><span class="icon_pens"></span> Verwaltungsoberfläche aufrufen</span>
+        </div>
+    </a>
+@endif

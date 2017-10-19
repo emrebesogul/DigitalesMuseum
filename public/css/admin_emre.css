@@ -14,6 +14,7 @@ nav {
     color: #fff;
     height: 55px;
     align-items: baseline;
+    z-index: 9000;
 }
 
 nav #logo {
@@ -25,6 +26,11 @@ nav #logo {
     align-content: center;
     align-items: baseline;
     color: #fafafa;
+}
+
+nav a {
+  color: #fafafa;
+  text-decoration: none;
 }
 
 nav #logo .highlighted {
@@ -90,6 +96,24 @@ nav #user-information #logout-icon {
 
 nav #user-information #logout-icon .icon {
     line-height: 55px;
+}
+
+#goto-admin-banner {
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: #2f2f2f;
+    color: #fff;
+    height: 35px;
+    align-items: baseline;
+}
+
+#goto-admin-banner span {
+    text-align: center;
+    margin: 0 auto;
+    line-height: 35px;
+    font-weight: 300;
+    color: #cbcbcb;
+    font-size: 14px;
 }
 
 #content {

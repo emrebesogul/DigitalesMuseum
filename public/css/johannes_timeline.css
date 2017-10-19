@@ -76,7 +76,7 @@ background-position: center;
   content: '';
   position: absolute;
   left: 50%;
-  bottom: 6px;
+  bottom: 40%;
   transform: translateX(-50%);
   width: 15px;
   height: 15px;

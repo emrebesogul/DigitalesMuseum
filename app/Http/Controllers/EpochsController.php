@@ -14,17 +14,26 @@ class EpochsController extends Controller
      */
     public function index()
     {
-        $result = DB::select('SELECT id, name, period_begin, period_end
-            FROM epochs');
-        return view('admin.epochs',['epochs' => json_decode(json_encode($result),true)]);
+
+        if(parent::userIsAuthenticated() && parent::userIsAdmin())
+        {
+            $result = DB::select('SELECT id, name, period_begin, period_end
+                FROM epochs');
+
+            return view('admin.epochs',['epochs' => json_decode(json_encode($result),true)]);
+
+        } else
+        {
+            return view('action', [
+                'infoMessage' => 'No access.',
+                'icon' => 'icon_error-circle_alt',
+                'buttonLink' => '/',
+                'buttonLabel' => 'Zurück'
+            ]);
+        }
+        
     }
 
-    public function indexAll()
-    {
-        $result = DB::select('SELECT id, name, period_begin, period_end
-            FROM epochs');
-        return view('details.epoch',['epochs' => json_decode(json_encode($result),true)]);
-    }
 
     /**
      * Display a listing of the resource.
@@ -33,9 +42,25 @@ class EpochsController extends Controller
      */
     public function showEpochs()
     {
-        $result = DB::select('SELECT id, name, period_begin, period_end
-            FROM epochs');
-        return view('details.epoch',['epochs' => json_decode(json_encode($result),true)]);
+
+        if(parent::userIsAuthenticated())
+        {
+            $result = DB::select('SELECT id, name, period_begin, period_end
+                FROM epochs
+                ORDER BY period_begin ASC');
+
+            return view('epochs',['epochs' => json_decode(json_encode($result),true)]);
+
+        } else
+        {
+            return view('action', [
+                'infoMessage' => 'No access.',
+                'icon' => 'icon_error-circle_alt',
+                'buttonLink' => '/',
+                'buttonLabel' => 'Zurück'
+            ]);
+        }
+        
     }
 
     /**
@@ -45,7 +70,20 @@ class EpochsController extends Controller
      */
     public function create()
     {
-        return view('admin.epochCreate');
+        if(parent::userIsAuthenticated() && parent::userIsAdmin())
+        {
+            return view('admin.epochCreate');
+
+        } else
+        {
+            return view('action', [
+                'infoMessage' => 'No access.',
+                'icon' => 'icon_error-circle_alt',
+                'buttonLink' => '/',
+                'buttonLabel' => 'Zurück'
+            ]);
+        }
+
     }
 
     /**
@@ -56,47 +94,61 @@ class EpochsController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->filled(['name', 'period_begin', 'period_end']))
+
+        if(parent::userIsAuthenticated() && parent::userIsAdmin())
         {
-
-            $result = DB::select('SELECT COUNT(id) AS epoch_count
-                FROM epochs
-                WHERE name = :name', [
-                    'name' => $request->input('name')
-                    ]);
-
-
-            if($result[0]->epoch_count == 0)
+            if ($request->filled(['edit-form-data-epoch-name', 'edit-form-data-startdate', 'edit-form-data-enddate']))
             {
-                $result = DB::insert('INSERT INTO epochs (name, period_begin, period_end)
-                    VALUES (:name, :period_begin, :period_end)', [
-                    'name' => $request->input('name'),
-                    'period_begin' => $request->input('period_begin'),
-                    'period_end' => $request->input('period_end')
-                ]);
+    
+                $result = DB::select('SELECT COUNT(id) AS epoch_count
+                    FROM epochs
+                    WHERE name = :name', [
+                        'name' => $request->input('name')
+                    ]);
+    
+    
+                if($result[0]->epoch_count == 0)
+                {
+                    $result = DB::insert('INSERT INTO epochs (name, period_begin, period_end)
+                        VALUES (:name, :period_begin, :period_end)', [
+                        'name' => $request->input('edit-form-data-epoch-name'),
+                        'period_begin' => $request->input('edit-form-data-startdate'),
+                        'period_end' => $request->input('edit-form-data-enddate')
+                    ]);
+                    return view('action', [
+                        'infoMessage' => 'Epoche wurde erfolgreich angelegt.',
+                        'icon' => 'icon_check_alt2',
+                        'buttonLink' => '/admin/epochs',
+                        'buttonLabel' => 'Zurück'
+                    ]);
+                } else{
+                    return view('action', [
+                        'infoMessage' => 'Diese Epoche existiert bereits.',
+                        'icon' => 'icon_error-circle_alt',
+                        'buttonLink' => '/admin/epochs',
+                        'buttonLabel' => 'Zurück'
+                    ]);
+                }
+            } else
+            {
                 return view('action', [
-                    'infoMessage' => 'Epoche wurde erfolgreich angelegt.',
-                    'icon' => 'icon_check_alt2',
-                    'buttonLink' => '/admin/epochs',
-                    'buttonLabel' => 'Zurück'
-                ]);
-            } else{
-                return view('action', [
-                    'infoMessage' => 'Diese Epoche existiert bereits.',
+                    'infoMessage' => 'Falsche Eingabedaten.',
                     'icon' => 'icon_error-circle_alt',
                     'buttonLink' => '/admin/epochs',
                     'buttonLabel' => 'Zurück'
                 ]);
             }
+
         } else
         {
             return view('action', [
-                'infoMessage' => 'Falsche Eingabedaten.',
+                'infoMessage' => 'No access.',
                 'icon' => 'icon_error-circle_alt',
-                'buttonLink' => '/admin/epochs',
+                'buttonLink' => '/',
                 'buttonLabel' => 'Zurück'
             ]);
         }
+
     }
 
     /**
@@ -107,12 +159,25 @@ class EpochsController extends Controller
      */
     public function show($id)
     {
-        $result = DB::select('SELECT id, name, period_begin, period_end
-            FROM epochs
-            WHERE id = :id',
-            ['id' => $id]);
-            //Geändert
+        if(parent::userIsAuthenticated())
+        {
+            $result = DB::select('SELECT id, name, period_begin, period_end
+                FROM epochs
+                WHERE id = :id',
+                ['id' => $id]);
+           
             return view('/epochs',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'period_begin' => $result[0]->period_begin, 'period_end' => $result[0]->period_end]);
+
+        } else
+        {
+            return view('action', [
+                'infoMessage' => 'No access.',
+                'icon' => 'icon_error-circle_alt',
+                'buttonLink' => '/',
+                'buttonLabel' => 'Zurück'
+            ]);
+        }
+
     }
 
     /**
@@ -123,12 +188,25 @@ class EpochsController extends Controller
      */
     public function edit($id)
     {
-        $result = DB::select('SELECT id, name, period_begin, period_end
-            FROM epochs
-            WHERE id = :id',
-            ['id' => $id]);
+        if(parent::userIsAuthenticated() && parent::userIsAdmin())
+        {
+            $result = DB::select('SELECT id, name, period_begin, period_end
+                FROM epochs
+                WHERE id = :id',
+                ['id' => $id]);
 
-        return view('admin.epochEdit', ['id' => $result[0]->id, 'name' => $result[0]->name, 'period_begin' => $result[0]->period_begin, 'period_end' => $result[0]->period_end]);
+            return view('admin.epochEdit', ['id' => $result[0]->id, 'name' => $result[0]->name, 'period_begin' => $result[0]->period_begin, 'period_end' => $result[0]->period_end]);
+
+        } else
+        {
+            return view('action', [
+                'infoMessage' => 'No access.',
+                'icon' => 'icon_error-circle_alt',
+                'buttonLink' => '/',
+                'buttonLabel' => 'Zurück'
+            ]);
+        }
+
     }
 
     /**
@@ -140,33 +218,47 @@ class EpochsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if ($request->filled(['name', 'period_begin', 'period_end']))
+
+        if(parent::userIsAuthenticated() && parent::userIsAdmin())
         {
-            $result = DB::update('UPDATE epochs
-                SET name = :name,
-                    period_begin = :period_begin,
-                    period_end = :period_end
-                WHERE id = :id', [
-                    'id' => $id,
-                    'name' => $request->input('name'),
-                    'period_begin' => $request->input('period_begin'),
-                    'period_end' => $request->input('period_end')
-                ]);
+            if ($request->filled(['edit-form-data-epoch-name', 'edit-form-data-startdate', 'edit-form-data-enddate']))
+            {
+                $result = DB::update('UPDATE epochs
+                    SET name = :name,
+                        period_begin = :period_begin,
+                        period_end = :period_end
+                    WHERE id = :id', [
+                        'id' => $id,
+                        'name' => $request->input('edit-form-data-epoch-name'),
+                        'period_begin' => $request->input('edit-form-data-startdate'),
+                        'period_end' => $request->input('edit-form-data-enddate')
+                    ]);
+                    return view('action', [
+                        'infoMessage' => 'Epoche wurde erfolgreich bearbeitet.',
+                        'icon' => 'icon_check_alt2',
+                        'buttonLink' => '/admin/epochs',
+                        'buttonLabel' => 'Zurück'
+                    ]);
+            } else
+            {
                 return view('action', [
-                    'infoMessage' => 'Epoche wurde erfolgreich bearbeitet.',
-                    'icon' => 'icon_check_alt2',
+                    'infoMessage' => 'Epoche konnte nicht bearbeitet werden.',
+                    'icon' => 'icon_error-circle_alt',
                     'buttonLink' => '/admin/epochs',
                     'buttonLabel' => 'Zurück'
                 ]);
+            }
+
         } else
         {
             return view('action', [
-                'infoMessage' => 'Epoche konnte nicht bearbeitet werden.',
+                'infoMessage' => 'No access.',
                 'icon' => 'icon_error-circle_alt',
-                'buttonLink' => '/admin/epochs',
+                'buttonLink' => '/',
                 'buttonLabel' => 'Zurück'
             ]);
         }
+
     }
 
     /**
@@ -177,10 +269,14 @@ class EpochsController extends Controller
      */
     public function destroy($id)
     {
-        $result = DB::delete('DELETE
-            FROM epochs
-            WHERE id = :id',
-            ['id' => $id]);
+
+        if(parent::userIsAuthenticated() && parent::userIsAdmin())
+        {
+            $result = DB::delete('DELETE
+                FROM epochs
+                WHERE id = :id',
+                ['id' => $id]);
+
             if($result)
             {
              return view('action', [
@@ -198,6 +294,16 @@ class EpochsController extends Controller
                  'buttonLabel' => 'Zurück'
              ]);
             }
+
+        } else
+        {
+            return view('action', [
+                'infoMessage' => 'No access.',
+                'icon' => 'icon_error-circle_alt',
+                'buttonLink' => '/',
+                'buttonLabel' => 'Zurück'
+            ]);
+        }        
 
     }
 }

@@ -15,7 +15,7 @@ nav {
     height: 55px;
     align-items: baseline;
     min-width: 900px;
-
+    z-index: 9000;
 }
 
 .user-edit-label {
@@ -101,6 +101,55 @@ nav #user-information #logout-icon {
 
 nav #user-information #logout-icon .icon {
     line-height: 55px;
+}
+
+#back-button:hover {
+  transition: background-color 0.3s;
+  cursor: default;
+  background-color: rgb(235,235,235);
+}
+
+#back-button {
+    z-index: 999;
+    top: 52px;
+    left: 83px;
+    position: absolute;
+    display: block;
+    width: 95px;
+    margin-bottom: 12px;
+    transition: background-color 0.3s;
+}
+
+.arrow_carrot-left_alt2 {
+  margin-right: 7px;
+}
+
+.buttons {
+  border: solid 1px black;
+  line-height: 30px;
+  border-radius: 3px;
+  background-color: white;
+  width: 40%;
+  font-size: 1em;
+}
+
+
+#goto-admin-banner {
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: #2f2f2f;
+    color: #fff;
+    height: 35px;
+    align-items: baseline;
+}
+
+#goto-admin-banner span {
+    text-align: center;
+    margin: 0 auto;
+    line-height: 35px;
+    font-weight: 300;
+    color: #cbcbcb;
+    font-size: 14px;
 }
 
 #content {

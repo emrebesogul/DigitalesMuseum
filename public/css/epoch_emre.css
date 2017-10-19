@@ -232,7 +232,7 @@ a:hover {
   margin-right: 2px;
   margin-bottom: 2px;
   margin-top: 2px;
-  background-image: url('/img/history.jpg');
+  /* background-image: url('/img/history.jpg'); */
   background-repeat:no-repeat;
   background-position: center;
   background-size: 100%;

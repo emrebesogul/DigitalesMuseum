@@ -22,9 +22,9 @@
         <span class="icon icon_search"></span>
         <form action="/search" method="get">
             @if(isset($_GET['q']))
-                <input type="text" name="q" placeholder="Search the museum" value="{{ $_GET['q'] }}">
+                <input type="text" name="q" placeholder="Suche" value="{{ $_GET['q'] }}">
             @else
-                <input type="text" name="q" placeholder="Search the museum">
+                <input type="text" name="q" placeholder="Suche">
             @endif
         </form>
     </div>

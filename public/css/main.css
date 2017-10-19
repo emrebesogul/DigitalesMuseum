@@ -165,3 +165,31 @@ nav #user-information #logout-icon .icon {
     padding-left: 40px;
     padding-right: 40px;
 }
+
+#action {
+    width: 500px;
+    margin: 80px auto;
+    display: block;
+    text-align: center;
+}
+
+#action span {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    font-size: 110px;
+}
+
+#action h2 {
+    font-size: 45px;
+    font-weight: 300;
+}
+
+#action a {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#action button {
+    float: none;
+}

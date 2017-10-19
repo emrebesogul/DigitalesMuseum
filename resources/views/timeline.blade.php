@@ -23,32 +23,40 @@
             </div>
             <div id="site-content">
               <section class="timeline">
-                <ul>
-                  @foreach ($people as $person)
-                    <li>
-                      <div class="timelineEntry">
-                        <a href="/person/{{$person['id']}}">
-
-                        <div class="timelinePicture" style="background-image: url(/storage/people/portraits/{{$person['portrait_filename']}})"></div>
-
-                        <div class="timeline-entry-content">
-                          <h2>{{$person['name']}}</h2>
-                          <span class="timeline-info-birth">
-                            Geboren am: {{ Carbon\Carbon::parse($person['birthday'])->format('d.m.Y') }}
-                          </span>
-                          <br />
-                          <span class="timeline-info-death">
-                          Gestorben am: {{ Carbon\Carbon::parse($person['date_of_death'])->format('d.m.Y') }}
-                            <br />
-                            <p>
-                              {{$person['short_description']}}
-                            </p>
-                          </span>
-                        </div>
-                        </a>
+                  @if(empty($people) && isset($_GET['q']))
+                      <div id="action">
+                          <span class="icon_error-circle_alt"></span>
+                          <h2>Keine Personen gefunden.</h2>
                       </div>
-                    </li>
-                  @endforeach
+                  @else
+                  <ul>
+                    @foreach ($people as $person)
+                      <li>
+                        <div class="timelineEntry">
+                          <a href="/person/{{$person['id']}}">
+
+                          <div class="timelinePicture" style="background-image: url(/storage/people/portraits/{{$person['portrait_filename']}})"></div>
+
+                          <div class="timeline-entry-content">
+                            <h2>{{$person['name']}}</h2>
+                            <span class="timeline-info-birth">
+                              Geboren am: {{ Carbon\Carbon::parse($person['birthday'])->format('d.m.Y') }}
+                            </span>
+                            <br />
+                            <span class="timeline-info-death">
+                            Gestorben am: {{ Carbon\Carbon::parse($person['date_of_death'])->format('d.m.Y') }}
+                              <br />
+                              <p>
+                                {{$person['short_description']}}
+                              </p>
+                            </span>
+                          </div>
+                          </a>
+                        </div>
+                      </li>
+                    @endforeach
+                  </ul>
+                  @endif
               </section>
             </div>
         </div>

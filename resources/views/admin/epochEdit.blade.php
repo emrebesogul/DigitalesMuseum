@@ -32,14 +32,13 @@
                   <div id="mandatory-field">
                     <div class="form-profile-picture">
                       <div id="cover-picture-preview">
-
-
+                          <img src="/storage/epochs/pictures/{{ $cover_filename }}" widht="180px" height="180px">
                       </div>
                       <span id="profile-picture">Der Epoche ein anderes Coverbild zuweisen:</span>
                       <label for="form-epoch-picture-data" id="label-custom-pic" onclick="buttonSubmitClicked(event);" class="custom-file-upload">
                         Datei auswählen
                       </label>
-                      <input id="form-epoch-picture-data" class="form-profile-picture" type="file" name="edit-form-data-profile-picture" size="80px" accept="image/*" />
+                      <input id="form-epoch-picture-data" class="form-profile-picture" type="file" name="edit-form-data-epoch-picture" size="80px" accept="image/*" />
                     </div>
                     <p id="edit-form-data-name" class="edit-form-data">
                       Name der Epoche: <input class="edit-form-textarea" type="text" name="edit-form-data-epoch-name" placeholder="Geben Sie den Namen der Epoche ein!" value={{ $name }} />

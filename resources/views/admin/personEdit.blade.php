@@ -81,14 +81,20 @@
                   <span id="add-textbox" onclick="addPictureBox();">Bildelement hinzufügen</span>
                   </div>
                   <span id="label-new-epoch"> Videos hinzufügen </span>
+                  <div id="show-uploaded-vids">
+
+                  </div>
+
                   <div id="form-video">
                     <span id="video-add"> Videos der Persönlichkeit hinzufügen </span>
-                    <span id="add-videobox" onclick="addVideoBox();">Videoelement hinzufügen</span>
+                    <span id="add-videobox" onclick="addVideoBox("");">Videoelement hinzufügen</span>
                   </div>
 
                   <span id="label-new-epoch"> Poster hinzufügen </span>
-                  <div id="form-poster">
+                  Bisherige Poster der Person werden hier angezeigt:
+                  <a href="/storage/people/posters/{{$poster_filename}}"></a>
 
+                  <div id="form-poster">
                     <span> Poster der Persönlichkeit hinzufügen </span>
                       <!--<span id="add-posterbox" onclick="addPosterBox();"> Posterelement hinzufügen</span> -->
                       <input type="hidden" value="poster"  />
@@ -101,6 +107,10 @@
             </div>
         </div>
         <script language="javascript" type="text/javascript" src="/js/johannes_admin-edit.js"></script>
-
+        <script>
+          @foreach ($videos as $video)
+            addVideoBox({{$video['url']}});
+          @endforeach
+        </script>
     </body>
 </html>

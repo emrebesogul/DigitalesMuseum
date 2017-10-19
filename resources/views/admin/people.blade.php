@@ -14,18 +14,16 @@
         @include('nav')
 
         <div id="content">
-
             <div id="site-title">
                 <div id="site-title-wrapper">
                     <span id="site-title-label">Settings</span>
                 </div>
             </div>
-
             <div id="site-content">
 
               <div id="content-action-menu">
                 <ul id="list-action-menu">
-                  <li id="list-header"><a class="active">Person</a></li>
+                  <li id="list-header" class ="active"><a>Person</a></li>
                   <li id="list-header"><a href="/admin/epochs">Epoche</a></li>
                   <li id="list-header"><a href="/admin/users">User-List</a></li>
                 </ul>
@@ -35,7 +33,7 @@
               <div id="content-action-view">
 
                 <a href="/admin/person/create">
-                  <div id="content-view-create">
+                  <div id="create-person-label" class="content-view-create">
                     Neue Person anlegen
                   </div>
                 </a>

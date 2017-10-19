@@ -18,6 +18,10 @@ nav {
     z-index: 9000;
 }
 
+.user-edit-label {
+  //margin-bottom: 5px;
+}
+
 nav #logo {
     font-family: 'Playfair Display', serif;
     margin: 0 50px 0 15px;
@@ -194,13 +198,21 @@ nav #user-information #logout-icon .icon {
 
 }
 
-#content #site-content #content-action-view #content-view-create {
-  height: 30px;
-  font-size: 20px;
+#content #site-content #content-action-view .content-view-create:hover {
+
+}
+
+#content #site-content #content-action-view .content-view-create {
+  font-size: 40px;
+  font-family: 'Playfair Display', serif;
   text-align: center;
-  padding: 10px 20px;
   border-bottom: 1px solid black;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+#create-person-label:hover{
+  text-decoration: none;
+
 }
 
 #content #site-content #content-action-view #content-view-person {
@@ -215,12 +227,39 @@ ul#list-action-menu {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    //background-color: rgb(243,243,243);
     font-size: 18px;
+    border-radius: 2px;
 }
+
+li#list-header.active{
+  background-color: rgb(40,40,40);
+}
+
+li#list-header.active:hover{
+  background-color: rgb(100,100,100);
+}
+
+li#list-header:last-of-type{
+  border-right: 0;
+}
+
+li#list-header.active a{
+  color: white;
+}
+
+li#list-header:hover {
+  background-color: rgb(230,230,230);
+  transition: background-color 0.25s;
+}
+
 li#list-header {
+  border-radius: 2px;
+  margin-right: 3px;
   float: left;
   display: block;
   padding: 10px 20px;
+  transition: background-color 0.25s;
 }
 
 ul {
@@ -243,7 +282,7 @@ li#list-persons {
 }
 
 a.active {
-  color: blue;
+  color: rgb(240,240,240);
 }
 
 a {
@@ -252,7 +291,7 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
+  //text-decoration: underline;
   cursor: pointer;
 }
 
@@ -308,28 +347,56 @@ button:hover {
     float: none;
 }
 
+#back-button {
+    z-index: 99999;
+    top: 52px;
+    left: 83px;
+    position: absolute;
+    display: block;
+    width: 95px;
+    margin-bottom: 12px;
+    transition: background-color 0.3s;
+}
+
+.arrow_carrot-left_alt2 {
+  margin-right: 7px;
+}
 
 #content #site-content #formular-edit {
-    margin: 20px 0 0 20px;
+    margin-top: 30px;
+
+}
+
+#admin-label {
+  margin-top: 20px;
 }
 
 #content #site-content #formular-edit input {
     height: 22px;
     font-size: 16px;
     width: 100%;
-    margin-top: 6px;
     margin-bottom: 12px;
+    margin-top: 7px;
+}
+
+#label-new-epoch {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px !important;
+  border-bottom: 3px solid #000;
+  display: block;
+  margin-top: 35px;
 }
 
 #content #site-content #formular-edit input[type=number] {
     width: 8%;
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 #content #site-content #formular-edit button {
     clear: both;
     float: none;
-    margin-top: 10px;
-    margin-right: 30px;
+    margin-right: 10px;
 }
 
 

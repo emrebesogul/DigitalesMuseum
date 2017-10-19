@@ -27,13 +27,13 @@
                 <ul id="list-action-menu">
                   <li id="list-header"><a href="/admin/people">Person</a></li>
                   <li id="list-header"><a href="/admin/epochs">Epoche</a></li>
-                  <li id="list-header"><a class="active">User-List</a></li>
+                  <li id="list-header" class ="active"><a>User-List</a></li>
                 </ul>
               </div>
 
               <div id="content-action-view">
 
-                  <div id="content-view-create">
+                  <div class="content-view-create">
                     Userverwaltung
                   </div>
 

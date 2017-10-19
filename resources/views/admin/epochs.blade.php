@@ -26,7 +26,7 @@
               <div id="content-action-menu">
                 <ul id="list-action-menu">
                   <li id="list-header"><a href="/admin/people">Person</a></li>
-                  <li id="list-header"><a class="active">Epoche</a></li>
+                  <li id="list-header" class ="active"><a>Epoche</a></li>
                   <li id="list-header"><a href="/admin/users">User-List</a></li>
                 </ul>
               </div>
@@ -34,7 +34,7 @@
               <div id="content-action-view">
 
                 <a href="/admin/epochs/create">
-                  <div id="content-view-create">
+                  <div class="content-view-create">
                     Neue Epoche anlegen
                   </div>
                 </a>
@@ -60,9 +60,7 @@
                 </div>
 
               </div>
-
             </div>
-
         </div>
     </body>
 </html>

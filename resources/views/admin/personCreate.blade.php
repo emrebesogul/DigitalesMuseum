@@ -30,7 +30,7 @@
 
                     <div class="form-profile-picture">
                       <span id="profile-picture">Wählen Sie das Porträt der Person:</span>
-                      
+
                       <input id="form-profile-picture-data" class="form-profile-picture" type="file" name="edit-form-data-profile-picture" size="80px" accept="image/*" />
                     </div>
 
@@ -67,9 +67,9 @@
 
                   <span id="label-new-epoch"> Videos hinzufügen </span>
                   <div id="form-video">
-                    <input type="hidden" value="video" name="edit-form-data[0][type]" />
+                    <input type="hidden" value="video" name="edit-form-data[1][type]" />
                     <p id="edit-form-data-video" class="edit-form-data">
-                      Geben Sie die URL eines Videos ein: <input id="form-video-data" type="text" placeholder="URL des Videos" />
+                      Geben Sie die URL eines Videos ein: <input id="form-video-data" name="edit-form-data[1][content]" type="text" placeholder="URL des Videos" />
                     </p>
                     <span id="add-videobox" onclick="addVideoBox();">Videoelement hinzufügen</span>
                   </div>

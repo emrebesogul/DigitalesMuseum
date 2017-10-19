@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Base</title>
+        <title>Timeline - Digitales Museum</title>
 
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,900" rel="stylesheet">
@@ -28,9 +28,9 @@
                     <li>
                       <div class="timelineEntry">
                         <a href="/person/{{$person['id']}}">
-                        <div class="timelinePicture">
-                            <img src="/storage/people/portraits/{{$person['portrait_filename']}}" style='height: 100%; width: 100%; object-fit: contain' />
-                        </div>
+
+                        <div class="timelinePicture" style="background-image: url(/storage/people/portraits/{{$person['portrait_filename']}})">
+
                         <div class="timeline-entry-content">
                           <h2>{{$person['name']}}</h2>
                           <span class="timeline-info-birth">

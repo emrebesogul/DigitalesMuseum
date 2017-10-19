@@ -32,7 +32,7 @@
                         <img src="/storage/people/portraits/{{ $portrait_filename }}" widht="140px" height="140px">
                       </div>
                       <span id="profile-picture">Der Persönlichkeit ein anderes Portät zuweisen:</span>
-                    
+
                       <input id="form-profile-picture-data" class="form-profile-picture" type="file" name="edit-form-data-profile-picture" size="80px" accept="image/*" />
                     </div>
                     <p id="edit-form-data-name" class="edit-form-data">
@@ -88,7 +88,7 @@
                     <input type="file" id="form-poster-data" accept="image/*" />
                   </div>
 
-                  <button id="submit-button" class="edit-form-data buttons" type="submit" text="Absenden">Absenden</button>
+                  <button id="submit-button" class="edit-form-data buttons" type="submit" text="Absenden">Änderungen speichern</button>
                 </form>
               </div>
             </div>

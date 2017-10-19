@@ -5,6 +5,19 @@
         </div>
     </a>
 
+    <div class="epoch-timeline-switcher">
+        <a href="/">
+            <span class="icon icon_hourglass"></span>
+            <span>Timelineansicht</span>
+        </a>
+    </div>
+    <div class="epoch-timeline-switcher">
+        <a href="/epochs">
+            <span class="icon icon_grid-3x3"></span>
+            <span>Epochenansicht</span>
+        </a>
+    </div>
+
     <div id="search-bar">
         <span class="icon icon_search"></span>
         <form action="/search" method="get">

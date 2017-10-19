@@ -64,7 +64,7 @@
                   <span id="label-new-epoch"> Bilder hinzufügen </span>
                   <div id="show-uploaded-pictures">
                     @foreach ($pictures as $picture)
-                    <div style="background-image: url(/storage/people/pictures/{{$picture['filename']}})">
+                    <div  style="width:300px; height: 150px; background-size:cover; background-image: url(/storage/people/pictures/{{$picture['filename']}})">
                     </div>
                     @endforeach
 
@@ -112,11 +112,11 @@
         <script>
 
           @foreach ($texts as $text)
-            addTextbox({{$text['content']}});
+            addTextbox("{{$text['content']}}");
           @endforeach
 
           @foreach ($videos as $video)
-            addVideoBox({{$video['url']}});
+            addVideoBox("{{$video['url']}}");
           @endforeach
         </script>
     </body>

@@ -115,7 +115,7 @@ function addVideoBox(content){
   p.id = "edit-form-data-video";
   p.className = "edit-form-data";
 
-  textbox.innerHTML = content;
+  textbox.value = content;
   textbox.setAttribute("type", "text");
   textbox.id ="form-video-data";
   textbox.name = "edit-form-data["+i+"][content]";

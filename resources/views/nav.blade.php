@@ -7,7 +7,13 @@
 
     <div id="search-bar">
         <span class="icon icon_search"></span>
-        <input type="text" name="search_query" placeholder="Search the museum">
+        <form action="/search" method="get">
+            @if(isset($_GET['q']))
+                <input type="text" name="q" placeholder="Search the museum" value="{{ $_GET['q'] }}">
+            @else
+                <input type="text" name="q" placeholder="Search the museum">
+            @endif
+        </form>
     </div>
 
     <div id="user-information">

@@ -133,7 +133,7 @@ nav #user-information #logout-icon .icon {
     position: absolute;
     width: 100vh;
     left: -37vh;
-    bottom: 50vh;
+    top: 25vh;
     transform-origin: center center;
 }
 

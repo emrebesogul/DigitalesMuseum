@@ -42,13 +42,14 @@ Route::get('/admin/person/{id}', 'PeopleController@edit');
 Route::post('/admin/person/{id}/update', 'PeopleController@update');
 
 Route::get('/person/{id}', 'PeopleController@show');
+Route::get('/search', 'PeopleController@search');
 
 Route::get('/admin/person/{id}/delete', 'PeopleController@destroy');
 
 
 // EpochsController
 Route::get('/admin/epochs', 'EpochsController@index');
-Route::get('/epochs', 'EpochsController@showEpochs'); 
+Route::get('/epochs', 'EpochsController@showEpochs');
 
 Route::get('/epochs/{id}', 'PeopleController@showFiltered');
 

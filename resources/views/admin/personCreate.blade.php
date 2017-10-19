@@ -82,7 +82,7 @@
                     <input type="file" id="form-poster-data" accept="image/*" />
                   </div>
 
-                  <button id="submit-button" class="edit-form-data buttons" type="submit" text="Absenden">Absenden</button>
+                  <button id="submit-button" class="edit-form-data buttons" type="submit" text="Absenden">Änderungen speichern</button>
                 </form>
               </div>
             </div>

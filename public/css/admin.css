@@ -170,7 +170,7 @@ nav #user-information #logout-icon .icon {
     width: 100vh;
     left: -37vh;
     top: 25vh;
-    position: fix;
+    //position: fix;
     transform-origin: center center;
 }
 

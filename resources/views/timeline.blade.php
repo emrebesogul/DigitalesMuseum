@@ -29,16 +29,16 @@
                       <div class="timelineEntry">
                         <a href="/person/{{$person['id']}}">
 
-                        <div class="timelinePicture" style="background-image: url(/storage/people/portraits/{{$person['portrait_filename']}})">
+                        <div class="timelinePicture" style="background-image: url(/storage/people/portraits/{{$person['portrait_filename']}})"></div>
 
                         <div class="timeline-entry-content">
                           <h2>{{$person['name']}}</h2>
                           <span class="timeline-info-birth">
-                            Geboren am: {{$person['birthday']}}
+                            Geboren am: {{ Carbon\Carbon::parse($person['birthday'])->format('d.m.Y') }}
                           </span>
                           <br />
                           <span class="timeline-info-death">
-                          Gestorben am: {{$person['date_of_death']}}
+                          Gestorben am: {{ Carbon\Carbon::parse($person['date_of_death'])->format('d.m.Y') }}
                             <br />
                             <p>
                               {{$person['short_description']}}

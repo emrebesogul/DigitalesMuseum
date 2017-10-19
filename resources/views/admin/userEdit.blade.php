@@ -45,12 +45,6 @@
             			<br/>
             			<button type="submit">Änderungen speichern</button>
 
-                        <a href="/admin/users">
-                            <button type="button">
-                                Änderung verwerfen
-                            </button>
-                        </a>
-
                     </form>
                 </div>
 

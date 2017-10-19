@@ -17,7 +17,7 @@ class EpochsController extends Controller
 
         if(parent::userIsAuthenticated() && parent::userIsAdmin())
         {
-            $result = DB::select('SELECT id, name, period_begin, period_end
+            $result = DB::select('SELECT id, name, period_begin, period_end, cover_filename
                 FROM epochs');
 
             return view('admin.epochs',['epochs' => json_decode(json_encode($result),true)]);
@@ -45,7 +45,7 @@ class EpochsController extends Controller
 
         if(parent::userIsAuthenticated())
         {
-            $result = DB::select('SELECT id, name, period_begin, period_end
+            $result = DB::select('SELECT id, name, period_begin, period_end, cover_filename
                 FROM epochs
                 ORDER BY period_begin ASC');
 
@@ -115,6 +115,26 @@ class EpochsController extends Controller
                         'period_begin' => $request->input('edit-form-data-startdate'),
                         'period_end' => $request->input('edit-form-data-enddate')
                     ]);
+
+                    $epochID = DB::getPdo()->lastInsertId();
+
+                    
+                    if($request->has('edit-form-data-profile-picture'))
+                    {
+                        $picture = $request->file('edit-form-data-profile-picture');
+                        $randomString = str_random(384);
+                        $filename = hash('sha384', $randomString) .'.'. $picture->getClientOriginalExtension();
+
+                        $picture->move('storage/epochs/pictures/', $filename);
+
+                        $result = DB::update('UPDATE epochs
+                            SET cover_filename = :cover_filename
+                            WHERE id = :id ', [
+                                'id' => $epochID,
+                                'cover_filename' => $filename
+                            ]);
+                    }
+
                     return view('action', [
                         'infoMessage' => 'Epoche wurde erfolgreich angelegt.',
                         'icon' => 'icon_check_alt2',
@@ -161,12 +181,12 @@ class EpochsController extends Controller
     {
         if(parent::userIsAuthenticated())
         {
-            $result = DB::select('SELECT id, name, period_begin, period_end
+            $result = DB::select('SELECT id, name, period_begin, period_end, cover_filename
                 FROM epochs
                 WHERE id = :id',
                 ['id' => $id]);
            
-            return view('/epochs',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'period_begin' => $result[0]->period_begin, 'period_end' => $result[0]->period_end]);
+            return view('/epochs',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'period_begin' => $result[0]->period_begin, 'period_end' => $result[0]->period_end, 'cover_filename' => $result[0]->cover_filename]);
 
         } else
         {
@@ -190,12 +210,12 @@ class EpochsController extends Controller
     {
         if(parent::userIsAuthenticated() && parent::userIsAdmin())
         {
-            $result = DB::select('SELECT id, name, period_begin, period_end
+            $result = DB::select('SELECT id, name, period_begin, period_end, cover_filename
                 FROM epochs
                 WHERE id = :id',
                 ['id' => $id]);
 
-            return view('admin.epochEdit', ['id' => $result[0]->id, 'name' => $result[0]->name, 'period_begin' => $result[0]->period_begin, 'period_end' => $result[0]->period_end]);
+            return view('admin.epochEdit', ['id' => $result[0]->id, 'name' => $result[0]->name, 'period_begin' => $result[0]->period_begin, 'period_end' => $result[0]->period_end, 'cover_filename' => $result[0]->cover_filename]);
 
         } else
         {
@@ -233,6 +253,26 @@ class EpochsController extends Controller
                         'period_begin' => $request->input('edit-form-data-startdate'),
                         'period_end' => $request->input('edit-form-data-enddate')
                     ]);
+
+
+                    $epochID = DB::getPdo()->lastInsertId();
+       
+                    if($request->has('edit-form-data-profile-picture'))
+                    {
+                        $picture = $request->file('edit-form-data-profile-picture');
+                        $randomString = str_random(384);
+                        $filename = hash('sha384', $randomString) .'.'. $picture->getClientOriginalExtension();
+
+                        $picture->move('storage/epochs/pictures/', $filename);
+
+                        $result = DB::update('UPDATE epochs
+                            SET cover_filename = :cover_filename
+                            WHERE id = :id ', [
+                                'id' => $epochID,
+                                'cover_filename' => $filename
+                            ]);
+                    }
+
                     return view('action', [
                         'infoMessage' => 'Epoche wurde erfolgreich bearbeitet.',
                         'icon' => 'icon_check_alt2',

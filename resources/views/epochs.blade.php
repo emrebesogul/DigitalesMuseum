@@ -31,7 +31,7 @@
               </a>
 
               @foreach ($epochs as $epoch)
-              <div id="test">
+              <div id="test" style="background-image:url('/storage/epochs/pictures/{{$cover_filename}}')">
                 <a href="/epochs/{{$epoch['id']}}" id="navigator-epochs">
                   <div id="site-navigator-epochs">
                     <h2>{{$epoch['name']}}</h2>

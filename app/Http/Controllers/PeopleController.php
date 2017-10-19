@@ -233,7 +233,7 @@ class PeopleController extends Controller
                 FROM pictures
                 WHERE person_id = :person_id',
                 ['person_id' => $id]);
-            
+
 
             $videos = DB::select('SELECT url
                 FROM videos
@@ -357,13 +357,13 @@ class PeopleController extends Controller
 
         if(parent::userIsAuthenticated() && parent::userIsAdmin())
         {
-            $result = DB::select('SELECT id, name, birthday, location, date_of_death, short_description, portrait_filename
+            $result = DB::select('SELECT id, name, birthday, location, date_of_death, short_description, portrait_filename, poster_filename
                 FROM people
                 WHERE id = :id',
                 ['id' => $id]);
 
 
-            
+
 
             if(isset($result[0]))
             {
@@ -384,9 +384,9 @@ class PeopleController extends Controller
                 WHERE person_id = :id', [
                 'id' => $id
                 ]);
-            
+
             return view('admin.personEdit',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'birthday' => $result[0]->birthday, 'location' => $result[0]->location, 'date_of_death' => $result[0]->date_of_death, 'short_description' => $result[0]->short_description, 'videos' => json_decode(json_encode($videos),true), 'portrait_filename' => $result[0]->portrait_filename, 'poster_filename' => $result[0]->poster_filename, 'texts' => json_decode(json_encode($texts),true), 'pictures' => json_decode(json_encode($pictures),true)]);
-                
+
             } else
             {
                 return view('action', [

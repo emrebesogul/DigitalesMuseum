@@ -99,7 +99,7 @@ function buttonSubmitClicked(event) {
         }
 }
 
-function addVideoBox(){
+function addVideoBox(content){
   var div = document.createElement("div");
   var input = document.createElement("input");
   var p = document.createElement("p");
@@ -115,6 +115,7 @@ function addVideoBox(){
   p.id = "edit-form-data-video";
   p.className = "edit-form-data";
 
+  textbox.innerHTML = content;
   textbox.setAttribute("type", "text");
   textbox.id ="form-video-data";
   textbox.name = "edit-form-data["+i+"][content]";

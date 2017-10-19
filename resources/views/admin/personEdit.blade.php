@@ -101,6 +101,7 @@
                       <!--<span id="add-posterbox" onclick="addPosterBox();"> Posterelement hinzufügen</span> -->
                       <input type="hidden" value="poster"  />
                     <input type="file" name="form-poster-data" accept=".pdf" />
+
                   </div>
 
                   <button id="submit-button" class="edit-form-data buttons" type="submit" text="Absenden">Änderungen speichern</button>

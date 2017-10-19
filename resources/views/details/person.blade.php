@@ -65,19 +65,28 @@
                       </div>
                   @endforeach
 
-                <span id="site-label-type">Videos</span>
-                  @foreach ($videos as $video)
-                      <div id="site-content-video">
-                        {!!$video['embedCode']!!}
-                      </div>
-                  @endforeach
+                  @if(empty($videos))
+                    <span id="site-label-type"> </span>
+                  @else
+                      <span id="site-label-type">Videos</span>
+                      @foreach ($videos as $video)
+                          <div id="site-content-video">
+                            {!!$video['embedCode']!!}
+                          </div>
+                      @endforeach
+                  @endif
 
-                <span id="site-label-type">Bilder</span>
-                 @foreach ($pictures as $picture)
-                      <div id="site-content-picture">
-                        <img src="/storage/people/pictures/{{$picture['filename']}}" width="500px"/>
-                      </div>
-                  @endforeach
+
+                  @if(empty($pictures))
+                    <span id="site-label-type"> </span>
+                  @else
+                     <span id="site-label-type">Bilder</span>
+                     @foreach ($pictures as $picture)
+                          <div id="site-content-picture">
+                            <img src="/storage/people/pictures/{{$picture['filename']}}" width="500px"/>
+                          </div>
+                     @endforeach
+                  @endif
 
 
 

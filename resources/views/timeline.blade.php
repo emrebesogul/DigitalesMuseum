@@ -29,7 +29,7 @@
                       <div class="timelineEntry">
                         <a href="/person/{{$person['id']}}">
 
-                        <div class="timelinePicture" style="background-image: url(/storage/people/portraits/{{$person['portrait_filename']}})">
+                        <div class="timelinePicture" style="background-image: url(/storage/people/portraits/{{$person['portrait_filename']}})"></div>
 
                         <div class="timeline-entry-content">
                           <h2>{{$person['name']}}</h2>

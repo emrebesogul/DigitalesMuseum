@@ -90,7 +90,7 @@ class PeopleController extends Controller
                         'short_description' => $request->input('edit-form-data-short-description')
                     ]);
 
-                    $personName = DB::getPdo()->lastInsertId();
+                    $personID = DB::getPdo()->lastInsertId();
 
                     if($request->has('edit-form-data-profile-picture'))
                     {
@@ -103,7 +103,7 @@ class PeopleController extends Controller
                         $result = DB::update('UPDATE people
                             SET portrait_filename = :portrait_filename
                             WHERE id = :id ', [
-                                'id' => $personName,
+                                'id' => $personID,
                                 'portrait_filename' => $filename
                             ]);
                     }
@@ -117,7 +117,7 @@ class PeopleController extends Controller
                             {
                                 $result = DB::insert('INSERT INTO videos (person_id, url)
                                     VALUES (:person_id, :url)', [
-                                    'person_id' => $personName,
+                                    'person_id' => $personID,
                                     'url' => $entry['content']
                                 ]);  
                             }
@@ -126,7 +126,7 @@ class PeopleController extends Controller
                             {
                                 $result = DB::insert('INSERT INTO texts (person_id, content)
                                     VALUES (:person_id, :content)', [
-                                    'person_id' => $personName,
+                                    'person_id' => $personID,
                                     'content' => $entry['content']
                                 ]);  
                             }     
@@ -146,7 +146,7 @@ class PeopleController extends Controller
     
                             $result = DB::insert('INSERT INTO pictures (person_id, filename)
                                 VALUES (:person_id, :filename)', [
-                                'person_id' => $personName,
+                                'person_id' => $personID,
                                 'filename' => $filename
                             ]);
     
@@ -166,7 +166,7 @@ class PeopleController extends Controller
                         $result = DB::update('UPDATE people
                             SET poster_filename = :poster_filename
                             WHERE id = :id ', [
-                                'id' => $personName,
+                                'id' => $personID,
                                 'poster_filename' => $filename
                             ]);
                     }
@@ -224,7 +224,18 @@ class PeopleController extends Controller
                 WHERE id = :id',
                 ['id' => $id]);
 
-            return view('details.person',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'birthday' => $result[0]->birthday, 'location' => $result[0]->location, 'date_of_death' => $result[0]->date_of_death, 'short_description' => $result[0]->short_description, 'portrait_filename' => $result[0]->portrait_filename]);
+            $texts = DB::select('SELECT content
+                FROM texts
+                WHERE person_id = :person_id',
+                ['person_id' => $id]);
+
+            $pictures = DB::select('SELECT filename
+                FROM pictures
+                WHERE person_id = :person_id',
+                ['person_id' => $id]);
+            
+
+            return view('details.person',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'birthday' => $result[0]->birthday, 'location' => $result[0]->location, 'date_of_death' => $result[0]->date_of_death, 'short_description' => $result[0]->short_description, 'portrait_filename' => $result[0]->portrait_filename, 'poster_filename' => $result[0]->poster_filename, 'texts' => json_decode(json_encode($texts),true), 'pictures' => json_decode(json_encode($pictures),true)]);
 
         } else
         {

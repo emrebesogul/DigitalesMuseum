@@ -362,9 +362,31 @@ class PeopleController extends Controller
                 WHERE id = :id',
                 ['id' => $id]);
 
+
+            
+
             if(isset($result[0]))
             {
-                return view('admin.personEdit', ['id' => $result[0]->id, 'name' => $result[0]->name, 'birthday' => $result[0]->birthday, 'location' => $result[0]->location, 'date_of_death' => $result[0]->date_of_death, 'short_description' => $result[0]->short_description, 'portrait_filename' => $result[0]->portrait_filename]);
+
+            $texts = DB::select('SELECT content
+                FROM texts
+                WHERE person_id = :person_id',
+                ['person_id' => $id]);
+
+            $pictures = DB::select('SELECT filename
+                FROM pictures
+                WHERE person_id = :person_id',
+                ['person_id' => $id]);
+
+
+            $videos = DB::select('SELECT url
+                FROM videos
+                WHERE person_id = :id', [
+                'id' => $id
+                ]);
+            
+            return view('admin.personEdit',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'birthday' => $result[0]->birthday, 'location' => $result[0]->location, 'date_of_death' => $result[0]->date_of_death, 'short_description' => $result[0]->short_description, 'videos' => json_decode(json_encode($videos),true), 'portrait_filename' => $result[0]->portrait_filename, 'poster_filename' => $result[0]->poster_filename, 'texts' => json_decode(json_encode($texts),true), 'pictures' => json_decode(json_encode($pictures),true)]);
+                
             } else
             {
                 return view('action', [

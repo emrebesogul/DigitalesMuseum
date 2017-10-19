@@ -76,7 +76,7 @@ function addPictureBox(){
 
   file.setAttribute("type", "file");
   file.setAttribute("accept", "image/*");
-  file.name = "edit-form-data["+i+"][content]";
+  file.name = "edit-form-pictures[]";
   file.id = "form-picture-data";
 
   numbers.setAttribute("type", "number");

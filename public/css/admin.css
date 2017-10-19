@@ -15,7 +15,7 @@ nav {
     height: 55px;
     align-items: baseline;
     min-width: 900px;
-
+    z-index: 9000;
 }
 
 nav #logo {

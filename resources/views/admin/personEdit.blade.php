@@ -64,7 +64,7 @@
                   <span id="label-new-epoch"> Bilder hinzufügen </span>
                   <div id="show-uploaded-pictures">
                     @foreach ($pictures as $picture)
-                    <div  style="width:300px; height: 150px; background-size:cover; background-image: url(/storage/people/pictures/{{$picture['filename']}})">
+                    <div id="uploaded-pics" style="background-size:cover; background-image: url(/storage/people/pictures/{{$picture['filename']}})">
                     </div>
                     @endforeach
 
@@ -89,7 +89,7 @@
 
                   <div id="form-video">
                     <span id="video-add"> Videos der Persönlichkeit hinzufügen </span>
-                    <span id="add-videobox" onclick="addVideoBox("");">Videoelement hinzufügen</span>
+                    <span id="add-videobox" onclick="addVideoBox('');">Videoelement hinzufügen</span>
                   </div>
 
                   <span id="label-new-epoch"> Poster hinzufügen </span>
@@ -100,7 +100,8 @@
                     <span> Poster der Persönlichkeit hinzufügen </span>
                       <!--<span id="add-posterbox" onclick="addPosterBox();"> Posterelement hinzufügen</span> -->
                       <input type="hidden" value="poster"  />
-                    <input type="file" name="form-poster-data" accept="*.pdf" />
+                    <input type="file" name="form-poster-data" accept=".pdf" />
+
                   </div>
 
                   <button id="submit-button" class="edit-form-data buttons" type="submit" text="Absenden">Änderungen speichern</button>

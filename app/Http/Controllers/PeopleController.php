@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use DB;
 
 class PeopleController extends Controller
@@ -189,6 +190,44 @@ class PeopleController extends Controller
     }
 
     /**
+     * Search for a person.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function search()
+    {
+        if(parent::userIsAuthenticated())
+        {
+            if(Input::has('q'))
+            {
+                $result = DB::select('SELECT id, name, birthday, location, date_of_death, short_description, portrait_filename
+                    FROM people
+                    WHERE name LIKE :name
+                    OR short_description LIKE :short_description
+                    OR location LIKE :location
+                    OR year(birthday) = :birthyear
+                    OR year(date_of_death) = :deathyear
+                    ORDER BY birthday ASC', [
+                        'name' => '%'.Input::get('q').'%',
+                        'short_description' => '%'.Input::get('q').'%',
+                        'birthyear' => Input::get('q'),
+                        'deathyear' => Input::get('q'),
+                        'location' => Input::get('q')
+                    ]);
+
+                return view('timeline',['people' => json_decode(json_encode($result),true)]);
+            } else
+            {
+                return redirect('/');
+            }
+        } else
+        {
+            return redirect('/login');
+        }
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -196,7 +235,7 @@ class PeopleController extends Controller
      */
     public function showFiltered($id)
     {
-        
+
         if(parent::userIsAuthenticated())
         {
 
@@ -204,13 +243,13 @@ class PeopleController extends Controller
                 FROM people
                 JOIN people_are_in_epochs ON people_are_in_epochs.person_id = people.id
                 WHERE people_are_in_epochs.epoch_id = 1
-                ORDER BY birthday ASC'); 
+                ORDER BY birthday ASC');
 
             return view('timeline',['people' => json_decode(json_encode($result),true)]);
         } else
         {
             return redirect('/login');
-        } 
+        }
     }
 
     /**

@@ -242,17 +242,21 @@ class PeopleController extends Controller
             ]);
 
             $youtubeVideos = array();
-
             foreach($videos as $video) {
                 parse_str(parse_url($video->url, PHP_URL_QUERY), $youtubeUrlParameters);
 
-                $youtubeEmbedCode = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'. $youtubeUrlParameters['v']. '"frameborder="0" allowfullscreen></iframe>';
+                if(isset($youtubeUrlParameters['v']))
+                {
+                    $youtubeEmbedCode = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'. $youtubeUrlParameters['v']. '"frameborder="0" allowfullscreen></iframe>';
 
-                array_push($youtubeVideos, [
-                    'url' => $video->url,
-                    'embedCode' => $youtubeEmbedCode
-                ]);
+                    array_push($youtubeVideos, [
+                        'url' => $video->url,
+                        'embedCode' => $youtubeEmbedCode
+                    ]);
+                }
+
             }
+
 
             return view('details.person',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'birthday' => $result[0]->birthday, 'location' => $result[0]->location, 'date_of_death' => $result[0]->date_of_death, 'short_description' => $result[0]->short_description, 'videos' => $youtubeVideos, 'portrait_filename' => $result[0]->portrait_filename, 'poster_filename' => $result[0]->poster_filename, 'texts' => json_decode(json_encode($texts),true), 'pictures' => json_decode(json_encode($pictures),true)]);
         } else

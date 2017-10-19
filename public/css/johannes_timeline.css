@@ -61,6 +61,7 @@ background-position: center;
 
 .timeline {
   margin: 0 auto;
+  margin-top: -16px;
 }
 
 .timeline ul li {
@@ -69,7 +70,7 @@ background-position: center;
   width: 1.7px;
   margin: 0 auto;
   padding-top: 30px;
-  background: rgb(150,150,150);
+  background: rgb(100,100,100);
 }
 
 .timeline ul li::after {
@@ -133,7 +134,8 @@ background-position: center;
 }
 
 .timeline ul li.in-view::after {
-  background: #c21616;
+  background: #e03939;
+  box-shadow: 0px 0px 5px 1px rgba(149, 57, 57, 0.55);
 }
 
 .timeline ul li .timelineEntry {

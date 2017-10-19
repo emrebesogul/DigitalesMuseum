@@ -16,7 +16,7 @@
         <div id="content">
           <div id="site-title">
             <a href="/admin/users"><button id="back-button" class="edit-form-data buttons"><span id="test" class="arrow_carrot-left_alt2"></span>Zurück</button></a>
-            
+
               <div id="site-title-wrapper">
                   <span id="site-title-label">Settings</span>
               </div>
@@ -43,7 +43,7 @@
             			<br/>
             			<input type="number" name="is_admin" min="0" max="1" value="{{$is_admin}}">
             			<br/>
-            			<button type="submit">Änderungen Bestätigen</button>
+            			<button type="submit">Änderungen speichern</button>
 
                         <a href="/admin/users">
                             <button type="button">

@@ -39,12 +39,12 @@
                       Name der Epoche: <input class="edit-form-textarea" type="text" name="edit-form-data-epoch-name" placeholder="Geben Sie den Namen der Epoche ein!" />
                     </p>
                     <p id="edit-form-data-life" class ="edit-form-data lifetime">
-                      <span id ="lifetime-label-birth">Start der Epoche:</span> <input type="text" name="edit-form-data-startdate" />
-                      <span id ="lifetime-label-death">Ende der Epoche:</span> <input type="text" name="edit-form-data-enddate" />
+                      <span id ="lifetime-label-birth">Start der Epoche:</span> <input type="text" placeholder="Jahr" class="epoch-time-text" name="edit-form-data-startdate" />
+                      <span id ="lifetime-label-death">Ende der Epoche:</span> <input type="text" placeholder="Jahr" class="epoch-time-text" name="edit-form-data-enddate" />
                     </p>
                   </div>
 
-                  <button id="submit-button" class="edit-form-data buttons" type="submit" text="Absenden">Absenden</button>
+                  <button id="submit-button" class="edit-form-data buttons" type="submit" text="Absenden">Änderungen speichern</button>
                 </form>
               </div>
             </div>

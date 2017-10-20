@@ -26,7 +26,7 @@ class PeopleController extends Controller
         } else
         {
             return view('action', [
-                'infoMessage' => 'No access.',
+                'infoMessage' => 'Kein Zugriff.',
                 'icon' => 'icon_error-circle_alt',
                 'buttonLink' => '/',
                 'buttonLabel' => 'Zurück'
@@ -51,7 +51,7 @@ class PeopleController extends Controller
         } else
         {
             return view('action', [
-                'infoMessage' => 'No access.',
+                'infoMessage' => 'Kein Zugriff.',
                 'icon' => 'icon_error-circle_alt',
                 'buttonLink' => '/',
                 'buttonLabel' => 'Zurück'
@@ -217,7 +217,7 @@ class PeopleController extends Controller
         } else
         {
             return view('action', [
-                'infoMessage' => 'No access.',
+                'infoMessage' => 'Kein Zugriff.',
                 'icon' => 'icon_error-circle_alt',
                 'buttonLink' => '/',
                 'buttonLabel' => 'Zurück'
@@ -439,7 +439,7 @@ class PeopleController extends Controller
         } else
         {
             return view('action', [
-                'infoMessage' => 'No access.',
+                'infoMessage' => 'Kein Zugriff.',
                 'icon' => 'icon_error-circle_alt',
                 'buttonLink' => '/',
                 'buttonLabel' => 'Zurück'
@@ -610,7 +610,7 @@ class PeopleController extends Controller
         } else
         {
             return view('action', [
-                'infoMessage' => 'No access.',
+                'infoMessage' => 'Kein Zugriff.',
                 'icon' => 'icon_error-circle_alt',
                 'buttonLink' => '/',
                 'buttonLabel' => 'Zurück'
@@ -655,7 +655,7 @@ class PeopleController extends Controller
         } else
         {
             return view('action', [
-                'infoMessage' => 'No access.',
+                'infoMessage' => 'Kein Zugriff.',
                 'icon' => 'icon_error-circle_alt',
                 'buttonLink' => '/',
                 'buttonLabel' => 'Zurück'

@@ -17,7 +17,7 @@
           <div id="site-title">
               <a href="/admin/people"><button id="back-button" class="edit-form-data buttons"><span id="test" class="arrow_carrot-left_alt2"></span>Zurück</button></a>
               <div id="site-title-wrapper">
-                  <span id="site-title-label">Settings</span>
+                  <span id="site-title-label">Admin</span>
               </div>
           </div>
             <div id="site-content">

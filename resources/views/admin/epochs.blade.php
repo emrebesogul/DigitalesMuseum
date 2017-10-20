@@ -17,7 +17,7 @@
 
             <div id="site-title">
                 <div id="site-title-wrapper">
-                    <span id="site-title-label">Settings</span>
+                    <span id="site-title-label">Admin</span>
                 </div>
             </div>
 

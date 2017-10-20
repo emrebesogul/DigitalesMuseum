@@ -23,15 +23,8 @@
 
             <div id="site-content">
 
-
-              <a href="/" id="navigator-timeline">
-                <div id="site-navigator-timeline">
-                  <h2>Zur Timeline</h2>
-                </div>
-              </a>
-
               @foreach ($epochs as $epoch)
-              <div id="test" style="background-image: url('/storage/epochs/pictures/{{ $epoch['cover_filename'] }}')">
+              <div id="test" style="background-size: cover; background-image: url('/storage/epochs/pictures/{{ $epoch['cover_filename'] }}')">
                 <a href="/epochs/{{$epoch['id']}}" id="navigator-epochs">
                   <div id="site-navigator-epochs">
                     <h2>{{$epoch['name']}}</h2>

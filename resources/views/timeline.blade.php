@@ -35,7 +35,11 @@
                         <div class="timelineEntry">
                           <a href="/person/{{$person['id']}}">
 
-                          <div class="timelinePicture" style="background-image: url(/storage/people/portraits/{{$person['portrait_filename']}})"></div>
+                              @if($person['portrait_filename'] == null)
+                                <div class="timelinePicture"><span class="icon_profile" style="font-size:100px; color: #333"/></div>
+                              @else
+                                <div class="timelinePicture" style="background-image: url(/storage/people/portraits/{{$person['portrait_filename']}})"></div>
+                              @endif
 
                           <div class="timeline-entry-content">
                             <h2>{{$person['name']}}</h2>

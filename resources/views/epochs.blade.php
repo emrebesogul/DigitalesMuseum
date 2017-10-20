@@ -22,29 +22,30 @@
             </div>
 
             <div id="site-content">
-
-
-              <a href="/" id="navigator-timeline">
-                <div id="site-navigator-timeline">
-                  <h2>Zur Timeline</h2>
-                </div>
-              </a>
-
               @foreach ($epochs as $epoch)
-              <div id="test" style="background-image: url('/storage/epochs/pictures/{{ $epoch['cover_filename'] }}')">
-                <a href="/epochs/{{$epoch['id']}}" id="navigator-epochs">
-                  <div id="site-navigator-epochs">
-                    <h2>{{$epoch['name']}}</h2>
-                    <h4>{{$epoch['period_begin']}} - {{$epoch['period_end']}}</h4>
-                  </div>
-                </a>
-              </div>
+                  @if( $epoch['cover_filename'] == null )
+                      <div id="test" style="background-image: url('/storage/epochs/pictures/default.jpg')">
+                        <a href="/epochs/{{$epoch['id']}}" id="navigator-epochs">
+                          <div id="site-navigator-epochs">
+                            <h2>{{$epoch['name']}}</h2>
+                            <h4>{{$epoch['period_begin']}} - {{$epoch['period_end']}}</h4>
+                          </div>
+                        </a>
+                      </div>
+                  @else
+                      <div id="test" style="background-image: url('/storage/epochs/pictures/{{ $epoch['cover_filename'] }}')">
+                        <a href="/epochs/{{$epoch['id']}}" id="navigator-epochs">
+                          <div id="site-navigator-epochs">
+                            <h2>{{$epoch['name']}}</h2>
+                            <h4>{{$epoch['period_begin']}} - {{$epoch['period_end']}}</h4>
+                          </div>
+                        </a>
+                      </div>
+                  @endif
               @endforeach
-
             </div>
 
         </div>
-
 
     </body>
 </html>

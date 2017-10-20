@@ -27,7 +27,13 @@
             <div id="site-fact">
               <div id="site-fact-wrapper">
                 <div id="site-fact-image">
-                  <img src="/storage/people/portraits/{{$portrait_filename}}" id="image-person">
+
+                 @if($portrait_filename == null)
+                    <span class="icon_profile" style="font-size:140px; color: #333"/>
+                 @else
+                    <img src="/storage/people/portraits/{{$portrait_filename}}" id="image-person">
+                 @endif
+
                 </div>
                 <div id="site-fact-text">
                   <span id="site-fact-label">Fakten</span>

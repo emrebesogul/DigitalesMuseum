@@ -45,19 +45,16 @@
                       <span id ="lifetime-label-birth">Geboren am:</span> <input type="date" name="edit-form-data-birthdate" />
                       <span id ="lifetime-label-death">Gestorben am:</span> <input type="date" name="edit-form-data-deathdate" />
                     </p>
-                    
+
                     <div id="epoch-select-form">
                       Die Person einer oder mehreren Epochen hinzufügen:
                       <br />
                       <select id="epoch-select" name="edit-form-epoch-select[]" multiple>
                         @foreach ($epochs as $epoch)
                         <option value="{{$epoch['id']}}"> {{$epoch['name']}} </option>
-
                         @endforeach
                         </option>
-
                       </select>
-
                     </div>
 
                     <p id="short-p" class="edit-form-data">

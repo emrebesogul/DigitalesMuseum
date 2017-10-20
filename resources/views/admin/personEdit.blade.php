@@ -51,6 +51,18 @@
                       <span id ="lifetime-label-birth">Geboren am:*</span> <input type="date" name="edit-form-data-birthdate" value={{ $birthday }} />
                       <span id ="lifetime-label-death">Gestorben am:</span> <input type="date" name="edit-form-data-deathdate" value={{ $date_of_death }} />
                     </p>
+
+                    <div id="epoch-select-form">
+                      Die Person einer oder mehreren Epochen hinzufügen:
+                      <br />
+                      <select id="epoch-select" name="edit-form-epoch-select[]" multiple>
+                        @foreach ($epochs as $epoch)
+                        <option value="{{$epoch['id']}}"> {{$epoch['name']}} </option>
+                        @endforeach
+                        </option>
+                      </select>
+                    </div>
+
                     <p id="short-p" class="edit-form-data">
                       <span id="short-description">Kurzbeschreibung:</span>
                       <textarea id="textarea-short" class="edit-form-textarea" name="edit-form-data-short-description" placeholder="Geben Sie hier die Kurzbeschreibung der Persönlichkeit ein!">{{ $short_description }}</textarea>
@@ -61,12 +73,7 @@
 
                   </div>
                   <div id="form-text">
-                    <p id="edit-form-data-text" class="edit-form-data">
-                      <input type="hidden" value="text" name="edit-form-data[0][type]" />
-                      Informationen: <textarea id="form-text-edit" class="edit-form-textarea" name="edit-form-data[0][content]" placeholder="Geben Sie hier Ihren Text ein!"></textarea>
-                      Index des Elements: <input id="form-data-index" name="edit-form-data[0][index]" class="edit-form-textarea" type="number" min="1" />
-                      <span id="add-textbox" onclick="addTextbox('');">Weiteres Textelement hinzufügen</span>
-                    </p>
+
                   </div>
                   <span id="label-new-epoch"> Bilder hinzufügen </span>
                   <div id="show-uploaded-pictures">
@@ -122,7 +129,7 @@
         <script>
 
           @foreach ($texts as $text)
-            addTextbox("{{$text['content']}}");
+            addTextbox("{{$text['content']}}", {{$text['text_index']}});
           @endforeach
 
           @foreach ($videos as $video)

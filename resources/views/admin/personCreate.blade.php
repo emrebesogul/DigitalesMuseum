@@ -30,7 +30,7 @@
 
                     <div class="form-profile-picture">
                       <span id="profile-picture">Wählen Sie das Porträt der Person:</span>
-
+                      <br />
                       <input id="form-profile-picture-data" class="form-profile-picture" type="file" name="edit-form-data-profile-picture" size="80px" accept="image/*" />
                     </div>
 
@@ -40,6 +40,7 @@
                     <p id="edit-form-data-location" class="edit-form-data">
                       Ort: <input class="edit-form-textarea" name="edit-form-data-location" type="text" placeholder="Geben Sie den Ort der Person ein!" />
                     </p>
+                    <br />
                     <p id="edit-form-data-life" class ="edit-form-data lifetime">
                       <span id ="lifetime-label-birth">Geboren am:</span> <input type="date" name="edit-form-data-birthdate" />
                       <span id ="lifetime-label-death">Gestorben am:</span> <input type="date" name="edit-form-data-deathdate" />

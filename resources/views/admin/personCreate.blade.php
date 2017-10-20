@@ -77,7 +77,7 @@
                   <span id="label-new-epoch"> Poster hinzufügen </span>
                   <div id="form-poster">
 
-                    <span> Poster der Persönlichkeit hinzufügen </span>
+                    <span id="poster-label"> Poster der Persönlichkeit hinzufügen </span>
                       <input type="hidden" value="poster"  />
                     <input type="file" name="form-poster-data" accept="*.pdf" />
                   </div>

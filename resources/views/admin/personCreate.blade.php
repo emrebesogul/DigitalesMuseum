@@ -47,7 +47,7 @@
                     </p>
 
                     <div id="epoch-select">
-                      <select name="edit-form-epoch-select" multiple>
+                      <select name="edit-form-epoch-select[]" multiple>
                         @foreach ($epochs as $epoch)
                         <option value="{{$epoch['id']}}"> {{$epoch['name']}} </option>
 

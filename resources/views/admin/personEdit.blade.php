@@ -48,7 +48,7 @@
                       Ort: <input class="edit-form-textarea" name="edit-form-data-location" type="text" placeholder="Geben Sie den Ort der Person ein!" value="{{ $location }}" />
                     </p>
                     <p id="edit-form-data-life" class ="edit-form-data lifetime">
-                      <span id ="lifetime-label-birth">Geboren am:*</span> <input type="date" name="edit-form-data-birthdate" value="{{ $birthday }} "/>
+                      <span id ="lifetime-label-birth">Geboren am:*</span> <input type="date" name="edit-form-data-birthdate" value="{{ $birthday }}"/>
                       <span id ="lifetime-label-death">Gestorben am:</span> <input type="date" name="edit-form-data-deathdate" value="{{ $date_of_death }}" />
                     </p>
 
@@ -73,6 +73,8 @@
 
                   </div>
                   <div id="form-text">
+
+                    <span id="add-textbox" onclick="addTextbox('');">Weiteres Textelement hinzufügen</span>
 
                   </div>
                   <span id="label-new-epoch"> Bilder hinzufügen </span>

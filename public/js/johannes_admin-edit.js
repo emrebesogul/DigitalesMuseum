@@ -132,3 +132,7 @@ function addVideoBox(content){
   i++;
 
 }
+
+function loadArray() {
+  
+}

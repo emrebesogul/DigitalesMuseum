@@ -173,6 +173,12 @@ nav #user-information #logout-icon .icon {
   background-color: rgb(235,235,235);
 }
 
+#poster-link {
+  text-decoration: none;
+  font-style: italic;
+    color: #de4646;
+}
+
 #add-textbox {
   margin-top: 15px;
   margin-bottom: 25px;

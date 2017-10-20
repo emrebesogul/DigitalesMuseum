@@ -94,7 +94,7 @@
 
                   <span id="label-new-epoch"> Poster hinzufügen </span>
                   Bisherige Poster der Person werden hier angezeigt:
-                  <a href="/storage/people/posters/{{$poster_filename}}">Zum Poster</a>
+                  <a id="poster-link" href="/storage/people/posters/{{$poster_filename}}">Zum Poster</a>
 
                   <div id="form-poster">
                     <span id="poster-label"> Poster der Persönlichkeit hinzufügen </span>

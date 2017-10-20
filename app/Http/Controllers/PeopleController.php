@@ -176,6 +176,18 @@ class PeopleController extends Controller
                             ]);
                     }
 
+                    if( $request->input('edit-form-epoch-select'))
+                    {
+                        foreach($request->input('edit-form-epoch-select') AS $epochId)
+                        {
+                            $result = DB::insert('INSERT INTO people_are_in_epochs (person_id, epoch_id)
+                                VALUES (:person_id, :epoch_id)', [
+                                'person_id' => $personID,
+                                'epoch_id' => $epochId
+                            ]);
+                        }
+                    }
+
 
                     return view('action', [
                         'infoMessage' => 'Person wurde erfolgreich angelegt.',
@@ -346,8 +358,10 @@ class PeopleController extends Controller
             $result = DB::select('SELECT people.id, name, birthday, location, date_of_death, short_description, portrait_filename
                 FROM people
                 JOIN people_are_in_epochs ON people_are_in_epochs.person_id = people.id
-                WHERE people_are_in_epochs.epoch_id = 1
-                ORDER BY birthday ASC');
+                WHERE people_are_in_epochs.epoch_id = :id
+                ORDER BY birthday ASC',[
+                    'id' => $id]
+                );
 
             return view('timeline',['people' => json_decode(json_encode($result),true)]);
         } else
@@ -513,7 +527,7 @@ class PeopleController extends Controller
 
                                 $result = DB::insert('INSERT INTO texts (person_id, content, text_index)
                                     VALUES (:person_id, :content, :text_index)', [
-                                    'person_id' => $personID,
+                                    'person_id' => $id,
                                     'content' => $entry['content'],
                                     'text_index' => $entry['index']
                                 ]);
@@ -563,6 +577,18 @@ class PeopleController extends Controller
                                 'id' => $id,
                                 'poster_filename' => $filename
                             ]);
+                    }
+
+                    if( $request->input('edit-form-epoch-select'))
+                    {
+                        foreach($request->input('edit-form-epoch-select') AS $epochId)
+                        {
+                            $result = DB::insert('INSERT INTO people_are_in_epochs (person_id, epoch_id)
+                                VALUES (:person_id, :epoch_id)', [
+                                'person_id' => $id,
+                                'epoch_id' => $epochId
+                            ]);
+                        }
                     }
 
                     return view('action', [

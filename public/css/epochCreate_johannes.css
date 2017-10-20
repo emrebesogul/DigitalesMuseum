@@ -182,7 +182,7 @@ nav #user-information #logout-icon .icon {
   margin-bottom: 9px;
   display: block;
   border: solid 1px black;
-  width: 40%;
+  width: 260px;
   line-height: 30px;
   border-radius: 3px;
   text-align: center;
@@ -192,7 +192,7 @@ nav #user-information #logout-icon .icon {
 #edit-form-wrapper {
     height: 60vh;
     margin-top: 35px;
-    width: 60vh;
+    width: 90%;
 }
 
 .buttons {

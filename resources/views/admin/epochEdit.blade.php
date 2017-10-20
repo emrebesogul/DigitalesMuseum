@@ -32,7 +32,13 @@
                   <div id="mandatory-field">
                     <div class="form-profile-picture">
                       <div id="cover-picture-preview">
-                          <img src="/storage/epochs/pictures/{{ $cover_filename }}" widht="180px" height="180px">
+
+                          @if($cover_filename == null)
+                            <img src="/storage/epochs/pictures/default.jpg" widht="180px" height="180px">
+                          @else
+                            <img src="/storage/epochs/pictures/{{ $cover_filename }}" widht="180px" height="180px">
+                          @endif
+
                       </div>
                       <span id="profile-picture">Der Epoche ein anderes Coverbild zuweisen:</span>
                       <label for="form-epoch-picture-data" id="label-custom-pic" onclick="buttonSubmitClicked(event);" class="custom-file-upload">
@@ -41,11 +47,11 @@
                       <input id="form-epoch-picture-data" class="form-profile-picture" type="file" name="edit-form-data-epoch-picture" size="80px" accept="image/*" />
                     </div>
                     <p id="edit-form-data-name" class="edit-form-data">
-                      Name der Epoche: <input class="edit-form-textarea" type="text" name="edit-form-data-epoch-name" placeholder="Geben Sie den Namen der Epoche ein!" value={{ $name }} />
+                      Name der Epoche: <input class="edit-form-textarea" type="text" name="edit-form-data-epoch-name" placeholder="Geben Sie den Namen der Epoche ein!" value="{{ $name }}" />
                     </p>
                     <p id="edit-form-data-life" class ="edit-form-data lifetime">
-                      <span id ="lifetime-label-birth">Start der Epoche:</span> <input type="text" placeholder="Jahr" class="epoch-time-text" name="edit-form-data-startdate" value={{ $period_begin }} />
-                      <span id ="lifetime-label-death">Ende der Epoche:</span> <input type="text" placeholder="Jahr" class="epoch-time-text" name="edit-form-data-enddate" value={{ $period_end }} />
+                      <span id ="lifetime-label-birth">Start der Epoche:</span> <input type="text" placeholder="Jahr" class="epoch-time-text" name="edit-form-data-startdate" value="{{ $period_begin }}" />
+                      <span id ="lifetime-label-death">Ende der Epoche:</span> <input type="text" placeholder="Jahr" class="epoch-time-text" name="edit-form-data-enddate" value="{{ $period_end }}" />
                     </p>
                   </div>
 

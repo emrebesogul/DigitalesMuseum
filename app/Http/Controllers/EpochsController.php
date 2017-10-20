@@ -97,7 +97,7 @@ class EpochsController extends Controller
 
         if(parent::userIsAuthenticated() && parent::userIsAdmin())
         {
-            if ($request->filled(['edit-form-data-epoch-name', 'edit-form-data-startdate', 'edit-form-data-enddate']))
+            if ($request->filled(['edit-form-data-epoch-name', 'edit-form-data-startdate']))
             {
     
                 $result = DB::select('SELECT COUNT(id) AS epoch_count
@@ -241,7 +241,7 @@ class EpochsController extends Controller
 
         if(parent::userIsAuthenticated() && parent::userIsAdmin())
         {
-            if ($request->filled(['edit-form-data-epoch-name', 'edit-form-data-startdate', 'edit-form-data-enddate']))
+            if ($request->filled(['edit-form-data-epoch-name', 'edit-form-data-startdate']))
             {
                 $result = DB::update('UPDATE epochs
                     SET name = :name,

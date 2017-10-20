@@ -51,7 +51,6 @@
                         @foreach ($epochs as $epoch)
                         <option value="{{$epoch['id']}}"> {{$epoch['name']}} </option>
 
-
                         @endforeach
                         </option>
 

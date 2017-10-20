@@ -43,7 +43,10 @@ class PeopleController extends Controller
     {
         if(parent::userIsAuthenticated() && parent::userIsAdmin())
         {
-            return view('admin.personCreate');
+            $epochs = DB::select('SELECT id, name
+                FROM epochs');
+
+            return view('admin.personCreate', ['epochs' => json_decode(json_encode($epochs),true)]);
 
         } else
         {
@@ -67,15 +70,14 @@ class PeopleController extends Controller
 
         if(parent::userIsAuthenticated() && parent::userIsAdmin())
         {
-            if ($request->filled(['edit-form-data-name', 'edit-form-data-birthdate', 'edit-form-data-deathdate', 'edit-form-data']))
+            if ($request->filled(['edit-form-data-name', 'edit-form-data-birthdate', 'edit-form-data']))
             {
 
                 $result = DB::select('SELECT COUNT(id) AS person_count
                     FROM people
-                    WHERE name = :name AND birthday = :birthday AND date_of_death = :date_of_death', [
+                    WHERE name = :name AND birthday = :birthday', [
                         'name' => $request->input('edit-form-data-name'),
-                        'birthday' => $request->input('edit-form-data-birthdate'),
-                        'date_of_death' => $request->input('edit-form-data-deathdate')
+                        'birthday' => $request->input('edit-form-data-birthdate')
                         ]);
 
 
@@ -124,11 +126,14 @@ class PeopleController extends Controller
 
                             if($entry['type'] == 'text')
                             {
-                                $result = DB::insert('INSERT INTO texts (person_id, content)
-                                    VALUES (:person_id, :content)', [
+                                $result = DB::insert('INSERT INTO texts (person_id, content, text_index)
+                                    VALUES (:person_id, :content, :text_index)', [
                                     'person_id' => $personID,
-                                    'content' => $entry['content']
+                                    'content' => $entry['content'],
+                                    'text_index' => $entry['index']
                                 ]);
+                                
+
                             }
 
                          }
@@ -224,10 +229,12 @@ class PeopleController extends Controller
                 WHERE id = :id',
                 ['id' => $id]);
 
-            $texts = DB::select('SELECT content
+            $texts = DB::select('SELECT content, text_index
                 FROM texts
-                WHERE person_id = :person_id',
-                ['person_id' => $id]);
+                WHERE person_id = :person_id
+                ORDER BY text_index ASC',[
+                'person_id' => $id
+            ]);
 
             $pictures = DB::select('SELECT filename
                 FROM pictures
@@ -256,7 +263,6 @@ class PeopleController extends Controller
                 }
 
             }
-
 
             return view('details.person',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'birthday' => $result[0]->birthday, 'location' => $result[0]->location, 'date_of_death' => $result[0]->date_of_death, 'short_description' => $result[0]->short_description, 'videos' => $youtubeVideos, 'portrait_filename' => $result[0]->portrait_filename, 'poster_filename' => $result[0]->poster_filename, 'texts' => json_decode(json_encode($texts),true), 'pictures' => json_decode(json_encode($pictures),true)]);
         } else
@@ -369,10 +375,12 @@ class PeopleController extends Controller
             if(isset($result[0]))
             {
 
-            $texts = DB::select('SELECT content
+            $texts = DB::select('SELECT content, text_index
                 FROM texts
-                WHERE person_id = :person_id',
-                ['person_id' => $id]);
+                WHERE person_id = :person_id
+                ORDER BY text_index ASC',[
+                'person_id' => $id
+            ]);
 
             $pictures = DB::select('SELECT filename
                 FROM pictures
@@ -386,7 +394,23 @@ class PeopleController extends Controller
                 'id' => $id
                 ]);
 
-            return view('admin.personEdit',  ['id' => $result[0]->id, 'name' => $result[0]->name, 'birthday' => $result[0]->birthday, 'location' => $result[0]->location, 'date_of_death' => $result[0]->date_of_death, 'short_description' => $result[0]->short_description, 'videos' => json_decode(json_encode($videos),true), 'portrait_filename' => $result[0]->portrait_filename, 'poster_filename' => $result[0]->poster_filename, 'texts' => json_decode(json_encode($texts),true), 'pictures' => json_decode(json_encode($pictures),true)]);
+            $epochs = DB::select('SELECT id, name
+                FROM epochs');
+
+            return view('admin.personEdit',  [
+                'id' => $result[0]->id,
+                'name' => $result[0]->name,
+                'birthday' => $result[0]->birthday,
+                'location' => $result[0]->location,
+                'date_of_death' => $result[0]->date_of_death,
+                'short_description' => $result[0]->short_description,
+                'videos' => json_decode(json_encode($videos),true),
+                'portrait_filename' => $result[0]->portrait_filename,
+                'poster_filename' => $result[0]->poster_filename,
+                'texts' => json_decode(json_encode($texts),true),
+                'pictures' => json_decode(json_encode($pictures),true),
+                'epochs' => json_decode(json_encode($epochs),true)
+                ]);
 
             } else
             {
@@ -421,7 +445,7 @@ class PeopleController extends Controller
 
         if(parent::userIsAuthenticated() && parent::userIsAdmin())
         {
-            if ($request->filled(['edit-form-data-name', 'edit-form-data-birthdate', 'edit-form-data-deathdate', 'edit-form-data']))
+            if ($request->filled(['edit-form-data-name', 'edit-form-data-birthdate', 'edit-form-data']))
             {
 
 
@@ -487,11 +511,13 @@ class PeopleController extends Controller
                             if($entry['type'] == 'text')
                             {
 
-                                $result = DB::insert('INSERT INTO texts (person_id, content)
-                                    VALUES (:person_id, :content)', [
-                                    'person_id' => $id,
-                                    'content' => $entry['content']
+                                $result = DB::insert('INSERT INTO texts (person_id, content, text_index)
+                                    VALUES (:person_id, :content, :text_index)', [
+                                    'person_id' => $personID,
+                                    'content' => $entry['content'],
+                                    'text_index' => $entry['index']
                                 ]);
+                            
                             }
 
                          }

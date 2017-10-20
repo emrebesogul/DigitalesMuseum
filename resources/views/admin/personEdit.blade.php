@@ -27,9 +27,16 @@
                   {{ csrf_field() }}
                   <div id="mandatory-field">
                     <div class="form-profile-picture">
-                      <div id="profile-picture-preview">
-                        <img src="/storage/people/portraits/{{ $portrait_filename }}" widht="140px" height="140px">
-                      </div>
+                        @if($portrait_filename == null)
+                            <div id="profile-picture-preview" style="background-color: white; overflow: visible;">
+                                <span class="icon_profile" style="font-size:140px; color: #333"/>
+                            </div>
+                        @else
+                            <div id="profile-picture-preview">
+                                <img src="/storage/people/portraits/{{ $portrait_filename }}" widht="140px" height="140px">
+                            </div>
+                        @endif
+
                       <span id="profile-picture">Der Persönlichkeit ein anderes Portät zuweisen:</span>
 
                       <input id="form-profile-picture-data" class="form-profile-picture" type="file" name="edit-form-data-profile-picture" size="80px" accept="image/*" />
@@ -38,7 +45,7 @@
                       Name:* <input class="edit-form-textarea" name="edit-form-data-name" type="text" placeholder="Geben Sie den Namen der Person ein!" value={{ $name }} />
                     </p>
                     <p id="edit-form-data-location" class="edit-form-data">
-                      Ort: <input class="edit-form-textarea" name="edit-form-data-location" type="text" placeholder="Geben Sie den Ort der Person ein!" value={{ $location }} />
+                      Ort: <input class="edit-form-textarea" name="edit-form-data-location" type="text" placeholder="Geben Sie den Ort der Person ein!" value="{{ $location }}" />
                     </p>
                     <p id="edit-form-data-life" class ="edit-form-data lifetime">
                       <span id ="lifetime-label-birth">Geboren am:*</span> <input type="date" name="edit-form-data-birthdate" value={{ $birthday }} />

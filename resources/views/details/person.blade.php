@@ -15,7 +15,7 @@
 
         <div id="content">
             <div id="site-title">
-                <a href="/"><button id="back-button" class="edit-form-data buttons"><span id="test" class="arrow_carrot-left_alt2"></span>Zurück</button></a>
+                <a href="#" onclick="history.go(-1)"><button id="back-button" class="edit-form-data buttons"><span id="test" class="arrow_carrot-left_alt2"></span>Zurück</button></a>
 
                 <div id="site-title-wrapper">
                     <span id="site-title-label">Portrait</span>
@@ -38,21 +38,36 @@
                 <div id="site-fact-text">
                   <span id="site-fact-label">Fakten</span>
                   <br><br>
-                  <span id="site-fact-birth" class="site-facts"><i >Geboren:</i><br>{{ Carbon\Carbon::parse($birthday)->format('d.m.Y') }}</span>
-                  <br><br>
-                  @if($date_of_death == NULL)
+                  @if($birthday == null)
+                  @else
+                    <span id="site-fact-birth" class="site-facts"><i >Geboren:</i><br>{{ Carbon\Carbon::parse($birthday)->format('d.m.Y') }}</span>
+                    <br><br>
+                  @endif
 
+                  @if($date_of_death == NULL)
                   @else
                     <span id="site-fact-death" class="site-facts"><i>Gestorben:</i><br>{{ Carbon\Carbon::parse($date_of_death)->format('d.m.Y') }}</span>
                     <br><br>
                   @endif
 
-                  <span id="site-fact-details" class="site-facts"><i>Ort:</i><br>{{$location}}</span>
-                  <br /><br />
-                  <span id="site-fact-short-description" class="site-facts"><i>Kurzbeschreibung:</i> <br /> {{$short_description}}</span>
-                  <br><br>
-                  <span id="site-fact-download-link"><span class="icon_link_alt"> </span><a target="_blank" href="/storage/people/posters/{{$poster_filename}}" download>Download poster</a></span>
-                  <br><br>
+                  @if($location == null)
+                  @else
+                    <span id="site-fact-details" class="site-facts"><i>Ort:</i><br>{{$location}}</span>
+                    <br><br>
+                  @endif
+
+                  @if($short_description == null)
+                  @else
+                      <span id="site-fact-short-description" class="site-facts"><i>Kurzbeschreibung:</i> <br /> {{$short_description}}</span>
+                      <br><br>
+                  @endif
+
+                  @if($poster_filename == null)
+                  @else
+                      <span id="site-fact-download-link"><span class="icon_link_alt"> </span><a target="_blank" href="/storage/people/posters/{{$poster_filename}}" download>Download poster</a></span>
+                      <br><br>
+                  @endif
+
                 </div>
               </div>
 

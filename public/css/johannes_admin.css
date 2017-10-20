@@ -194,7 +194,7 @@ nav #user-information #logout-icon .icon {
 #edit-form-wrapper {
     height: 60vh;
     margin-top: 35px;
-    width: 50vh;
+    width: 60vh;
 }
 
 .buttons {
@@ -391,8 +391,14 @@ input[type="file"] {
 padding-bottom: 10px;
 }
 
+#poster-label {
+  margin-bottom: 10px;
+display: block;
+}
+
 #form-poster {
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #add-posterbox {

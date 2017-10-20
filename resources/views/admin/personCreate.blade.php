@@ -45,7 +45,7 @@
                       <span id ="lifetime-label-birth">Geboren am:</span> <input type="date" name="edit-form-data-birthdate" />
                       <span id ="lifetime-label-death">Gestorben am:</span> <input type="date" name="edit-form-data-deathdate" />
                     </p>
-
+                    
                     <div id="epoch-select-form">
                       Die Person einer oder mehreren Epochen hinzufügen:
                       <br />

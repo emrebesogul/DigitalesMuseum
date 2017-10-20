@@ -48,8 +48,13 @@
                             </span>
                             <br />
                             <span class="timeline-info-death">
-                            Gestorben am: {{ Carbon\Carbon::parse($person['date_of_death'])->format('d.m.Y') }}
-                              <br />
+                                @if($person['date_of_death'] == NULL)
+
+                                @else
+                                    Gestorben am: {{ Carbon\Carbon::parse($person['date_of_death'])->format('d.m.Y') }}
+                                    <br />
+                                @endif
+
                               <p>
                                 {{$person['short_description']}}
                               </p>

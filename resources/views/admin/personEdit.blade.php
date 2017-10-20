@@ -74,6 +74,8 @@
                   </div>
                   <div id="form-text">
 
+                    <span id="add-textbox" onclick="addTextbox('');">Weiteres Textelement hinzufügen</span>
+
                   </div>
                   <span id="label-new-epoch"> Bilder hinzufügen </span>
                   <div id="show-uploaded-pictures">

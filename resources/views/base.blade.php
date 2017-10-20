@@ -16,7 +16,7 @@
         <div id="content">
             <div id="site-title">
                 <div id="site-title-wrapper">
-                    <span id="site-title-label">People</span>
+                    <span id="site-title-label">Personen</span>
                 </div>
             </div>
             <div id="site-content">

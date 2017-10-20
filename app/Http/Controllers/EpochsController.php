@@ -25,7 +25,7 @@ class EpochsController extends Controller
         } else
         {
             return view('action', [
-                'infoMessage' => 'No access.',
+                'infoMessage' => 'Kein Zugriff.',
                 'icon' => 'icon_error-circle_alt',
                 'buttonLink' => '/',
                 'buttonLabel' => 'Zurück'
@@ -54,7 +54,7 @@ class EpochsController extends Controller
         } else
         {
             return view('action', [
-                'infoMessage' => 'No access.',
+                'infoMessage' => 'Kein Zugriff.',
                 'icon' => 'icon_error-circle_alt',
                 'buttonLink' => '/',
                 'buttonLabel' => 'Zurück'
@@ -77,7 +77,7 @@ class EpochsController extends Controller
         } else
         {
             return view('action', [
-                'infoMessage' => 'No access.',
+                'infoMessage' => 'Kein Zugriff.',
                 'icon' => 'icon_error-circle_alt',
                 'buttonLink' => '/',
                 'buttonLabel' => 'Zurück'
@@ -162,7 +162,7 @@ class EpochsController extends Controller
         } else
         {
             return view('action', [
-                'infoMessage' => 'No access.',
+                'infoMessage' => 'Kein Zugriff.',
                 'icon' => 'icon_error-circle_alt',
                 'buttonLink' => '/',
                 'buttonLabel' => 'Zurück'
@@ -191,7 +191,7 @@ class EpochsController extends Controller
         } else
         {
             return view('action', [
-                'infoMessage' => 'No access.',
+                'infoMessage' => 'Kein Zugriff.',
                 'icon' => 'icon_error-circle_alt',
                 'buttonLink' => '/',
                 'buttonLabel' => 'Zurück'
@@ -220,7 +220,7 @@ class EpochsController extends Controller
         } else
         {
             return view('action', [
-                'infoMessage' => 'No access.',
+                'infoMessage' => 'Kein Zugriff.',
                 'icon' => 'icon_error-circle_alt',
                 'buttonLink' => '/',
                 'buttonLabel' => 'Zurück'
@@ -290,7 +290,7 @@ class EpochsController extends Controller
         } else
         {
             return view('action', [
-                'infoMessage' => 'No access.',
+                'infoMessage' => 'Kein Zugriff.',
                 'icon' => 'icon_error-circle_alt',
                 'buttonLink' => '/',
                 'buttonLabel' => 'Zurück'
@@ -336,7 +336,7 @@ class EpochsController extends Controller
         } else
         {
             return view('action', [
-                'infoMessage' => 'No access.',
+                'infoMessage' => 'Kein Zugriff.',
                 'icon' => 'icon_error-circle_alt',
                 'buttonLink' => '/',
                 'buttonLabel' => 'Zurück'

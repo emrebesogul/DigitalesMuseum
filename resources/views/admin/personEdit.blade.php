@@ -100,10 +100,15 @@
                   </div>
 
                   <span id="label-new-epoch"> Poster hinzufügen </span>
+
+
+                  @if($poster_filename == null)
+                  @else
                   Bisherige Poster der Person werden hier angezeigt:
                   <br />
-
                   <a id="poster-link"  href="/storage/people/posters/{{$poster_filename}}"><span class="icon_documents"></span> Poster Download</a>
+                  @endif
+
 
                   <div id="form-poster">
                     <span id="poster-label"> Poster der Persönlichkeit hinzufügen </span>

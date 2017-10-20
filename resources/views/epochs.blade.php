@@ -22,8 +22,6 @@
             </div>
 
             <div id="site-content">
-
-
               @foreach ($epochs as $epoch)
               <div id="test" style="background-size: cover; background-image: url('/storage/epochs/pictures/{{ $epoch['cover_filename'] }}')">
                 <a href="/epochs/{{$epoch['id']}}" id="navigator-epochs">

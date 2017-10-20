@@ -42,14 +42,14 @@
                       <input id="form-profile-picture-data" class="form-profile-picture" type="file" name="edit-form-data-profile-picture" size="80px" accept="image/*" />
                     </div>
                     <p id="edit-form-data-name" class="edit-form-data">
-                      Name:* <input class="edit-form-textarea" name="edit-form-data-name" type="text" placeholder="Geben Sie den Namen der Person ein!" value={{ $name }} />
+                      Name:* <input class="edit-form-textarea" name="edit-form-data-name" type="text" placeholder="Geben Sie den Namen der Person ein!" value="{{ $name }}" />
                     </p>
                     <p id="edit-form-data-location" class="edit-form-data">
                       Ort: <input class="edit-form-textarea" name="edit-form-data-location" type="text" placeholder="Geben Sie den Ort der Person ein!" value="{{ $location }}" />
                     </p>
                     <p id="edit-form-data-life" class ="edit-form-data lifetime">
-                      <span id ="lifetime-label-birth">Geboren am:*</span> <input type="date" name="edit-form-data-birthdate" value={{ $birthday }} />
-                      <span id ="lifetime-label-death">Gestorben am:</span> <input type="date" name="edit-form-data-deathdate" value={{ $date_of_death }} />
+                      <span id ="lifetime-label-birth">Geboren am:*</span> <input type="date" name="edit-form-data-birthdate" value="{{ $birthday }} "/>
+                      <span id ="lifetime-label-death">Gestorben am:</span> <input type="date" name="edit-form-data-deathdate" value="{{ $date_of_death }}" />
                     </p>
 
                     <div id="epoch-select-form">
@@ -109,10 +109,15 @@
                   </div>
 
                   <span id="label-new-epoch"> Poster hinzufügen </span>
+
+
+                  @if($poster_filename == null)
+                  @else
                   Bisherige Poster der Person werden hier angezeigt:
                   <br />
-
                   <a id="poster-link"  href="/storage/people/posters/{{$poster_filename}}"><span class="icon_documents"></span> Poster Download</a>
+                  @endif
+
 
                   <div id="form-poster">
                     <span id="poster-label"> Poster der Persönlichkeit hinzufügen </span>

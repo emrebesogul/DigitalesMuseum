@@ -97,7 +97,7 @@
                   <a href="/storage/people/posters/{{$poster_filename}}">Zum Poster</a>
 
                   <div id="form-poster">
-                    <span> Poster der Persönlichkeit hinzufügen </span>
+                    <span id="poster-label"> Poster der Persönlichkeit hinzufügen </span>
                       <!--<span id="add-posterbox" onclick="addPosterBox();"> Posterelement hinzufügen</span> -->
                       <input type="hidden" value="poster"  />
                     <input type="file" name="form-poster-data" accept=".pdf" />

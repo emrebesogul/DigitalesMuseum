@@ -70,7 +70,7 @@ class PeopleController extends Controller
 
         if(parent::userIsAuthenticated() && parent::userIsAdmin())
         {
-            if ($request->filled(['edit-form-data-name', 'edit-form-data-birthdate', 'edit-form-data']))
+            if ($request->filled(['edit-form-data-name', 'edit-form-data-birthdate']))
             {
 
                 $result = DB::select('SELECT COUNT(id) AS person_count
@@ -459,7 +459,7 @@ class PeopleController extends Controller
 
         if(parent::userIsAuthenticated() && parent::userIsAdmin())
         {
-            if ($request->filled(['edit-form-data-name', 'edit-form-data-birthdate', 'edit-form-data']))
+            if ($request->filled(['edit-form-data-name', 'edit-form-data-birthdate']))
             {
 
 

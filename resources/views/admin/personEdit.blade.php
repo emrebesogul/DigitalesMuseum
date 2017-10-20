@@ -27,9 +27,16 @@
                   {{ csrf_field() }}
                   <div id="mandatory-field">
                     <div class="form-profile-picture">
-                      <div id="profile-picture-preview">
-                        <img src="/storage/people/portraits/{{ $portrait_filename }}" widht="140px" height="140px">
-                      </div>
+                        @if($portrait_filename == null)
+                            <div id="profile-picture-preview" style="background-color: white; overflow: visible;">
+                                <span class="icon_profile" style="font-size:140px; color: #333"/>
+                            </div>
+                        @else
+                            <div id="profile-picture-preview">
+                                <img src="/storage/people/portraits/{{ $portrait_filename }}" widht="140px" height="140px">
+                            </div>
+                        @endif
+
                       <span id="profile-picture">Der Persönlichkeit ein anderes Portät zuweisen:</span>
 
                       <input id="form-profile-picture-data" class="form-profile-picture" type="file" name="edit-form-data-profile-picture" size="80px" accept="image/*" />

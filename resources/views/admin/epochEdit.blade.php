@@ -32,7 +32,13 @@
                   <div id="mandatory-field">
                     <div class="form-profile-picture">
                       <div id="cover-picture-preview">
-                          <img src="/storage/epochs/pictures/{{ $cover_filename }}" widht="180px" height="180px">
+
+                          @if($cover_filename == null)
+                            <img src="/storage/epochs/pictures/default.jpg" widht="180px" height="180px">
+                          @else
+                            <img src="/storage/epochs/pictures/{{ $cover_filename }}" widht="180px" height="180px">
+                          @endif
+
                       </div>
                       <span id="profile-picture">Der Epoche ein anderes Coverbild zuweisen:</span>
                       <label for="form-epoch-picture-data" id="label-custom-pic" onclick="buttonSubmitClicked(event);" class="custom-file-upload">

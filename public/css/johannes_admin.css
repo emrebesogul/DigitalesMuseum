@@ -179,6 +179,32 @@ nav #user-information #logout-icon .icon {
   background-color: rgb(235,235,235);
 }
 
+#epoch-select {
+  margin-top: 10px;
+    width: 220px;
+    //overflow-y: auto;
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+
+option:hover {
+  background-color: rgb(230,230,230);
+  transition: all 0.2s;
+}
+
+option {
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition: all 0.2s;
+}
+
+#epoch-select-form {
+  margin-top: 20px;
+  display: block;
+}
+
 #add-textbox {
   margin-top: 15px;
   margin-bottom: 20px;

@@ -30,7 +30,7 @@
 
                     <div class="form-profile-picture">
                       <span id="profile-picture">Wählen Sie das Porträt der Person:</span>
-
+                      <br />
                       <input id="form-profile-picture-data" class="form-profile-picture" type="file" name="edit-form-data-profile-picture" size="80px" accept="image/*" />
                     </div>
 
@@ -40,10 +40,24 @@
                     <p id="edit-form-data-location" class="edit-form-data">
                       Ort: <input class="edit-form-textarea" name="edit-form-data-location" type="text" placeholder="Geben Sie den Ort der Person ein!" />
                     </p>
+                    <br />
                     <p id="edit-form-data-life" class ="edit-form-data lifetime">
                       <span id ="lifetime-label-birth">Geboren am:</span> <input type="date" name="edit-form-data-birthdate" />
                       <span id ="lifetime-label-death">Gestorben am:</span> <input type="date" name="edit-form-data-deathdate" />
                     </p>
+
+                    <div id="epoch-select">
+                      <select name="edit-form-epoch-select" multiple>
+                        @foreach ($epochs as $epoch)
+                        <option value="{{$epoch['id']}}"> {{$epoch['name']}} </option>
+
+                        @endforeach
+                        </option>
+
+                      </select>
+
+                    </div>
+
                     <p id="short-p" class="edit-form-data">
                       <span id="short-description">Kurzbeschreibung:</span>
                       <textarea id="textarea-short" class="edit-form-textarea" name="edit-form-data-short-description" placeholder="Geben Sie hier die Kurzbeschreibung der Persönlichkeit ein!"></textarea>
@@ -87,6 +101,18 @@
               </div>
             </div>
         </div>
-          <script language="javascript" type="text/javascript" src="/js/johannes_admin-edit.js"></script>
+        <script language="javascript" type="text/javascript" src="/js/johannes_admin-edit.js"></script>
+
+        <script>
+        /*
+        var string = '[{"id":1,"name":"Test"},{"id":2,"name":"Test2"}]';
+        var epochs = JSON.parse(string);
+
+
+        var eId = epochs[0]['name'];
+
+        //alert(eId);
+        */
+        </script>
     </body>
 </html>

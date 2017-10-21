@@ -176,15 +176,19 @@ class PeopleController extends Controller
                             ]);
                     }
 
+                    
+
                     if( $request->input('edit-form-epoch-select'))
                     {
                         foreach($request->input('edit-form-epoch-select') AS $epochId)
                         {
+
                             $result = DB::insert('INSERT INTO people_are_in_epochs (person_id, epoch_id)
                                 VALUES (:person_id, :epoch_id)', [
                                 'person_id' => $personID,
                                 'epoch_id' => $epochId
                             ]);
+                            
                         }
                     }
 
@@ -583,11 +587,23 @@ class PeopleController extends Controller
                     {
                         foreach($request->input('edit-form-epoch-select') AS $epochId)
                         {
-                            $result = DB::insert('INSERT INTO people_are_in_epochs (person_id, epoch_id)
-                                VALUES (:person_id, :epoch_id)', [
+                            // Hier checken ob Person schon in der Epoche ist
+                            $result = DB::select('SELECT COUNT(id) AS epoch_count
+                            FROM people_are_in_epochs
+                            WHERE person_id = :person_id AND epoch_id = :epoch_id', [
                                 'person_id' => $id,
                                 'epoch_id' => $epochId
-                            ]);
+                                ]);
+        
+        
+                            if($result[0]->epoch_count == 0)
+                            {
+                                $result = DB::insert('INSERT INTO people_are_in_epochs (person_id, epoch_id)
+                                    VALUES (:person_id, :epoch_id)', [
+                                    'person_id' => $id,
+                                    'epoch_id' => $epochId
+                                ]);
+                            }
                         }
                     }
 

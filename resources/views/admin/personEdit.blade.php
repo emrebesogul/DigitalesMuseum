@@ -136,7 +136,7 @@
         <script>
 
           @foreach ($texts as $text)
-            addTextbox("{{$text['content']}}", {{$text['text_index']}});
+            addTextbox(`{{$text['content']}}`, {{$text['text_index']}});
           @endforeach
 
           @foreach ($videos as $video)
